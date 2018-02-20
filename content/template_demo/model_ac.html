@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>	
+	<script>write_head();include_threejs();</script>
+	<script type="text/javascript" src="model_ac.js"></script>
+	<link href="model_ac.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded();" class="noselect">
+
+	<script>write_header();write_nav();</script>
+		
+	<div id="content">
+		
+		<div id="my_container">
+		
+			<div id="my_controls">
+			
+				<!-- control pad -->
+				<div id="control_pad">
+					<div id="joystick"></div>
+				</div>
+			
+				<!-- sliders -->
+				<div id="sliders">				
+					<table style="width:100%;">
+					
+						<tr><td class="control_label">Rudder</td><td>						
+							<input id="rudder" type="range" min="-30" max="30" step="0.01" value="0" list="yaw_scale" />
+							<datalist id="yaw_scale">
+								<option>-30</option>
+								<option>0</option>
+								<option>30</option>
+							</datalist>	
+						</td></tr>
+						
+						<tr><td class="control_label">Flap</td><td>
+							<input id="flap" type="range" min="0" max="30" step="0.01" value="0" list="flap_scale" />
+							<datalist id="flap_scale">
+								<option>0</option>
+								<option>10</option>
+								<option>20</option>
+								<option>30</option>
+							</datalist>	
+						</td></tr>
+						
+					</table>					
+				</div>
+			
+				<!-- toggles -->
+				<div id="toggles">
+					<div id="animate_aircraft" class="toggle_button toggle_off" onclick="toggle_animate_aircraft()">Animate OFF</div>
+					<div id="return_to_center" class="toggle_button toggle_on" onclick="toggle_return_to_center()">Centre ON</div>
+					<div id="ailerons_hilight" class="toggle_button toggle_off" onclick="toggle_hilight(this, [aileron_left, aileron_right])">HL Ailerons</div>
+					<div id="rudder_hilight" class="toggle_button toggle_off" onclick="toggle_hilight(this, [rudder])">HL Rudder</div>
+					<div id="elevator_hilight" class="toggle_button toggle_off" onclick="toggle_hilight(this, [elevator])">HL Elevator</div>
+					<div id="flaps_hilight" class="toggle_button toggle_off" onclick="toggle_hilight(this, [flap_left, flap_right])">HL Flaps</div>
+				</div>
+				
+			</div> <!-- #my_controls -->		
+		
+			<div id="render_container"></div>		
+
+		</div> <!-- my_container -->
+		
+	</div> <!-- #content -->
+	
+	<script> init(); </script>
+	
+</body>
+
+</html>

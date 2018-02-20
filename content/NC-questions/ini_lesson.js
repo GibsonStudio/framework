@@ -1,0 +1,24 @@
+var lesson_title = 'Virtual Computer / Questions'
+var my_scenes;
+my_scenes = [];
+my_scenes.push(['index.html', 'Virtual Computer: Front.']);
+my_scenes.push(['NC-back.html', 'Virtual Computer: Back.']);
+my_scenes.push(['NC-mad.html', 'Multiplication and Division.']);
+my_scenes.push(['NC-tsd.html', 'Time, Speed and Distance.']);
+my_scenes.push(['NC-fuel.html', 'Fuel Calculations']);
+my_scenes.push(['NC-distance.html', 'Distance Conversions']);
+my_scenes.push(['NC-volume.html', 'Volume Conversions']);
+my_scenes.push(['NC-mass.html', 'Weight Conversions']);
+my_scenes.push(['NC-temp.html', 'Temperature Conversions']);
+my_scenes.push(['NC-den-alt.html', 'Density Altitude']);
+my_scenes.push(['NC-airspeed.html', 'Airspeed Calculations']);
+my_scenes.push(['NC-alt-calc.html', 'Altitude Calculations']);
+my_scenes.push(['NC-tas.html', 'TAS from Mach Number']);
+my_scenes.push(['NC-ram.html', 'Ram Rise']);
+my_scenes.push(['NC-comp.html', 'Compressibility']);
+my_scenes.push(['NC-irr.html', 'Iterative Ram Rise']);
+my_scenes.push(['NC-hag.html', 'Heading and Groundspeed']);
+my_scenes.push(['NC-tag.html', 'Track and Groundspeed']);
+my_scenes.push(['NC-hac.html', 'Heading and Crosswind']);
+my_scenes.push(['NC-vel.html', 'Wind Velocity']);
+my_scenes.push(['NC-mdw.html', 'Multi-drift Winds']);

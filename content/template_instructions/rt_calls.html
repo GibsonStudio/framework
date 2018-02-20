@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('rt_calls.css');include_javascript('rt_calls.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">RT Calls</div>
+
+		<div class="heading">RT Calls Empty HTML</div>
+
+		<p></p>
+
+		<textarea class="code" rows="2"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('rt_calls.css');include_javascript('rt_calls.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<!-- ini rt calls array -->
+	<script> var rt_calls = new Array(); </script>
+
+	<div id="content">
+
+		<div class="page-title"></div>
+
+		<p></p>
+
+		<div id="rt_calls">
+
+			<!-- add rt calls -->
+			<script type="text/javascript">
+
+			//call
+			var rt = {};
+			rt.id = 'rt_p1';
+			rt.text = '';
+			add_rt_call(rt);
+
+			//call
+			var rt = {};
+			rt.type = 'tower';
+			rt.id = 'rt_t1';
+			rt.text = '';
+			rt.position = 'right';
+			add_rt_call(rt);
+
+			</script>
+
+		</div> <!-- #rt_calls -->
+
+	</div> <!-- #content -->
+
+</body>
+
+</html></textarea>
+
+		<div class="heading">Instructions</div>
+
+		<p>To add a series of RT calls you need to include <b>rt_calls.css</b> and <b>rt_calls.js</b>:</p>
+
+		<textarea class="code" rows="4"><head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('rt_calls.css');include_javascript('rt_calls.js');</script>
+</head></textarea>
+
+		<p>RT Calls are stored in an array; this needs to be initialized:</p>
+
+		<textarea class="code" rows="2"><!-- ini rt calls array -->
+<script> var rt_calls = new Array(); </script></textarea>
+
+		<p>RT Calls are created as javascript objects and then added to the sequence with the function <b>add_rt_call(object);</b>. Here is a quick
+		refence list of rt call object properties - (type) [default value]</p>
+
+		<ul>
+		<li><b>type</b> (string) ['plane'] - optional</li>
+		<li><b>id</b> (string) [''] - required</li>
+		<li><b>audio</b> (string) [<i>(rt.id)</i>.mp3] - optional</li>
+		<li><b>text</b> (string) [''] - required</li>
+		<li><b>position</b> (string) ['left'] - optional</li>
+		<li><b>image</b> (string) [rt_<i>(rt.type)</i>_icon.png] - optional</li>
+		<li><b>onstart</b> (string) - optional</li>
+		<li><b>onended</b> (string) - optional</li>
+		</ul>
+
+		<p>Now to explain these in more detail:</p>
+
+		<div class="heading">type (string)</div>
+
+		<p><b>values:</b> <i>plane, tower, ground</i></p>
+
+		<p>Sets the type of unit making the call. Also defines the colour of the RT text and the image to use. If rt.image is not set, the image
+		rt_<i>type</i>_icon.png will be used. e.g. If rt.type = 'tower', the image rt_tower_icon.png will be used.</p>
+
+		<textarea class="code" rows="1">rt.type = 'tower';</textarea>
+
+		<div class="heading">id (string)</div>
+
+		<p>Sets the id of the RT Call. This is primarily used to identify the text box for the rt text to appear in, but if rt.audio is NOT set, rt.id
+		also defines the audio file for the rt call:</p>
+
+		<textarea class="code" rows="1">rt.id = 'rt_p1';</textarea>
+
+		<div class="heading">audio (string)</div>
+
+		<p>Sets the audio file for the RT Call. <i><b>Note:</b> Do not include the file extension.</i></p>
+
+		<textarea class="code" rows="1">rt.audio = 'rt_p1';</textarea>
+
+		<p>Audio files must be <b>.mp3</b> and be in the same location as the HTML file.</p>
+
+		<div class="heading">text (string)</div>
+
+		<p>This is the text to display when the RT cll is played:</p>
+
+		<textarea class="code" rows="1">rt.text = '';</textarea>
+
+		<p>The text will be automatically coloured depending on the value oy rt.type:</p>
+
+		<ul>
+		<li><b>plane</b>: <span style="color: #3e4899;">blue (#3e4899)</span></li>
+		<li><b>tower</b>: <span style="color: #3fa535;">green (#3fa535)</span></li>
+		</ul>
+
+		<div class="heading">position (string)</div>
+
+		<p><b>values:</b> <i>left, right</i></p>
+
+		<p>Whether the RT call is positioned to the left or the right of the RT calls container.</p>
+
+		<textarea class="code" rows="1">rt.position = 'left';</textarea>
+
+
+
+		<div class="heading">image (string)</div>
+
+		<p>The image to use for the RT call icon:</p>
+
+		<textarea class="code" rows="1">rt.image = 'rt_my_icon.png';</textarea>
+
+		<p>Images should be in <b>root/images/rt/</b> (so they can be used by multiple lessons) and should have a height of <b>80px</b>.</p>
+
+		<p>Available Images:</p>
+
+		<style>
+		.rt_image_filename {
+			font-weight: bold;
+			padding: 20px;
+		}
+		.rt_image_image img {
+			border: 1px solid #e2e2e2;
+		}
+		</style>
+
+		<table>
+
+			<tr><td class="rt_image_filename">rt_a320_ground.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_a320_ground.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_a320_in_flight.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_a320_in_flight.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_a320_take_off.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_a320_take_off.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_cessna_on_ground.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_cessna_on_ground.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_cessna_in_flight.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_cessna_in_flight.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_ground_icon.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_ground_icon.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_pa28_in_flight.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_pa28_in_flight.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_pa28_on_ground.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_pa28_on_ground.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_pa34_in_flight.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_pa34_in_flight.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_plane_icon.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_plane_icon.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_tower_icon.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_tower_icon.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_van.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_van.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_fire_truck.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_fire_truck.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_tanker.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_tanker.png" alt="icon" /></td></tr>
+
+			<tr><td class="rt_image_filename">rt_tug.png</td>
+			<td class="rt_image_image"><img src="../../images/rt/rt_tug.png" alt="icon" /></td></tr>
+
+		</table>
+
+
+
+
+
+		<div class="heading">onstart (string)</div>
+
+		<p>Javascript to execute when audio playback starts:</p>
+
+		<textarea class="code" rows="1">rt.onstart = 'debug("Audio playback has started")';</textarea>
+
+		<div class="heading">onended (string)</div>
+
+		<p>Javascript to execute when audio playback finishes:</p>
+
+		<textarea class="code" rows="1">rt.onended = 'my_function()';</textarea>
+
+
+
+
+
+		<div class="heading">Initializing a New RT Call Object</div>
+
+		<p>Before you can define any properties, you need to initialize an RT call object:</p>
+
+		<textarea class="code" rows="1">var rt = {};</textarea>
+
+		<div class="heading">Adding an RT Call to the rt_calls Array</div>
+
+		<p>When you have initialized your RT call object and defined its properties, it is added to the rt_calls array with the function:</p>
+
+		<textarea class="code" rows="1">add_rt_call(object);</textarea>
+
+		<p>This function also assignes default values to any unassigned properties.</p>
+
+		<div class="heading">RT Calls Container</div>
+
+		<p>RT Calls should be put into a container with <b>id="rt_calls"</b>:</p>
+
+		<textarea class="code" rows="2"><div id="rt_calls">
+</div></textarea>
+
+		<div class="heading">Example Questions</div>
+
+		<p><b>Example 1:</b> The bare minimum required to create an RT call:</p>
+
+		<textarea class="code" rows="4">var rt = {};
+rt.id = 'rt_p1';
+rt.text = 'Walden Tower, G-ABCD';
+add_rt_call(rt);</textarea>
+
+		<p>This will create a left positioned plane call and play the audio 'rt_p1.mp3'.</p>
+
+		<p><b>Example 2:</b> A call with all properties defined:</p>
+
+		<textarea class="code" rows="9">var rt = {};
+rt.type = 'tower';
+rt.id = 'rt_t1';
+rt.text = 'G-ABCD, Walden Tower';
+rt.position = 'right';
+rt.image = 'rt_tower_icon.png';
+rt.onstart = 'show_images(1)';
+rt.onended = 'alert("Finished!")';
+add_rt_call(rt);</textarea>
+
+		<div class="heading">Sample RT Calls</div>
+
+		<p>Here is a demo sequence with the 2 RT Calls above:</p>
+
+		<div id="rt_calls">
+
+		<script>
+		var rt_calls = new Array();
+
+		var rt = {};
+		rt.id = 'rt_p1';
+		rt.text = 'Walden Tower, G-ABCD';
+		add_rt_call(rt);
+
+		var rt = {};
+		rt.type = 'tower';
+		rt.id = 'rt_t1';
+		rt.text = 'G-ABCD, Walden Tower';
+		rt.position = 'right';
+		rt.image = 'rt_tower_icon.png';
+		add_rt_call(rt);
+		</script>
+
+		</div>
+
+		<p>Here is the complete code for this demo sequence:</p>
+
+		<textarea class="code" rows="20"><div id="rt_calls">
+
+<script>
+var rt_calls = new Array();
+
+var rt = {};
+rt.id = 'rt_p1';
+rt.text = 'Walden Tower, G-ABCD';
+add_rt_call(rt);
+
+var rt = {};
+rt.type = 'tower';
+rt.id = 'rt_t1';
+rt.text = 'G-ABCD, Walden Tower';
+rt.position = 'right';
+rt.image = 'rt_tower_icon.png';
+add_rt_call(rt);
+</script>
+
+</div></textarea>
+
+
+
+
+
+
+
+
+
+	</div>
+
+</body>
+
+</html>

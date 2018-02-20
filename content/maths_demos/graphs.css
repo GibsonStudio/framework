@@ -1,0 +1,37 @@
+
+#my_container {
+	width: 800px;
+	height: 600px;
+	margin: auto;
+	border: 1px solid #333333;
+	background: url(graph_axis.png);
+	position: relative;
+}
+
+#my_canvas {
+	width: 800px;
+	height: 600px;
+	position: absolute;
+}
+
+
+#buttons {
+	text-align: center;
+	margin: 20px;
+}
+
+#my_formula {
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+	margin: 40px;
+}
+
+
+#my_formula input {
+	font-size: 30px;
+}
+
+
+
+

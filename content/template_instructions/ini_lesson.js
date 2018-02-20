@@ -1,0 +1,34 @@
+var lesson_title = 'Template Instructions';
+
+var my_scenes;
+
+my_scenes = [];
+my_scenes.push(['index.html', 'Basic HTML File']);
+my_scenes.push(['styles.html', 'Styles']);
+my_scenes.push(['symbols.html', 'Symbol Codes']);
+my_scenes.push(['maths.html', 'Equations / Maths CSS']);
+my_scenes.push(['debugger.html', 'Debugging']);
+my_scenes.push(['ini_lesson.html', 'ini_lesson.js']);
+my_scenes.push(['lesson_maker.html', 'Lesson maker']);
+my_scenes.push(['cai.html', 'Computer Aided Instruction (CAI)']);
+my_scenes.push(['keyboard_shortcuts.html', 'Keyboard Shortcuts']);
+my_scenes.push(['video.html', 'Video']);
+my_scenes.push(['video_template.html', 'Video Template']);
+my_scenes.push(['flash_to_video.html', 'Converting Flash to Video']);
+my_scenes.push(['media_encoder.html', 'Media Encoder Settings']);
+my_scenes.push(['lib_reference.html', 'lib.js Reference']);
+my_scenes.push(['interactive_reference.html', 'interactive.js Reference']);
+my_scenes.push(['sync_to_audio.html', 'Syncing HTML to Audio']);
+my_scenes.push(['bullets.html', 'Bullet Lists (Click to Reveal)']);
+my_scenes.push(['quizzes.html', 'Quizzes']);
+my_scenes.push(['rt_calls.html', 'RT Calls']);
+my_scenes.push(['drag_and_drop.html', 'Drag and Drop']);
+my_scenes.push(['drag_and_drop_touch.html', 'Drag and Drop - Pure JS, Works on Touch']);
+my_scenes.push(['choose_words.html', 'Choose the Correct Word']);
+my_scenes.push(['answer_boxes.html', 'Answer Boxes']);
+my_scenes.push(['simple_slider.html', 'Simple Slider']);
+my_scenes.push(['slider_frames.html', 'Slider Controlling an Animation']);
+my_scenes.push(['events.html', 'Mouse and Touch Events']);
+my_scenes.push(['threejs.html', '3D with Threejs and the ColladaLoader']);
+my_scenes.push(['graphs_canvas.html', 'Graphs - using HTML5 Canvas']);
+my_scenes.push(['canvas_class.html', 'canvas_class.js']);

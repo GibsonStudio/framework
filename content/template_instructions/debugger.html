@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();write_debug();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Debugging</div>
+		
+		<div class="keypoint right">debug(string);</div>
+		
+		<p>If you are building some interactivity, or writing any other javascript, you may find it useful to have an output for testing / debugging.
+		You can include a debug output by adding <b>write_debug();</b> to your HTML. This needs to go in the body (not the head):</p>
+		
+		<textarea class="code" rows="12"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();write_debug();</script></textarea>
+		
+	<p>Notice the debug output at the bottom left of the page.</p>
+	
+	<p>To write to the output div, use the code:</p>
+	
+	<textarea class="code" rows="1">debug(string);</textarea>
+		
+	<p><b>Example:</b> The button below outputs "Hello World" when you click it. The full code for this button is:</p>
+	
+	<textarea class="code" rows="1"><button class="button" onclick="debug('Hello World')">Click Me</button></textarea><br />
+	
+	<button class="button" onclick="debug('Hello World')">Click Me</button>
+		
+		
+	</div>
+	
+</body>
+
+</html>

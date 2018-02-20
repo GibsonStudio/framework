@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="squares_quiz.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_interactive();</script>	
+	<script src="squares_quiz.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Squares Quiz</div>
+
+		<p>Any custom intro text goes here....</p>
+		
+		<div id="quiz_container">
+			
+			<div id="my_column_left">
+
+				<div style="">
+					<button id="start_button" class="button" onclick="start_quiz()">Start</button>
+					<button id="stop_button" class="button button_faded" onclick="stop_quiz()">Stop</button>
+				</div>
+				
+				<div id="my_number" class="number_active">&nbsp;</div>
+				
+				<div id="my_output">Stopped....</div>
+				
+				<div id="my_buttons" class="button_faded">
+					<button class="button" onclick="submit_button(1)">Yes</button>
+					<button class="button" onclick="submit_button(0)">No</button>
+				</div>
+			
+			</div> <!-- #my_column_left -->
+			
+			<script>add_bar_graph( { width:'40px', height:'360px', top:'20px', right:'20px', include_value:true } );</script>
+			
+		</div>
+	
+	</div> <!-- #content -->
+	
+	
+	
+</body>
+
+</html>

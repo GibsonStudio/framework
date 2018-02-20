@@ -1,0 +1,26 @@
+#altimeter {
+	width: 500px;
+	height: 500px;
+	margin: auto;
+	margin-top: 10px;
+	position: relative;
+	overflow: hidden;
+}
+
+#sliders {
+	border: 1px solid #4863a0;
+	background: #f2f2f2;
+	padding: 2px;
+	width: 400px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+
+#sliders input {
+	width: 94%;
+}
+
+.param_value {
+	padding: 6px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_raphael();</script>
+	<script src="raphael_change_properties.js" type="text/javascript"></script>
+	
+	<style>
+	#scope {
+		width: 800px;
+		height: 400px;
+		border: 1px solid #00df00;
+		background: #121212;
+		margin-top: 20px;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="heading">Raphael: Change Properties</div><br />
+		
+		<button class="button" onclick="my_anim.start();">Start</button>
+		<button class="button" onclick="my_anim.pause();">Pause / Resume</button>
+		<button class="button" onclick="my_anim.reset();">Reset</button>
+		
+		<table class="data_table" style="margin-top: 20px;">
+		
+			<tr><td class="data_table_heading">anim.duration:</td>		<td><input id="anim_duration" type="text" value="2000"></input></td>
+			<td><button class="button_small" onclick="set_duration()">set</button></td></tr>
+			
+			<tr><td class="data_table_heading">anim.frame_rate:</td>	<td><input id="anim_frame_rate" type="text" value="60"></input></td>
+			<td><button class="button_small" onclick="set_frame_rate()">set</button></td></tr>
+			
+			<tr><td class="data_table_heading">anim.loops:</td>			<td><input id="anim_loops" type="text" value="0"></input></td>
+			<td><button class="button_small" onclick="set_loops()">set</button></td></tr>
+			
+			<tr><td class="data_table_heading">anim.offset_x:</td>		<td><input id="anim_offset_x" type="text" value="9"></input></td>
+			<td><button class="button_small" onclick="set_offset_x()">set</button></td></tr>
+			
+			<tr><td class="data_table_heading">anim.offset_y:</td>		<td><input id="anim_offset_y" type="text" value="9"></input></td>
+			<td><button class="button_small" onclick="set_offset_y()">set</button></td></tr>
+			
+		</table>
+
+		<div id="scope"></div>
+		
+	</div>
+	
+	<script> ini_animation(); </script>
+	
+</body>
+
+</html>

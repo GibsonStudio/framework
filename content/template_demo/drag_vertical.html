@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+		
+		<div class="page-title">Drag to Correct Order (Vertical)</div>	
+		
+		<p class="content_center" style="margin-bottom: 40px;">Drag these events into the correct order (earliest first):</p>
+		
+			<script>
+			
+				//source - items to drag
+				
+				var o = {};
+				o.text = 'Man on the Moon';
+				o.id = 'moon';
+				o.extra_class = 'vertical_object';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Big Bang';
+				o.id = 'bang';
+				o.extra_class = 'vertical_object';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Playstation Invented';
+				o.id = 'ps';
+				o.extra_class = 'vertical_object';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'World War II';
+				o.id = 'ww2';
+				o.extra_class = 'vertical_object';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'First World War';
+				o.id = 'ww1';
+				o.extra_class = 'vertical_object';
+				add_object(o);
+			
+			</script>			
+					
+		<script>		
+			//define correct locations
+			//the easiest way to compile this is to use the format correct.push([correct order, starting order])
+			correct.push(['bang', 'moon']);
+			correct.push(['ww1', 'bang']);
+			correct.push(['ww2', 'ps']);
+			correct.push(['moon', 'ww2']);
+			correct.push(['ps', 'ww1']);
+		</script>
+			
+		<script>add_drag_drop_ui();</script>	
+					
+	</div>	
+	
+</body>
+
+</html>

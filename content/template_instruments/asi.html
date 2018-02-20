@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('jQueryRotate.2.2.js');</script>
+	<script type="text/javascript" src="asi.js"></script>
+	<link href="asi.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Airspeed Indicator</div>
+
+		<div id="asi">
+			<div id="asi_needle"> </div>
+			<div class="surround"></div>
+		</div>
+
+
+		<div id="sliders">
+			<form name="sliders">
+				<div id="airspeed_value" class="param_value">Airspeed: </div>
+				<input type="range" name="airspeed" value="0" min="0" max="210" oninput="airspeed_slider(this.value);" onchange="airspeed_slider(this.value);" /><br/>
+			</form>
+		</div>
+
+		<p>The airspeed model is initialized by the variable:</p>
+
+		<div class="code">var asi = {};<br />asi.airspeed = <i>airspeed</i>;</div>
+
+		<p>The above code will initialize the altimeter model but it does not update the graphics on sceen. Graphics can be updated with the function:</p>
+
+		<div class="code">draw_asi();</div>
+
+		<p><b>Note:</b> The ASI scale is only linear between 40 kt and 160 kt.</p>
+
+	</div>
+
+</body>
+
+</html>

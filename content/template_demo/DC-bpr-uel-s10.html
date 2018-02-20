@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>	
+	
+	<style>
+	#circuit {
+		width: 348px;
+		height:274px;
+		margin: auto;
+	}
+	#buttons {
+		margin-top: 20px;
+	}
+	#buttons span {
+		font-size: 28px;
+		font-weight: bold;
+		padding-right: 20px;
+	}
+	#output {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.tick {
+		color: #3fa535;
+		font-size: 30px;
+	}
+	.cross {
+		color: #df0000;
+		font-size: 30px;
+	}
+	.info_box {
+		width: 200px;
+		padding: 10px;
+		border: 1px solid #999999;
+		background: #f2f2f2;
+		margin: auto;
+		margin-top: 20px;
+		text-align: left;
+	}
+	</style>
+	
+	<script type="text/javascript">
+	function right () {
+		var html = '<span class="tick">&#10004;</span> Well done, continue with the lesson.';
+		$('#output').html(html);
+	}
+	function wrong () {
+		var html = '<span class="cross">&#10008;</span> You got that wrong, here is the correct answer:';
+		html += '<div class="info_box">';
+		html += '<b>Ohm\'s Law</b><br /><br />';
+		html += 'V = I / R or<br />';
+		html += 'R = V / I<br />';
+		html += 'R = 24 / 6<br />';
+		html += '<b>R = <span style="color: #3fa535;">4</span> &#937;</b>';
+		html += '</div>';
+		$('#output').html(html);
+	}
+	</script>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">DC-bpr-uel-s10</div>		
+				
+		<div id="circuit"><img src="DC-bpr-uel-s10-circuit.png" alt="" /></div>
+		
+		<div id="buttons" class="content_center">
+			<span style="color: #df0000;">?</span><span>=</span>
+			<button onclick="wrong();" class="button">18 &#937;</button>
+			<button onclick="wrong();" class="button">144 &#937;</button>
+			<button onclick="right();" class="button">4 &#937;</button>
+		</div>
+		
+		<div id="output"></div>
+		
+	</div>
+	
+</body>
+
+</html>

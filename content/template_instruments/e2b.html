@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	<script type="text/javascript" src="e2b.js"></script>
+	<link href="e2b.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">E2B Compass</div>
+
+		<div id="e2b">
+			<div id="e2b_dial"></div>
+			<div id="e2b_face"></div>
+		</div>
+
+
+		<div id="sliders">
+			<form name="sliders">
+				<div id="direction_value" class="param_value">Direction: </div>
+				<input type="range" name="direction" value="0" min="-400" max="400" oninput="direction_slider(this.value);" onchange="direction_slider(this.value);" /><br/>
+			</form>
+		</div>
+
+		<p>The e2b model is initialized by the variable:</p>
+
+		<div class="code">var e2b = {};<br />e2b.direction = <i>direction</i>;<br />e2b.min = <i>32</i>;<br />e2b.max = <i>-625</i>;</div>
+
+		<ul>
+			<li><b>.direction:</b> (float); This is the direction (heading) to be displayed on the instrument.</li>
+			<li><b>.min:</b> (int); The left position (left: Xpx;) to align the 1st North on the dial with the index line.</li>
+			<li><b>.max:</b> (int); The left position (left: Xpx;) to align the 2nd North on the dial with the index line.</li>
+		</ul>
+
+		<p>The above code will initialize the E2B model but it does not update the graphics on sceen. Graphics can be updated with the function:</p>
+
+		<div class="code">draw_e2b();</div>
+
+	</div>
+
+</body>
+
+</html>

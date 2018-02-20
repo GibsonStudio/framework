@@ -1,0 +1,126 @@
+
+
+math {
+  display: table;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Times New Roman";
+  padding: 10px;
+  font-size: 28px;
+}
+
+
+math plain {
+  font-family: "Arial";
+}
+
+
+math mi {
+  font-style: italic;
+}
+
+
+math mo {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+math mfrac {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+math mn {
+  display: block;
+  border-bottom: 1px solid #000000;
+}
+
+
+math md {
+  display: block;
+}
+
+
+math bo {
+  width: 7px;
+  background-image:url(../images/bracket_open.svg);
+  display: table-cell;
+}
+
+
+math bc {
+  width: 7px;
+  background-image:url(../images/bracket_close.svg);
+  display: table-cell;
+}
+
+
+math pow {
+  font-size: 0.5em;
+  position: relative;
+  top: -1em;
+}
+
+
+math pow2 {
+  font-size: 0.5em;
+  position: relative;
+  top: -2.5em;
+}
+
+
+math fn {
+  font-size: 0.6em;
+  position: relative;
+  top: -0.6em;
+}
+
+
+math fd {
+  font-size: 0.6em;
+  position: relative;
+  bottom: -0.2em;
+  margin-right: 6px;
+}
+
+
+math sqrt {
+  border-top: 1px solid #000000;
+  margin-top: 4px;
+  display: inline-block;
+  margin-left: 0.3em;
+}
+
+
+math sqrt:before {
+  content: "\221A";
+  float: left;
+  margin-left: -0.5em;
+}
+
+
+
+
+
+math ss {
+  font-size: 0.5em;
+  position: relative;
+  bottom: -0.4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* **** **** */

@@ -1,0 +1,79 @@
+
+#my_container {
+	width: 500px;
+	height: 500px;
+	position: relative;
+	border: 1px solid #333333;
+	background: url(boyles_law/boyles_law_scene.png);
+	margin: auto;
+}
+
+
+
+#plunger {
+	width: 87px;
+	height: 216px;
+	position: absolute;
+	background: url(boyles_law/boyles_law_plunger.png);
+	left: 135px;
+	top: 40px;
+}
+
+
+#alpha {
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: url(boyles_law/boyles_law_alpha.png);
+	pointer-events: none;
+}
+
+
+#needle {
+	width: 141px;
+	height: 141px;
+	position: absolute;
+	right: 42px;
+	top: 176px;
+	background: url(boyles_law/boyles_law_needle.png);
+}
+
+
+#equation {
+	margin-top: 20px;
+}
+
+
+.operator {
+	color: #e40f18;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+.equation_value {
+	font-size: 20px;
+}
+
+
+.symbol {
+	font-weight: bold;
+	font-size: 28px;
+}
+
+
+#equation_table {
+	margin: auto;
+}
+
+
+#equation_table td {
+	text-align: center;
+	padding: 10px;
+}
+
+
+
+

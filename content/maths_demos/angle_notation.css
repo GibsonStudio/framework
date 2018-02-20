@@ -1,0 +1,77 @@
+
+
+#my_container {
+	width: 900px;
+	height: 530px;
+	margin: auto;
+	position: relative;
+}
+
+
+#shape {
+	width: 530px;
+	height: 530px;
+	position: absolute;
+	background: url(angle_notation/shape.png);
+}
+
+
+#angle {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 530px;
+	height: 530px;
+	background: url(angle_notation/adc.png);
+}
+
+
+#instructions {
+	margin-bottom: 30px;
+}
+
+
+#response {
+	margin-top: 40px;
+	font-weight: bold;
+}
+
+#my_buttons {
+	width: 330px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 20px;
+}
+
+
+.my_button {
+	width: 100px;
+	height: 40px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+
+.faded {
+	opacity: 0.2;
+	cursor: default;
+}
+
+
+.correct {
+	border: 2px solid #3fa535;
+}
+
+
+.reveal_correct {
+	border: 2px solid #fecb11;
+}
+
+
+
+
+
+
+
+

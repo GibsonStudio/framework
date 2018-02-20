@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Video Templates</div>
+		
+		<p>Our current standard for CBT production is a mixture of HTML and video. Many applications are capable of producing video (Flash, Premier) and you can use whatever you feel best suits the project / scene. Rather that have templates for every possible application, I will define the sizes and colours to be used, and where to find templates for some apps.</p>
+		
+
+		
+		<div class="heading">Templates</div>
+		
+		<p>The following templates are available:</p>
+		
+		<table class="data_table">		
+			<tr class="data_table_heading"><td>Application</td><td>Template Location</td><td>Filename</td></tr>			
+			<tr><td>Flash</td>		<td>L:\cbt_video_source\template\</td>	<td>template_1024x668.fla</td></tr>	
+		</table>
+		
+		
+		<div class="heading">Format</div>
+		
+		<p><b>mp4</b>: Final output should be .mp4.</p>
+		
+		
+		<div class="heading">Size</div>
+		
+		<p>1024px x 668px</p>
+		
+		
+		
+		
+		<div class="heading">Frame Rate</div>
+		
+		<p><b>25 fps</b>. I need to do some testing to see if this is the best option; it may be that we stick to the Flash default of 12 fps and increase to 25 or 30 for animations.</p>
+		
+		
+
+		<div class="heading">Text Boxes</div>
+		
+		<p>We can use 3 styles of text box, vertical, horizontal and none:</p>
+		
+		<p><b>Horizontal</b>: 100% wide x 120px high. Positioned at the bottom of the window.</p>
+		
+		<div style="width: 300px; height: 180px; border: 1px solid #333333; position: relative;">
+			<div style="width: 100%; height: 50px; background: #e2e2e2; position: absolute; bottom: 0px; text-align: center;"> 120px high</div>
+		</div>
+		
+		<p><b>Vertical</b>: 356px wide x 100% high. Positioned on the left of the window.</p>
+		
+		<div style="width: 300px; height: 180px; border: 1px solid #333333; position: relative;">
+			<div style="width: 100px; height: 100%; background: #e2e2e2; position: absolute; bottom: 0px; text-align: center;"> 356px wide</div>
+		</div>
+		
+		<p><b>None</b>: No text box is used, leaving the whole screen for graphics / large text.</p>
+		
+		<div style="width: 300px; height: 180px; border: 1px solid #333333; position: relative;"></div>
+		
+		
+		
+		<div class="heading">Colours</div>
+		
+		<br />
+		
+		<table class="data_table">
+			<tr class="data_table_heading"><td>Object</td><td>Hex</td><td>RGB</td><td style="width: 80px;"></td></tr>
+			
+			<tr>	<td>Background</td>			<td>#ffffff</td>			<td>255,255,255</td>		<td style="background: #ffffff;"></td></tr>
+			<tr>	<td>Text Box</td>					<td>#e2e2e2</td>		<td>226,226,226</td>		<td style="background: #e2e2e2;"></td></tr>
+			<tr>	<td>Object (Red)</td>		<td>#e40f18</td>		<td>228,15,25</td>			<td style="background: #e40f18;"></td></tr>
+			<tr>	<td>Object (Green)</td>		<td>#3fa535</td>		<td>63,165,53</td>			<td style="background: #3fa535;"></td></tr>
+			<tr>	<td>Object (Orange)</td>	<td>#fdbc5f</td>		<td>253,188,95</td>			<td style="background: #fdbc5f;"></td></tr>
+			<tr>	<td>Object (Blue)</td>		<td>#3e4899</td>		<td>62,72,153</td>			<td style="background: #3e4899;"></td></tr>
+			
+		</table>
+		
+		<div class="heading">Font Sizes</div>
+
+		<p><b>Text Box</b>: 18 pt.</p>
+		
+		<p><b>Graphic Area</b>: 30 pt.</p>
+		
+		
+		<div class="heading">Tables</div>
+		
+		<p>Tables should have the following styles:</p>
+		
+		<table class="data_table">		
+			<tr class="data_table_heading"><td>Element</td><td>Style</td></tr>			
+			<tr><td>Heading</td>		<td>background: #3e4899; color: #ffffff;</td></tr>
+			<tr><td>Cell Border</td>	<td>1px solid #999999;</td></tr>		
+		</table>
+		
+		
+		
+		<div class="heading">Audio in Flash</div>
+		
+		<p>Audio should be added to the <b>audio</b> layer and Sync set to <b>Stream</b>.</p>
+		
+		
+		
+		
+	</div>
+	
+</body>
+
+</html>

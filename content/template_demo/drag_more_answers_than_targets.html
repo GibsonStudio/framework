@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+	
+	<style>
+		#answer_boxes {
+			max-width: 240px;
+			margin: auto;
+		}
+		#objects {
+			max-width: 720px;
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+		
+		<div class="page-title">Drag - More Answers than Targets</div>	
+		
+		<p class="content_center">Who is this a picture of?<br />(Drag the correct answers to the answer boxes)</p>
+		
+		<div style="width:200px; height: 271px; margin: auto; margin-top: 20px;"><img src="guitar_player.png" alt="guitar_player" /></div>
+		
+		<div id="answer_boxes">
+			
+			<script>
+			
+				//targets - areas where items can be dropped
+				
+				var o = {};
+				o.id = 'firstname';
+				o.type = 'answer_box';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'lastname';
+				o.type = 'answer_box';
+				add_object(o);
+				
+			</script>
+			
+			<div style="clear: both;"></div>
+			
+		</div>	
+		
+		
+		
+		<div id="objects">
+		
+			<script>
+			
+				//source - items to drag
+				
+				var o = {};
+				o.text = 'Will';
+				o.id = 'obj_will';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Young';
+				o.id = 'obj_young';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Aberdeen';
+				o.id = 'obj_aberdeen';
+				add_object(o);
+			
+				var o = {};
+				o.text = 'Hetfield';
+				o.id = 'obj_hetfield';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'James';
+				o.id = 'obj_james';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Angus';
+				o.id = 'obj_angus';
+				add_object(o);
+				
+			</script>
+			
+			<div style="clear: both;"></div>
+			
+		</div>
+			
+		
+		<script>		
+			//define correct locations
+			correct.push(['obj_angus', 'firstname']);
+			correct.push(['obj_young', 'lastname']);
+		</script>
+			
+		<script>add_drag_drop_ui(0);</script>	
+					
+	</div>	
+	
+</body>
+
+</html>

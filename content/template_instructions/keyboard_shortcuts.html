@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Keyboard Shortcuts</div>
+		
+		<p>Keyboard shortcuts are initialized by the function <b>scene_loaded()</b> in <b>lib.js</b>:</p>
+		
+		<textarea class="code" rows="1">window.addEventListener('keydown', keyboard_shortcuts, false);</textarea>
+		
+		<p>The keyboard shortcuts are added automatically - you don't need to do anything to include them.</p>
+		
+		<p>The following keyboard shortcuts are available:</p>
+		
+		<ul>
+			<li><b>P</b>: Pause / resume video (requires video has the default id="my_video").</li>
+			<li><b>Left Arrow</b>: Previous scene.</li>
+			<li><b>Right Arrow</b>: Next Scene.</li>
+		</ul>
+		
+	</div>
+	
+</body>
+
+</html>

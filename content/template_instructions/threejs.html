@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="events.js"></script>
+	<link href="threejs.css" type="text/css" rel="stylesheet" />
+	<script>write_head();include_threejs();</script>
+	<script src="threejs.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded();ini_3d();">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">3D with Threejs and the ColladaLoader</div>
+
+		<div class="keypoint" style="margin-top: 40px; max-width: 600px !important;">Note: If your 3D scene is not appearing as you expect, make sure that you have rendered the scene with renderer.render(scene, camera);. If you are loading models or textures, make sure that the render method is called after everything has finished loading.</div>
+
+		<div class="heading">Including Threejs and the ColladaLoader</div>
+
+		<p><b>three.min.js</b> and <b>ColladaLoader.js</b> can be included with <b>include_threejs();</b> :</p>
+
+		<textarea class="code" rows="1"><script>write_head();include_threejs();</script></textarea>
+
+
+		<div class="heading">Creating a New Scene and Adding a Camera</div>
+
+		<p><b>Note:</b> <i>scene</i> and <i>camera</i> should be global variables:</p>
+
+		<textarea class="code" rows="3">scene = new THREE.Scene();
+camera = new THREE.PerspectiveCamera( field of view, width / height, near clipping, far clipping );
+scene.add(camera);</textarea>
+
+	<p>Here is an example including camera positioning:</p>
+
+	<textarea class="code" rows="16">var scene;
+var camera;
+
+function init ()
+{
+    scene = new THREE.Scene();
+    var WIDTH = 500;
+    var HEIGHT = 500;
+
+    camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 10000);
+    camera.position.set(0,0,0);
+    camera.rotation.z = to_radians(90);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+    scene.add(camera);
+}</textarea>
+
+
+
+	<div class="heading">Creating and Exporting a Scene in Blender</div>
+
+	<div style="width: 220px; height: 501px; float: right;"><img src="collada_exporter_220x501.jpg" /></div>
+
+	<p><b>Note:</b> If you want to export objects with UV mapped textures you must use the <b>Blender Renderer</b>; the cycles renderer does not work with the exporter.</p>
+
+	<p><b>Note 2:</b> You must UV unwrap textures; generated texture maps do not work with the exporter.</p>
+
+	<p><b>Note 3:</b> Add and position a camera; you can use this camera later to position the Threejs camera (see below).</p>
+
+	<p>Once you have built and textured your model, and added lights, export it with <b>File > Export > Collada</b>.</p>
+
+	<p>This will produce a .dae file that can be loaded with ColladaLoader.</p>
+
+
+
+
+
+	<div class="heading clearfix">Loading the Scene with ColladaLoader</div>
+
+	<p>When you have created your threejs scene you can load your .dae exported from blender:</p>
+
+	<textarea class="code" rows="5">var loader = new THREE.ColladaLoader();
+loader.load('my_collada.dae', function (collada) {
+    var dae = collada.scene;
+    scene.add(dae);
+}</textarea>
+
+
+
+
+
+
+
+
+	<div class="heading">Selecting an Object in the Scene</div>
+
+	<p>Objects can be selected with the <b>getObjectByName</b> method:</p>
+
+	<textarea class="code" rows="3">var knight = scene.getObjectByName('knight');
+knight.rotation.y += 0.01;
+knight.rotation.x += 0.017;</textarea>
+
+
+
+
+
+
+	<div class="heading">Some Object Properties and Methods</div>
+
+	<p>Here are some useful object properties and methods:</p>
+
+	<ul>
+		<li><i>object</i>.<b>position</b>.(x,y or z): get or set the position in one axis</li>
+		<li><i>object</i>.<b>rotation</b>.(x.y or z): get or set the rotation in one axis</li>
+		<li><i>object</i>.<b>scale</b>.(x, y or z): get or set the scale in one axis</li>
+		<li><i>object</i>.<b>position.set</b>(x, y, z): Set all positions</li>
+		<li><i>renderer</i>.<b>setSize</b>(width, height): Set renderer size</li>
+		<li><i>renderer</i>.<b>setClearColor</b>('#ffffff', [optional] alpha): Set the renderer bg colour</li>
+		<li><i>scene</i>.<b>add</b>(<i>object</i>): Add object to scene</li>
+	</ul>
+
+
+
+
+
+
+
+
+	<div class="heading">Using a Blender Camera to Position a Threejs Camera</div>
+
+	<p>Whilst your blender camera cannot be used in threejs, it can be used to position a threejs camera:</p>
+
+	<textarea class="code" rows="3">var blender_cam = scene.getObjectByName('blender_cam');
+camera.position.set(blender_cam.position.x, blender_cam.position.y, blender_cam.position.z);
+camera.rotation.set(blender_cam.rotation.x, blender_cam.rotation.y, blender_cam.rotation.z);</textarea>
+
+	<p><b>Note:</b> You obviously cannot do this until after your blender scene is loaded, so a good place to put this code is with the ColladaLoader function.</p>
+
+
+
+
+
+
+	<div class="heading">Adding a Renderer to the DOM</div>
+
+	<p>Threeejs scenes require a renderer:</p>
+
+	<textarea class="code" rows="4">renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setClearColor('#f2f2f2', 1);
+renderer.setSize( WIDTH, HEIGHT );
+document.getElementById('my_container').appendChild(renderer.domElement);</textarea>
+
+	<p><b>Note:</b> renderer should be stored in a global variable.</p>
+
+
+
+
+
+	<div class="heading">Rendering the Scene</div>
+
+	<p>Nothing will display in your threejs scene until it is rendered:</p>
+
+	<textarea class="code" rows="1">renderer.render(scene, camera);</textarea>
+
+	<p><b>Remember:</b> <i>renderer</i>, <i>scene</i>, and <i>camera</i> are global variables.</p>
+
+
+
+
+
+	<div class="heading">Running from a Local Drive, i.e. Not a Web Server</div>
+
+	<p>Security of some web browsers (Chrome is one) can stop threejs running from a local drive. This security restriction can be bypassed by running
+	Chrome with the following switch:</p>
+
+	<textarea class="code" rows="1">"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --allow-file-access-from-file</textarea>
+
+	<p>To apply this, create a shortcut to Chrome and then right-click on this shortcut and choose 'Properties'. Add <b>--allow-file-access-from-file</b> to the end of the <b>Target</b> and click OK.</p>
+
+
+
+
+
+	<div class="heading">Materials</div>
+
+	<p>Adding and modifying materials on imported objects is easy, but not obvious how to do.</p>
+
+	<p>Here are 2 ways to make a new material:</p>
+
+	<textarea class="code" rows="1">var material = new THREE.MeshLambertMaterial({antialias:true, color:0xffffff, opacity:0.1});</textarea>
+
+	<textarea class="code" rows="4">var material = new THREE.MeshLambertMaterial();
+material.antialias = true;
+material.color = 0xffffff;
+material.opacity = 0.1;</textarea>
+
+	<p>When refering to the material of an imported object you need to use <b><i>object</i>.children[0].material</b>, NOT <i>object</i>.material as you might expect.</p>
+
+	<p><b>Example 1:</b> Set the opacity of the material on the 'dice' mesh to 0.2 (20%):</p>
+
+	<textarea class="code" rows="4">var dice = scene.getObjectByName('dice');
+var dice_material = dice.children[0].material;
+dice_material.transparent = true;
+dice_material.opacity = 0.2;</textarea>
+
+	<p>Note: A material needs transparent = true for opactity to render.</p>
+
+	<p><b>Example 2:</b> Create a red material with 50% opacity and add to the 'dice' object:</p>
+
+	<textarea class="code" rows="3">var dice = scene.getObjectByName('dice');
+var new_material = new THREE.MeshLambertMaterial({transparent:true, color:0xdf0000, opacity:0.1});
+dice.children[0].material = new_material;</textarea>
+
+
+
+
+
+
+	<div class="heading">Double-sided Material</div>
+
+	<p>A material can be made double sided with:</p>
+
+	<textarea class="code" rows="1"><i>materail</i>.side = THREE.DoubleSide;</textarea>
+
+
+
+
+	<div class="heading">Creating a New Material with a Texture</div>
+
+	<p></p>
+	
+	<textarea class="code" rows="2">var texture = THREE.ImageUtils.loadTexture('cessna.png');
+var mat = new THREE.MeshBasicMaterial({map: texture});</textarea>
+
+
+
+	<div class="heading">Transparent Materials</div>
+
+	<p>PNGs can be used as textures; if the PNGs have transparency then this will be used as long as the material has transparent = true;</p>
+
+	<textarea class="code" rows="1">material.transparent = true;</textarea>
+
+
+
+
+
+
+
+	<div class="heading">Using console.dir for Debugging</div>
+
+	<p>Using a browsers in-built debugging makes a lot of sense when trying to debug 3D code, for example....</p>
+
+	<textarea class="code" rows="2">var dice = scene.getObjectByName('dice');
+consloe.dir(dice);</textarea>
+
+	<p>....will put a load of data about the dice object in a nice tree structure (access the log from the browser's developer tools - F12 on Chrome):</p>
+
+	<img src="dice_log.jpg" />
+
+	<p>Nodes with arrows next to them are expandable for more information, e.g. expand the children node and you will see the material.</p>
+
+
+
+
+
+
+
+	<div class="heading">Sample Scene</div>
+
+	<p>This simple scene uses many of the above techniques. You can view all of the css and javascript in the files <b>threejs.js</b> and <b>threejs.css</b>.</p>
+
+	<div id="my_3d_scene"></div>
+
+
+
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

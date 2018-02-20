@@ -1,0 +1,49 @@
+
+
+#my_container {
+	width: 700px;
+	height: 300px;
+	margin: auto;
+	border: 1px solid #e2e2e2;
+	background: url(inequalities_number_line.jpg); 
+	position: relative;
+}
+
+#my_canvas {
+	width: 700px;
+	height: 300px;
+	position: absolute;
+}
+
+
+.hotspot {
+	position: absolute;
+	top: 34px;
+	width: 120px;
+	height: 30px;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+
+.hotspot_wrong {
+	background: rgba(255, 255, 255, 0.9);
+	cursor: default;
+}
+
+
+#question {
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 120px;
+	font-size: 40px;
+	text-align: center;
+}
+
+
+.curly_font {
+	font-family: "Times New Roman";
+	font-style: italic;
+	font-size: 50px;
+}

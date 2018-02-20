@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas.js');</script>
+	
+	<script type="text/javascript" src="descent_range.js"></script>
+	<link href="descent_range.css" type="text/css" rel="stylesheet" />
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Descent Range</div>		
+		
+		<div id="canvas_container">
+			<div id="uk"></div>
+			<canvas id="my_canvas" width="700" height="380"></canvas>
+			<div id="ac"></div>
+			
+		</div>
+		
+		
+		<div id="slider_container">		
+			<table style="width: 100%;">
+				<tr>
+					<td>Minimum Drag</td>
+					<td><input type="range" min="0" max="1" step="0.01" id="drag" value="0" style="width: 100%;" oninput="slider_changed()" onchange="slider_changed()" /></td>
+					<td>Maximum Drag</td>
+				</tr>
+			</table>
+		</div>
+		
+		
+	</div>
+	
+	
+	
+	<script>
+	ini_vars();
+	</script>
+	
+	
+</body>
+
+</html>

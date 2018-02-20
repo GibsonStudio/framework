@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	
+	<style>
+	.style_heading {
+		font-size: 20px;
+		font-weight: bold;
+		border-bottom: 4px solid #4863a0;
+		margin-top: 40px;
+		margin-bottom: 20px;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+		
+		<div class="page-title">Styles</div>
+		
+		<p>When creating HTML content, the following styles should be used:</p>
+		
+		<div class="style_heading">Page Titles</div>
+		<textarea class="code" rows="1"><div class="page-title"></div></textarea>	
+		<div class="page-title">Page Title</div>
+		
+		<div class="style_heading">Headings</div>
+		<textarea class="code" rows="1"><div class="heading"></div></textarea>	
+		<div class="heading">Heading</div>
+		
+		<div class="style_heading">Sub-headings</div>
+		<textarea class="code" rows="1"><div class="sub-heading"></div></textarea>	
+		<div class="sub-heading">Sub-heading</div>
+			
+		<div class="style_heading">Videos</div>
+		<textarea class="code" rows="3"><video class="video_scale" controls poster="AC-alt-sin.jpg">
+	<source src="AC-alt-sin.mp4" type="video/mp4" />
+</video></textarea>
+			
+		<div class="style_heading">Keypoints</div>
+		<textarea class="code" rows="1"><div class="keypoint right">This is a keypoint.</div></textarea>
+		<div class="keypoint right">Keypoints can be positioned with the classes 'left', 'right' and 'center'.</div>
+		
+		<div class="style_heading">Has Audio</div>
+		<textarea class="code" rows="1"><div class="has_audio center"></div></textarea>
+		<div class="has_audio center"></div>
+		
+		<div class="style_heading">Text Boxes</div>
+		<textarea class="code" rows="1"><div class="textbox"></div></textarea>
+		<div class="textbox">This is a text box.</div>
+		
+		<div class="style_heading">Clearfix</div>
+		<textarea class="code" rows="1">class="clearfix"</textarea>
+		
+		<div class="style_heading">Blocks</div>
+		<textarea class="code" rows="1"><div class="block"></div></textarea>
+		<div class="block center">This is a block.</div>
+				
+		<div class="style_heading">Centering a Block</div>
+		<textarea class="code" rows="1"><div class="content_center"><div class="block">Centered Block</div></div></textarea>
+		<div class="content_center"><div class="block">Centered Block</div></div>
+		
+		<div class="style_heading">Centering Content Within an Element (div, block, etc)</div>
+		<textarea class="code" rows="1"><div class="content_center">This is centered!</div></textarea>
+		<div class="content_center">This is centered!</div>
+		
+		<div class="style_heading">Buttons</div>
+		<textarea class="code" rows="1"><button class="button" onclick="">My Button</button></textarea><br />
+		<button class="button" onclick="">My Button</button>
+		
+		<div class="style_heading">Positioning Elements</div>
+		<p>Elements can be positioned with the classes:</p>
+		
+		<ul>
+			<li><b>content_left</b>: Aligns the contents to the left - text-align: left;</li>
+			<li><b>content_right</b>: Aligns the contents to the right - text-align: right;</li>
+			<li><b>content_center</b>: Aligns contents to the center - text-align: center;</li>
+			<li><b>content_top</b>: Aligns contents to top - vertical-align: top;</li>
+			<li><b>content_bottom</b>: Aligns contens to bottom - vertical-align: bottom;</li>	
+			<li><b>left</b>: Aligns the element to the left - float: left;</li>
+			<li><b>right</b>: Aligns the element to the right - float: right;</li>
+			<li><b>center</b>: Aligns element to center of container - margin: auto;</li>	
+		</ul>
+		
+		<p><b>Example 1:</b> 200px wide div with a border. Contents right aligned:</p>
+		<textarea class="code" rows="1"><div style="width: 200px; border: 1px solid #333333;" class="content_right">CONTENT</div></textarea>
+		<div style="width: 200px; border: 1px solid #333333;" class="content_right">CONTENT</div>
+		
+		<p><b>Example2:</b> 200px wide div with a border. Contents left aligned, div right aligned:</p>
+		<textarea class="code" rows="1"><div style="width: 200px; border: 1px solid #333333;" class="content_left right">CONTENT</div><div class="clearfix"></div></textarea>
+		<div style="width: 200px; border: 1px solid #333333;" class="content_left right">CONTENT</div><div class="clearfix"></div>
+		<p>Notice the clearfix div to clear the float!</p>
+		
+		<p><b>Example 3:</b> 200px wide div with a border. Contents and element centered:</p>
+		<textarea class="code" rows="1"><div style="width: 200px; border: 1px solid #333333;" class="content_center center">CONTENT</div></textarea>
+		<div style="width: 200px; border: 1px solid #333333;" class="content_center center">CONTENT</div>
+		
+	</div>
+	
+</body>
+
+</html>
+
+
+
+
+
+

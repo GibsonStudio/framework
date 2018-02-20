@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="back.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="move_back.js"></script>
+	<script>write_head();include_jquery_rotate();</script>
+</head>
+
+<body onLoad="scene_loaded();ini_events();" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<!-- <div class="page-title">Virtual Computer: Back</div> -->
+
+		<div style="text-align: center;">
+
+			<div id="my_container" style="float: none; margin: auto;">
+
+				<div id="nc_slide"><img src="nc_slide_lowspeed.svg" /></div>
+				<div id="nc_back"></div>
+				<div id="nc_back_center"><img src="nc_back_center.svg" alt="center" usemap="#center_map"/></div>
+				<div id="cross"></div>
+
+				<div id="buttons">
+					<button class="button_small" onclick="set_slide('low');">Lowspeed</button><br />
+					<button class="button_small" onclick="set_slide('high');">Highspeed</button><br />
+					<button class="button_small" onclick="toggle_cross();">Toggle Cross</button>
+				</div>
+
+			</div>
+
+			<map name="center_map">
+				<area id="slide_button" shape="circle" coords="300, 300, 190">
+				<area id="center_button" shape="circle" coords="300, 300, 280">
+			</map>
+
+		</div>
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

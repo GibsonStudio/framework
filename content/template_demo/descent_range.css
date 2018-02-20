@@ -1,0 +1,80 @@
+#canvas_container {
+	position: relative;
+	width: 700px;
+	height: 380px;
+	border: 1px solid #666666;
+	margin: auto;
+}
+
+
+#uk {
+	position: absolute;
+	width: 700px;
+	height: 380px;
+	background: url('descent_range_uk.png');	
+}
+
+
+#ac {
+	position: absolute;
+	left: 290px;
+	top: 145px;
+	width: 120px;
+	height: 90px;
+	background: url('descent_range_ac.png');	
+}
+
+
+#my_canvas {
+	width: 700px;
+	height: 380px;
+	position: absolute;
+}
+
+
+#slider_container {
+	width: 700px;
+	border: 1px solid #666666;
+	margin: auto;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="inequalities.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas.js');</script>
+	<script src="inequalities.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Inequalities</div>
+		
+		<div id="my_container">
+			<canvas id="my_canvas" width="700" height="300"></canvas>
+			<div id="symbol_0" class="hotspot" onclick="symbol_clicked(0);" style="left: 40px;"></div>
+			<div id="symbol_1" class="hotspot" onclick="symbol_clicked(1);" style="left: 190px;"></div>
+			<div id="symbol_2" class="hotspot" onclick="symbol_clicked(2);" style="left: 340px;"></div>
+			<div id="symbol_3" class="hotspot" onclick="symbol_clicked(3);" style="left: 490px;"></div>
+			<div id="question"></div>
+		</div>
+		
+		<p class="content_center">Click the line that represents the equality given.</p>
+		
+		<p class="content_center">If you select a wrong line it will be faded; please try again.</p>
+		
+		<p class="content_center">When you select the correct answer the inequality line will move into the correct position; After a short delay, a new question will be asked.</p>
+		
+	</div>
+
+	<script> ask_question();</script>
+	
+</body>
+
+</html>

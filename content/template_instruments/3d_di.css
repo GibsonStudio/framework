@@ -1,0 +1,33 @@
+
+
+#my_container {
+	margin-top: 20px;
+}
+
+
+
+#di {
+	width: 800px;
+	height: 500px;
+	/* border: 1px solid #e2e2e2; */
+	margin: auto;
+}
+
+
+#sliders {
+	margin: auto;
+	margin-top: 40px;
+	width: 700px;
+	border: 1px solid #e2e2e2;
+	background: #f6f6f6;
+}
+
+
+#sliders .slider {
+	width: 100%;
+}
+
+
+#direction {
+	padding: 4px;
+}

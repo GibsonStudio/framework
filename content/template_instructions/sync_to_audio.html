@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Syncing HTML to Audio</div>
+		
+		<div class="heading">Adding the Audio to the Page</div>
+		
+		<div class="keypoint right">We only need .mp3</div>
+		
+		<p>Use the function add_audio() to add an audio object - audio should be an mp3 file and be in the same location as the HTML file:</p>
+		
+		<textarea class="code" rows="1">add_audio(filename, args);</textarea>
+		
+		<p>The add_audio function can take the following optional arguments - default values in brackets:</p>
+		
+		<ul>
+			<li><b>id</b>: (my_audio) - string. id for video element.</li>
+			<li><b>style</b>: ('') - string. Any styles to add to the audio element.</li>
+			<li><b>classes</b>: ('') - string. Any additonal classes to add to the audio element.</li>
+			<li><b>controls</b>: (true) - boolean. Sets whether audio has controls or not.</li>
+			<li><b>autoplay</b>: (true) - boolean. Sets whether audio autoplays or not.</li>
+			<li><b>onended</b>: (true) - boolean. Whether or not to call the function media_finished() at end.</li>
+		</ul>
+	
+		<p>Here is an example of add_audio which plays audio.mp3 with autoplay set to false and a 10 px red border:</p>
+		
+		<textarea class="code" rows="1">add_audio('audio', {'autoplay':false, 'style':'border: 10px solid #df0000;'});</textarea>
+		
+		
+		
+		<div class="heading">Defining Objects</div>
+		
+		<p>Objects (graphics) that are shown / hidden depending on the audio position need to have an id in the format <b>object_n</b>,
+		where n is an integer:</p>
+		
+		<textarea class="code" rows="1"><div id="object_0">MY CONTENT</div></textarea>
+		
+		<p>All ids must be unique. To keep the script efficient, use as low numbers as possible; if you have 5 objects, use the ids,
+		object_0, object_1, object_2, object_3, object_4.</p>
+		
+		
+		<div class="heading">Object Visibility</div>
+		
+		<p>Object visibility is controlled by javascript. If you want to have any objects as initially invisible (i.e. to stop them appearing
+		briefly on page load), apply <b>class="hidden"</b>:</p>
+		
+		<textarea class="code" rows="1"><div id="object_0" class="hidden"></div></textarea>	
+		
+		
+		
+		
+		<div class="heading">Defining Sequence of Graphics</div>
+		
+		<p>The visibility of objects is controlled by the current playtime of the my_audio object. You will need to define an array
+		to control the points at which objects are visible or not:</p>
+		
+		<textarea class="code" rows="1">var frames = [];</textarea>
+		
+		<p>Then 1 row for each 'frame' of the scene:</p>
+		
+		<textarea class="code" rows="1">frames.push([time, object_array, script_array]);</textarea>
+		
+		<p><b>time:</b> Integer. This is the time (in seconds) that the frame starts.</p>
+		
+		<p><b>object_array:</b> Integer Array. This is an array of object ids that are visible in that frame.</p>
+		
+		<p><b>script_array:</b> String Array - Optional. An array of javascript to run when the frame is displayed.</p>
+		
+		<p><b>Example 1:</b> To define a frame that starts at 9 seconds, with object_2 and object_3 visible: <b>Note</b>: All other objects
+		will be hidden</p>
+		
+		<textarea class="code" rows="1">frames.push([9, [2,3]]);</textarea>
+		
+		<p><b>Example 2:</b> To define a frame that starts at 2 min 21 seconds with only object_11 visible. Also run call the
+		function 'my_function()':</p>
+		
+		<textarea class="code" rows="1">frames.push([141, [11], ['my_function()']]);</textarea>
+		
+		<p>To see this in action, see the scene '<a href="../template_demo/sync_to_audio.html" target="_blank">Synced to audio</a>' in
+		Template Demo. Here is the complete definition of the frames array for that scene:</p>
+		
+		<textarea class="code" rows="13"><script>
+var frames = [];
+frames.push([0, [0]]);
+frames.push([2, [0,1]]);
+frames.push([3, [0,1,2]]);
+frames.push([4, [0,1,2,3]]);
+frames.push([8, [4], ['debug("Changing to graph....")']]);
+frames.push([9, [4,5]]);
+frames.push([10, [4,5,6]]);
+frames.push([11, [4,5,6,7]]);
+frames.push([12, [4,5,6,7], ['debug("There are no more objects to show / hide.")']]);
+frames.push([20, [4,5,6,7], ['debug("Finished!")']]);
+</script></textarea>
+		
+		<p>When choosing which frame to display, the code reads the current time of the audio object and then works backwards until
+		it finds the frame to display, e.g. In the above example, if the cuurent time was 7.4 seconds, the frame defined by
+		frames.push([4, [0,1,2,3]]); would be shown.</p>
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</div>
+	
+</body>
+
+</html>

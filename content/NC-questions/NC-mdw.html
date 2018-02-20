@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="back.css" type="text/css" rel="stylesheet" />
+	<link href="question.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="move_back.js"></script>
+	<script type="text/javascript" src="questions.js"></script>
+	<script type="text/javascript" src="NC-mdw.js"></script>
+	<script>write_head();include_javascript('interactive.js');include_jquery_rotate();</script>
+</head>
+
+<body onLoad="scene_loaded();ini_events();ini_question();" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<!-- <div class="page-title">Multi-drift Winds</div> -->
+
+		<div style="text-align: center;">
+
+			<div id="my_container">
+
+				<div id="nc_slide"><img src="nc_slide_lowspeed.svg" /></div>
+				<div id="nc_back"></div>
+				<div id="nc_back_center"><img src="nc_back_center.svg" alt="center" usemap="#center_map"/></div>
+				<div id="cross"></div>
+
+				<div id="buttons">
+					<button class="button_small" onclick="set_slide('low');">Lowspeed</button><br />
+					<button class="button_small" onclick="set_slide('high');">Highspeed</button><br />
+					<button class="button_small" onclick="toggle_cross();">Toggle Cross</button>
+				</div>
+
+			</div>
+
+			<map name="center_map">
+				<area id="slide_button" shape="circle" coords="300, 300, 190">
+				<area id="center_button" shape="circle" coords="300, 300, 280">
+			</map>
+
+			<div id="question">
+				<div id="question_type"></div>
+				<div id="question_text"></div>
+
+				<div id="question_buttons">
+					<div id="output"></div>
+					<input id="answer_input" value="" onkeydown="if (event.keyCode == 13) { submit_answer_vector(); }" />
+					<button class="button" onclick="submit_answer_vector();">Submit</button>
+					<button class="button" onclick="reveal_answer();">Reveal Answer</button>
+					<button class="button" onclick="generate_question();">Generate Question</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

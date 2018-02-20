@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	
+	<script type="text/javascript">
+	function update_screen ()
+	{
+			
+		//set some vars
+		var default_font_size = 28;
+		var font_factor = 0.8;
+		var frequency = $('#frequency').val() * 1.0;	
+		var font_size_offset = frequency * font_factor;
+		var default_arrow_top = 40;
+		var arrow_factor = 2.0;
+		var arrow_offset = default_arrow_top + (frequency * arrow_factor);
+		
+		//set element css
+		$('#xl').css('font-size', default_font_size + font_size_offset);
+		$('#xlf').css('font-size', default_font_size + font_size_offset);
+		$('#xc').css('font-size', default_font_size - font_size_offset);
+		$('#xcf').css('font-size', default_font_size + font_size_offset);
+		$('#arrow').css('top', arrow_offset + 'px');
+		
+	}
+	</script>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+			
+		<div class="page-title">Slider: Explaining an Equation</div>	
+				
+		<p>Changes of supply frequency in a circuit will have the opposite effect on capacitive and inductive reactance.</p>
+		
+		<div class="content_center" style="font-size: 28px; min-height: 80px;">
+		
+		<span id="xl">X<sub>L</sub></span> = 2 &pi; <span id="xlf">f</span> L
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<span id="xc">X<sub>C</sub></span> = 1 / 2 &pi; <span id="xcf">f</span> C
+		
+		</div>
+		
+		<div style="position: relative; width: 526px; height: 298px; overflow: hidden; margin: auto;">
+			
+			<img style="position: absolute; left: 0px; top: 0px; width: 526px; height: 298px;" src="AC-int-rei-s6-graph.png" alt="AC-int-rei-s6-graph" />
+			
+			<img id="arrow" style="position: absolute; left: 16px; top: 40px;" src="AC-int-rei-s6-arrow.png" alt="AC-int-rei-s6-arrow" />
+			
+		</div>
+		
+		<div class="content_center" style="margin: 20px; font-weight: bold;">
+			Use the slider to adjust the frequency.<br />
+			<b>-</b>
+			<input id="frequency" style="width:400px;" type="range" min="-20" max="20" oninput="update_screen()" onchange="update_screen()" />
+			<b>+</b>
+		</div>			
+		
+	</div>
+
+	
+</body>
+
+</html>

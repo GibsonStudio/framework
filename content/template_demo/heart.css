@@ -1,0 +1,69 @@
+
+
+#heart {
+	width: 250px;
+	height: 250px;
+	background: url(heart/heart.png);
+	margin: auto;
+	position: relative;
+}
+
+
+#heart_tense {
+	width: 250px;
+	height: 250px;
+	background: url(heart/heart_tense.png);
+	position: absolute;
+}
+
+
+#heart_rate_slider {
+	width: 500px;
+}
+
+
+.output_table {
+	margin: auto;
+	margin-top: 40px;
+}
+
+
+.big_numbers {
+	font-size: 60px;
+	font-weight: bold;
+	color: #3e4899;
+}	
+	
+	
+.small_text {
+	font-size: 14px;
+	color: #3e4899;
+}	
+
+
+.pulse {
+	width: 50px;
+	height: 20px;
+}
+
+
+#pulse_slow {
+	background: url(heart/pulse_slow.png);
+}
+
+
+#pulse_fast {
+	background: url(heart/pulse_fast.png);
+}
+
+
+.slider_table {
+	margin: auto;
+	margin-top: 40px;
+}
+
+
+
+
+
+

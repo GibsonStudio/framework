@@ -1,0 +1,44 @@
+
+
+
+#my_container {
+	position: relative;
+	width: 600px;
+	height: 700px;
+	margin: auto;
+	background: url(nc_front.svg);
+}
+	
+	
+#nc_front_center {
+	position: absolute;
+	left: 50px;
+	top: 101px;
+	width: 500px;
+	height: 500px;
+	background: url(nc_front_center.svg);
+}
+	
+	
+#nc_cursor {
+	position: absolute;
+	left: 25px;
+	top: 75px;
+	width: 550px;
+	height: 550px;
+}
+
+
+
+#sliders {
+	width: 700px;
+	margin: auto;
+}	
+
+#sliders input {
+	width: 100%;
+}
+	
+	
+	
+	

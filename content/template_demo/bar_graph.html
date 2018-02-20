@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_interactive();</script>			
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Bar Graph</div>
+		
+		<div style="height: 500px;">
+		
+			<script>
+			add_bar_graph({ left:'100px', top:'80px', ini_value:50 });
+			</script>
+			
+			<input type="range" min="0" max="100" step="0.01" value="50" style="width:600px;" oninput="set_bar_graph(this.value)" />
+
+		</div>
+		
+		<hr />
+	
+		<div style="height: 500px;position: relative;">
+		
+			<script>
+			add_bar_graph( { id:'graph_2', width:'20px', height:'100px', right:'500px', top:'40px', color:'#df0000', border:'4px solid #13b5ea', ini_value:20 } );
+			</script>
+			
+			<input type="range" min="0" max="100" step="0.01" value="20" style="width:600px;" oninput="set_bar_graph(this.value, { id:'graph_2' } )" />
+
+		</div>
+	
+	</div> <!-- #content -->
+	
+	
+	
+</body>
+
+</html>

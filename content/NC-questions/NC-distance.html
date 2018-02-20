@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="front.css" type="text/css" rel="stylesheet" />
+	<link href="question.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="move_front.js"></script>
+	<script type="text/javascript" src="questions.js"></script>
+	<script type="text/javascript" src="NC-distance.js"></script>
+	<script>write_head();include_javascript('interactive.js');include_jquery_rotate();</script>
+</head>
+
+<body onLoad="scene_loaded();ini_events();ini_question();" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<!-- <div class="page-title">Distance Conversions</div> -->
+
+		<div style="text-align: center;">
+
+			<div id="my_container">
+				<div id="nc_front_center"></div>
+				<div id="nc_cursor"><img src="nc_cursor.svg" alt="cursor" usemap="#cursor_map"/></div>
+			</div>
+
+			<div id="question">
+				<div id="question_type"></div>
+				<div id="question_text"></div>
+
+				<div id="question_buttons">
+					<div id="output"></div>
+					<input id="answer_input" value="" type="number" onkeydown="if (event.keyCode == 13) { submit_answer(); }" />
+					<button class="button" onclick="submit_answer();">Submit</button>
+					<button class="button" onclick="reveal_answer();">Reveal Answer</button>
+					<button class="button" onclick="generate_question();">Generate Question</button>
+				</div>
+
+			</div>
+
+			<map name="cursor_map">
+				<area id="cursor_button" shape="rect" coords="225, 0, 325, 275">
+				<area id="front_center_button" shape="rect" coords="0, 0, 550, 550">
+			</map>
+
+		</div>
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

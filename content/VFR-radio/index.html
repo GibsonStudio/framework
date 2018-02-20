@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_jquery_rotate();</script>
+	<link href="radio.css" type="text/css" rel="stylesheet" />
+	<script src="radio.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded();radio_ini();" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Interactive Radio</div>
+
+
+
+		<div id="radio">
+
+			<div id="radio-use-ghost" class="radio-display-left radio-digital-display radio-display-ghost">888.88</div>
+			<div id="radio-use" class="radio-display-left radio-digital-display"></div>
+
+			<div id="radio-stby-ghost" class="radio-display-right radio-digital-display radio-display-ghost">888.88</div>
+			<div id="radio-stby" class="radio-display-right radio-digital-display"></div>
+
+			<div id="radio-knob-big"></div>
+			<div id="radio-knob-small"></div>
+			<div id="radio-knob-squelch"></div>
+			<div id="radio-button-swap" onclick="radio_swap_frequencies();"></div>
+		</div>
+
+		<div id="radio-buttons">
+			<button class="button" onclick="radio_say_again();">Say Again</button>
+			<button class="button" onclick="radio_ask_question();">New Frequency</button>
+		</div>
+
+		<div id="radio-toggles">
+			<div class="radio-toggle-container" onclick="radio_toggle_digits();">
+				<div id="radio-digits-toggle" class="radio-toggle">
+					<div id="radio-digits-label" class="radio-toggle-label">label</div>
+				</div>
+			</div>
+			<div class="radio-toggle-container" onclick="radio_toggle_spacing();">
+				<div id="radio-spacing-toggle" class="radio-toggle">
+					<div id="radio-spacing-label" class="radio-toggle-label">label</div>
+				</div>
+			</div>
+		</div> <!-- #radio-toggles -->
+
+		<audio id="radio_audio"><source src="" type="audio/mp3"></audio>
+
+
+
+
+
+
+	</div>
+
+</body>
+
+</html>

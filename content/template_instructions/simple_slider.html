@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('slider.css');</script>
+	
+	<style>
+	#output {
+		max-width: 200px;
+		padding: 10px;
+		margin: auto;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		font-weight: bold;
+		font-size: 24px;
+		text-align: center;
+		background: #e2e2e2;
+	}
+	</style>
+	
+	<script type="text/javascript">
+	function slider_changed ()
+	{
+		$('#output').html($('#slider').val());
+	}
+	</script>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+			
+		<div class="page-title">Simple Slider</div>	
+		
+		<p class="content_center">Use the slider to control the value:</p>
+		
+		<div id="output"></div>
+		
+		<div id="slider_container">
+			<input type="range" id="slider" value="0.5" min="0" max="1" step="0.01" oninput="slider_changed()" onchange="slider_changed()">
+		</div>
+		
+		<script>slider_changed();</script>
+		
+		<h3>To use a slider:</h3>
+		
+		<ul>
+			<li>Include slide.css: <b>include_css('slider.css');</b></li>
+			<li>Add an <b>input</b> give it the following parameters:<ul>
+				<li>type="range"</li>
+				<li>id="" - a unique id</li>
+				<li>value="" - the starting value</li>
+				<li>min="" - minimum value</li>
+				<li>max="" - maximum value</li>
+				<li>step="" - the slider value increments</li>
+			</ul></li>
+			<li>Add the following event handlers: (these will cover all browsers)<ul>
+				<li>oninput="slider_changed()"</li>
+				<li>onchange="slider_changed()"</li>
+			</ul></li>
+			<li>Add some javascript to define the <b>function slider_changed () {}</b>. This will trigger if the slider value is changed.</li>
+			<li>call slider_changed() to initialize the slider</li>
+		</ul>
+		
+	</div>
+	
+</body>
+
+</html>

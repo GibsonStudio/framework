@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="graphs.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas.js');</script>
+	<script src="graphs.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">The Sine Curve - Amplitude and Period</div>
+		
+		<div id="my_container">
+			<canvas id="my_canvas" width="800" height="600"></canvas>
+		</div>
+		
+		<div id="buttons">
+			<button class="button" onclick="clear_canvas();">Clear</button>
+			<button class="button" onclick="show_sin(1, 1);">y = sin x</button>
+			<button class="button" onclick="show_sin(3, 1);">y = 3 sin x</button>
+			<button class="button" onclick="show_sin(1, 2);">y = sin 2x</button>
+			<button class="button" onclick="show_sin(0.25, 1);">y = 1/4 sin x</button>
+			<button class="button" onclick="show_sin(1, 0.5);">y = sin 1/2x</button>
+			<button class="button" onclick="show_sin(2, 3);">y = 2 sin 3x</button>
+			<button class="button" onclick="show_sin(0.3333, 2);">y = 1/3 sin 2x</button>
+			<button class="button" onclick="show_sin(4, 0.3333);">y = 4 sin 1/3x</button>
+			<button class="button" onclick="show_sin(5, 5);">y = 5 sin 5x</button>
+		</div>
+		
+		<div id="my_formula">
+			y = <input type="number" value="1" min="0" max="10" id="var_1" step="0.05" />
+			sin <input type="number" value="1" min="0" max="10" id="var_2"  step="0.05" /> x
+			<button class="button" onclick="custom_graph();">Go</button>
+		</div>
+	
+	</div>
+
+	
+
+	
+</body>
+
+</html>

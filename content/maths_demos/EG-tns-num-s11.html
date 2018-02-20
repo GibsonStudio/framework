@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="EG-tns-num-s11.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+	
+	<style>
+	#question {
+		padding: 20px;
+		text-align: center;
+	}
+	#output {
+		font-size: 30px;
+	}
+	</style>
+	
+	<script>
+	
+	//ini
+	var correct_answer = 0;
+	var sign = '+';
+	
+	function new_question ()
+	{
+		
+		$('#answer').removeClass('select_correct');
+		$('#answer').removeClass('select_wrong');
+		
+		correct_answer = get_random_number(-10, 10, 1);		
+		var num1 = 0; 	
+		var num2 = 0;
+		
+		//plus or minus?
+		var random = Math.round(Math.random());
+
+		switch (random) {
+		
+			case 0:
+				sign = '+';
+				num2 = get_random_number(1, 10, 1);
+				num1 = correct_answer - num2;
+				break;
+		
+			default:
+				sign = '-';
+				num2 = get_random_number(1, 10, 1);
+				num1 = num2 - correct_answer;
+				correct_answer = -correct_answer;
+
+		}
+		
+		var question = num1 + ' ' + sign + ' ' + num2 + ' = ';
+		
+		if (num1 >10 || num1 < -10 || num2 > 10 || num2 < -10) {
+			new_question();
+		} else {
+			show_question(question);	
+		}
+		
+	}
+	
+		
+	function show_question (question)
+	{
+		
+		$('#question').html(question);
+		$('#answer').val('');
+		$('#output').html('');
+		
+	}
+	
+
+	
+	function submit ()
+	{
+		
+		var answer = $('#answer').val() * 1.0;
+		
+		if (answer == correct_answer) {
+			
+			indicate_correct();
+			
+		} else {
+			
+			indicate_wrong();
+			
+		}
+		
+	}
+	
+	
+	
+	</script>
+	
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Negative numbers and the number line</div>
+		
+		<p>Adding takes us to the right, subtracting takes us to the left.</p>
+		
+		<p>Enter your answer and click "Submit". Click "New Question" to generate another questions.</p>
+		
+		<div id="my_container">
+
+			<div id="number_line"></div>
+			
+			<div id="question"></div>
+		
+			<div class="content_center">
+			
+				<input id="answer" type="number" style="margin: 20px; text-align: center;" /><span id="output"></span><br />
+				<button class="button" onclick="submit()">Submit</button>
+				<button class="button" onclick="new_question()">New Question</button>
+				
+			</div>
+		
+		<script>
+			new_question();
+		</script>
+		
+		</div>
+	
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+
+
+#my_container {
+	width: 800px;
+	border: 1px solid #3e4899;
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+}
+
+
+
+#axis {
+	width: 700px;
+	height: 500px;
+	background: url(quadratic_curve/axis.png);
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+
+#curve {
+	width: 411px;
+	height: 409px;
+	background: url(quadratic_curve/curve.png);
+	position: absolute;
+	left: 56px;
+	top: -2px;
+	cursor: pointer;
+}
+
+
+#equation {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 240px;
+	font-size: 26px;
+	font-weight: bold;
+	background: #ffffff;
+	border: 2px solid #3e4899;
+	text-align: center;
+	padding: 10px;
+	color: #3e4899;
+}

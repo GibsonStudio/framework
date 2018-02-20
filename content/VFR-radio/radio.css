@@ -1,0 +1,153 @@
+
+@font-face {
+  font-family:'digital-display';
+  /* src: url('Dotrice-Condensed.otf'); */
+  /* src: url('digital-7-mono.ttf'); */
+  src: url('DigitalReadoutUpright.woff');
+}
+
+#radio {
+  width: 400px;
+  height: 240px;
+  background: url('radio.png');
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#radio-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#radio-toggles {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+/* ******** frequency displays ******** */
+
+.radio-digital-display {
+  color: #fecb11;
+  font-family: "digital-display";
+  font-size: 46px;
+}
+
+
+.radio-display-left {
+  position: absolute;
+  left: 14px;
+  top: 18px;
+}
+
+.radio-display-right {
+  position: absolute;
+  right: 16px;
+  top: 18px;
+}
+
+
+.radio-display-ghost {
+  color: #333333;
+}
+
+
+
+
+
+
+/* ******** knobs and buttons ******** */
+
+#radio-knob-big {
+  position: absolute;
+  right: 5px;
+  bottom: 6px;
+  width: 120px;
+  height: 120px;
+  background: url('radio_knob_big.png');
+  cursor: pointer;
+}
+
+
+#radio-knob-small {
+  position: absolute;
+  right: 35px;
+  bottom: 36px;
+  width: 60px;
+  height: 60px;
+  background: url('radio_knob_pull_25k.png');
+  cursor: pointer;
+}
+
+
+#radio-knob-squelch {
+  position: absolute;
+  left: 56px;
+  bottom: 46px;
+  width: 44px;
+  height: 44px;
+  background: url('radio_knob_squelch.png');
+}
+
+
+#radio-button-swap {
+  position: absolute;
+  left: 174px;
+  top: 107px;
+  width: 52px;
+  height: 26px;
+  background: url('radio_bu_swap.png');
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/* ******** toggle switches ******** */
+
+.radio-toggle-container {
+  width: 60px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 2px;
+  border: 2px solid #e2e2e2;
+}
+
+
+
+.radio-toggle {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+
+.radio-toggle-label {
+  background: #e2e2e2;;
+  color: #000000;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 60px;
+  padding: 2px;
+}
+
+
+
+
+
+
+
+
+
+/* */

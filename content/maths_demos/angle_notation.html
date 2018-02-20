@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="angle_notation.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="angle_notation.js"></script>
+	<script>write_head();</script>	
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Angle Notation</div>
+		
+		<div id="my_container">
+		
+			<div id="shape">
+				<div id="angle"></div>
+			</div>
+			
+			<div id="my_buttons">
+			
+				<div id="instructions">Choose an angle from the list below. The lesson will automatically take you to the next question if you get it right, or if you have too many wrong guesses.</div>
+				
+				<div id="button_1" class="my_button" onclick="check_answer(1)"></div>
+				<div id="button_2" class="my_button" onclick="check_answer(2)"></div>
+				<div id="button_3" class="my_button" onclick="check_answer(3)"></div>
+				<div id="button_4" class="my_button" onclick="check_answer(4)"></div>
+				
+				<div id="response"></div>
+				
+			</div>
+
+		</div>
+		
+	</div>
+
+	<script>
+		ini_scene();
+		ask_question();
+	</script>	
+	
+</body>
+
+</html>

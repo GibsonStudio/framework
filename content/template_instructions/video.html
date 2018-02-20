@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Video</div>
+
+		<div class="keypoint right">We only need .mp4</div>
+
+		<p>We can display video using the HTML5 standard. To cover most browsers and devices we only need one video format, <b>.mp4</b>.</p>
+
+		<div class="heading">Fullscreen Video</div>
+
+		<p>To show a 'fullscreen' video, i.e. a normal video scene, you should add your video with the javascript:</p>
+
+		<textarea class="code" rows="1">add_video('AC-int-act-int-s2');</textarea>
+
+		<p>The add_video function can take the following optional arguments - default values in brackets:</p>
+
+		<ul>
+			<li><b>id</b>: (my_video) - string. id for video element.</li>
+			<li><b>width</b>: (false) - integer. Width of video.</li>
+			<li><b>height</b>: (false) - integer. Height of video.</li>
+			<li><b>style</b>: ('') - string. Any styles to add to the video element.</li>
+			<li><b>classes</b>: ('') - string. Any additonal classes to add to the video element.</li>
+			<li><b>controls</b>: (true) - boolean. Sets whether video has controls or not.</li>
+			<li><b>loop</b>: (false) - boolean. Sets whether video loops or not.</li>
+			<li><b>autoplay</b>: (true) - boolean. Sets whether video autoplays or not.</li>
+			<li><b>fullscreen</b>: (true) - boolean. Sets whether video is 'fullscreen' or not.</li>
+			<li><b>onended</b>: (true) - boolean. Whether or not to call the function media_finished() at end.</li>
+			<li><b>poster</b>: (false) - string. File to use as poster image.</li>
+		</ul>
+
+		<p>Here is an example of add_video with autoplay set to false and my_poster.png added as a poster image:</p>
+
+		<textarea class="code" rows="1">add_video('AC-int-act-int-s1', {autoplay: false, poster: 'my_poster.png'});</textarea>
+
+		<p>A complete scene.html file might be:</p>
+
+		<textarea class="code" rows="18"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<script>add_video('AC-int-act-int-s2');</script>
+
+</body>
+
+</html></textarea>
+
+
+
+
+
+
+		<div class="heading">Inline Video</div>
+
+		<p>You can show inline video using the same function and inclucing arguments:</p>
+
+		<textarea class="code" rows="1"><script>add_video('otto_cycle', {id: 'otto', fullscreen: false, width:160, height: 266, autoplay: false});</script></textarea>
+
+
+
+		<p>This is the correct way to display a video in the center of the page when the video contains audio:</p>
+
+		<textarea class="code" rows="6"><p class="content_center">
+	<script>add_video('otto_cycle', {id: 'otto', fullscreen: false, width:160, height: 266, autoplay: false});</script>
+	<div class="has_audio center"></div>
+</p></textarea>
+
+
+
+
+	</div>
+
+</body>
+
+</html>

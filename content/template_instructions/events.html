@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="events.js"></script>
+	<script>write_head();</script>
+	
+	<style>
+	.function_definition {
+		margin-left: 80px;
+		padding: 10px;
+		background: #e2e2e2;
+		max-width: 500px;
+		color: #3e4899;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded();ini_events();">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Mouse and Touch Events</div>
+		
+		<div class="heading">Adding Mouse Events</div>
+		
+		<p>It is easy to read mouse events and if you want to read, or track, the mouse position, you have to use a mouse event - the mouse position is tied to an event.</p>
+		
+		<p>Mouse events can be added with or without using jQuery, I will only give instructions that use native javascript, i.e. no jQuery. You read mouse events by adding an <b>event listener</b>:</p>
+		
+		<p class="function_definition"><i>element</i>.<b>addEventListener</b>(<i>event</i>, <i>callback</i>);</p>
+		
+		<p>The <b><i>element</i></b> is the object that the event is attached to. If you are setting up a button, the element would be the button, or if you want to capture a global mouseup event, you can attach the listener to the document body.</p>
+		
+		<div class="sub-heading">Example 1</div>
+		
+		<p>To call the function <i>click_button()</i> when you click on the button with an id of "my_button":</p>
+		
+		<textarea class="code" rows="1">document.getElementById('my_button').addEventListener('mousedown', click_button);</textarea>
+		
+		<br /><button id="my_button" class="button">my_button</button>
+		
+		<p>Another way to write this (this is the way you should get familiar with as this way is required in many instances):</p>
+		
+		<textarea class="code" rows="1">document.getElementById('my_button').addEventListener('mousedown', function () { click_button(); });</textarea>
+		
+		<div class="sub-heading">Example 2</div>
+		
+		<p>Calling the stop_event() function on a global mouse up event:</p>
+		
+		<textarea class="code" rows="3">document.body.addEventListener('mouseup', function () {
+	stop_event();
+});</textarea>
+		
+		<p>Notice how the carriage returns make this code easier to read but the actual code is the same as above.</p>
+
+
+		<div class="heading">A List of Mouse Events</div>
+		
+		<ul>
+			<li>mouseup</li>
+			<li>mousedown</li>
+			<li>mousemove</li>
+			<li>mouseover</li>
+			<li>mouseout</li>
+		</ul>
+		
+		<div class="sub-heading">Demo</div>
+		
+		<button class="button" id="demo_button">Demo button</button>
+		<div id="demo_output" style="background: #bdc6e6; padding: 4px;">Mouse events are attached to this button.</div>
+		
+		<p><b>Note:</b> I have not added a mousemove event as it interferes with the demo of the other events, but know that the mousemove event is only triggered when the mouse is over the button.</p>
+		
+		
+		<div class="heading">Using a Mouse Move Event to Read Mouse Position</div>
+		
+		<p>You can read the mouse position with the properties <b>pageX</b> and <b>pageY</b> but these properties exist as part of an event. The following code reads the mouse position in the document body:</p>
+		
+		<textarea class="code" rows="3">document.body.addEventListener('mousemove', function (e) {
+	$('#mouse_position').html(e.pageX + ',' + e.pageY);
+} );</textarea>
+		
+		<div id="mouse_position" style="background: #bdc6e6; padding: 4px; width: 200px; font-size: 12px;"></div>
+		
+		<p>Notice how x increases left to right, and y increases top to bottom. 0,0 would therefore be the top left hand corner of the document body (we added the event to document.body). If you move your mouse to the top left corner now you'll likely see something like 0, 834 - this is because the page has been scrolled down to reach this point.</p>
+		
+		<p><b>Note:</b> The 'e' argument in <i>function (e) {}</i> is the event.</p>
+		
+		<div class="heading">Reading Mouse Position within a Div</div>
+
+		<p>There are 2 ways to do this:</p>
+		
+		<div class="sub-heading">Method 1: Attach the Event to the Div Itself</div><br />
+		
+		<textarea class="code" rows="5">document.getElementById('method_1').addEventListener('mousemove', function (e) {
+	var my_x = e.pageX - $('#method_1').offset().left;
+	var my_y = e.pageY - $('#method_1').offset().top;
+	$('#method_1').html(my_x + ',' + my_y);
+} );</textarea>
+		
+		<div id="method_1" style="width: 200px; height: 100px; background: #bdc6e6; border: 1px solid #999999; margin-left: 180px;"></div>
+		
+		<p>Notice how the mouse events stop triggering outside of the div.</p>
+
+		<p>We have used the jQuery function <b>$().offset()</b> to adjust the x and y values.</p>
+		
+		<div class="sub-heading">Method 2: Attach the Event to the Body (or a Containing Div)</div><br />
+		
+		<textarea class="code" rows="5">document.nody.addEventListener('mousemove', function (e) {
+	var my_x = e.pageX - $('#method_2').offset().left;
+	var my_y = e.pageY - $('#method_2').offset().top;
+	$('#method_2').html(my_x + ',' + my_y);
+} );</textarea>
+		
+		<div id="method_2" style="width: 200px; height: 100px; background: #bdc6e6; border: 1px solid #999999; margin-left: 180px;"></div>
+		
+		<p>Notice how the mouse events always trigger, even outside of the div - and we can get negative numbers.</p>
+		
+		
+		
+		<div class="heading">Making this Work on Touch Devices</div>
+		
+		<p>All of the code above will fail on touch devices; for these we need to add some more event listeners. The events available are:</p>
+		
+		<table class="data_table">
+			<tr class="data_table_heading"><td>Touch Event</td><td>Mouse Equivalent</td></tr>
+			<tr><td>touchmove</td><td>mousemove</td></tr>
+			<tr><td>touchstart</td><td>mousedown</td></tr>
+			<tr><td>touchend</td><td>mouseup</td></tr>
+			<tr><td>touchcancel</td><td> - </td></tr>
+		</table>
+		
+		
+		<div class="heading">touchmove</div>
+		
+		<p>Here is the code to set up a touchmove event:</p>
+		
+		<textarea class="code" rows="7">document.getElementById('my_div').addEventListener('touchmove', function (e) {
+	e.preventDefault();
+	if (e.targetTouches.length == 1) {
+		var touch = e.targetTouches[0];
+		//touch is now an equivalent for 'e'
+	}
+});</textarea>
+		
+	<p><b>e.preventDefault();</b> This code prevents the browsers default action, for example, on Android a long press on an image would prompt to save the image; this code stops that.</p>
+	
+	<p><b>e.targetTouches[0];</b> This is an array of all of the touch data, 1 entry for each finger. We will only capture a single touch (to emulate the mouse).</p>
+	
+	<div class="sub-heading">Example: Reading the Mouse Position and Touch Position</div>
+	
+	<p>We need 2 event listeners, 1 for mouse and 1 for touch. To prevent duplicate code, each of these listeners will call the same function <b>move_me();</b></p>
+		
+	<textarea class="code" rows="15">document.getElementById('my_div').addEventListener('mousemove', function (e) { move_me(e); });
+	
+document.getElementById('my_div').addEventListener('touchmove', function (e) {
+	e.preventDefault();
+	if (e.targetTouches.length == 1) {
+		var touch = e.targetTouches[0];
+		move_event(touch);
+	}
+});
+
+function move_event (e)
+{
+	x = e.pageX - $('#my_container').offset().left - ($('#my_container').width() / 2);
+	y = e.pageY - $('#my_container').offset().top - ($('#my_container').height() / 2);	
+}</textarea>
+		
+	<p>Notice how we have captured the mouse event (e) and the touch event (touch) and passed it to the move_me function. This means that we can read the position in the move_me function.</p>	
+	
+		
+	<div class="heading">Capturing the Position from a touchstart Event</div>
+		
+	<p>Touch events are handled slightly differently in different browsers; the following code has been tested on Android and iPad / iPhone:</p>
+		
+	<textarea class="code" rows="14">document.getElementById('my_div').addEventListener('touchstart', function (e) { start_event(e); });
+	
+function start_event (e)
+{
+	
+	e.preventDefault();
+	
+	eX = e.pageX || e.touches[0].pageX;
+	eY = e.pageY || e.touches[0].pageY;
+	
+	mouse_x = eX - $('#my_container').offset().left;
+	mouse_y = eY - $('#my_container').offset().top;
+	
+}</textarea>
+	
+	<p>Let's explain the line <b>eX = e.pageX || e.touches[0].pageX;</b>. The pipes (||) mean that we will set eX = e.pageX if e.pageX is a valid value, otherwise set eX = e.touches[0].pageX.</p>
+	
+	<p><b>e.pageX</b> works for mouse events and touch in Safari.</p>
+	
+	<p><b>e.touches[0].pageX</b> works for touch in Chrome.</p>
+	
+	<div class="heading">Working Examples</div>
+	
+	<p>Have a look at the following examples; all have been modified to work with mouse and touch:</p>
+		
+	<ul>
+		<li><a href="../template_demo/boyles_law.html">Boyles Law</a></li>
+		<li><a href="../template_demo/quadratic_curve.html">Quadratic Curve</a></li>
+		<li><a href="../template_demo/sound_waves.html">Sound Waves</a></li>
+		<li><a href="../template_demo/sunglasses.html">Sunglasses</a></li>
+		<li><a href="../template_demo/nav_computer.html">Nav Computer</a></li>
+	</ul>
+		
+	</div>
+	
+</body>
+
+</html>

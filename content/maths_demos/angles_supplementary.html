@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="angles_supplementary.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas.js');</script>
+	<script src="angles_supplementary.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Supplementary Angles</div>
+		
+		<p>Supplementary Angles add up to 180&deg;</p>
+		
+		<div id="my_container">
+			<canvas id="my_canvas" width="500" height="300"></canvas>
+			<div id="knob"></div>
+			<div id="angle_leftX"></div>
+			<div id="angle_rightX"></div>
+			
+			<div id="angles">
+				<span id="angle_left"></span>
+				<span>+</span>
+				<span id="angle_right"></span>
+				<span>= 180&deg;</span>
+			</div>
+			
+		</div>
+	
+	</div>
+
+	<script> ini_vars(); </script>
+	
+</body>
+
+</html>

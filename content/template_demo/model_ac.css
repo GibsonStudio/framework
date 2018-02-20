@@ -1,0 +1,96 @@
+#my_container {
+	border: 1px solid #666666;
+	width: 900px;
+	height: 600px;
+	position: relative;
+	margin: auto;
+}
+
+
+#my_controls {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 300px;
+	height: 600px;
+	background: #f2f2f2;
+}
+
+
+#sliders {
+	padding: 10px;
+}
+
+
+#render_container {
+	width: 600px;
+	height: 600px;
+	border-left: 1px solid #666666;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+
+input {
+	width: 100%;
+}
+
+
+#control_pad {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #3e4899;
+	margin: auto;
+	margin-top: 20px;
+	background: url(model_ac/control_grid.png);
+}
+
+
+#joystick {
+	width: 20px;
+	height: 20px;
+	background: #333333;
+	position: absolute;
+	left: 90px;
+	top: 90px;
+	cursor: pointer;
+}
+
+
+#toggles {
+	padding: 20px;
+}
+
+
+.toggle_button {
+	padding: 4px;
+	font-size: 12px;
+	cursor: pointer;
+	width: 80px;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+
+.toggle_on {
+	background: #3fa535;
+	color: #ffffff;
+}
+
+
+.toggle_off {
+	background: #f1645d;
+	color: #ffffff;
+}
+
+
+.control_label {
+	font-weight: bold;
+	font-size: 12px;
+}
+
+
+

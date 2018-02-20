@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<link href="3d_gyro.css" type="text/css" rel="stylesheet" />
+	<script>write_head();include_threejs();</script>
+	<script type="text/javascript" src="3d_gyro.js"></script>
+</head>
+
+<body onLoad="scene_loaded();init();" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">3D Gyroscope</div>
+
+		<div id="my_container">
+
+			<div id="gyro"></div>
+
+			<div id="sliders">
+				<div id="gimbal_inner"><b>Inner Gimbal Rate:</b> 0&deg; / s</div>
+				<input id="inner_slider" class="slider" type="range" min="-10" max="10" value="0" step="0.01" oninput="update_inner(this.value);" onchange="update_inner(this.value);" />
+				<div id="gimbal_outer"><b>Outer Gimbal Rate:</b> 0&deg; / s</div>
+				<input id="outer_slider" class="slider" type="range" min="-10" max="10" value="0" step="0.01" oninput="update_outer(this.value);" onchange="update_outer(this.value);" />
+			</div>
+
+		</div> <!-- #my_container -->
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

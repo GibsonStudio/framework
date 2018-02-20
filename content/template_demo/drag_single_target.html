@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+	
+	<style>
+		#answer_boxes {
+			max-width: 120px;
+			margin: auto;
+		}
+		#objects {
+			max-width: 360px;
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+		
+		<div class="page-title">Drag - Single Target</div>	
+		
+		<p class="content_center">Who makes this guitar amplifier?<br />(Drag the correct answer to the answer box)</p>
+		
+		<div style="width:500px; height: 217px; margin: auto; margin-top: 20px;"><img src="amp.png" alt="amp" /></div>
+		
+		<div id="answer_boxes">
+			
+			<script>
+			
+				//targets - areas where items can be dropped
+				
+				var o = {};
+				o.id = 'answer';
+				o.type = 'answer_box';
+				add_object(o);
+				
+			</script>
+			
+			<div style="clear: both;"></div>
+			
+		</div>	
+		
+		
+		
+		<div id="objects">
+		
+			<script>
+			
+				//source - items to drag
+				
+				var o = {};
+				o.text = 'Marshall';
+				o.id = 'obj_marshall';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Mesa Boogie';
+				o.id = 'obj_mesa';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Fender';
+				o.id = 'obj_fender';
+				add_object(o);
+			
+			</script>
+			
+			<div style="clear: both;"></div>
+			
+		</div>
+			
+		
+		<script>		
+			//define correct locations
+			correct.push(['obj_mesa', 'answer']);
+		</script>
+			
+		<script>add_drag_drop_ui(0);</script>	
+					
+	</div>	
+	
+</body>
+
+</html>

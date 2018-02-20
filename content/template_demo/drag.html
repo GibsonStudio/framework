@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+	
+	<style>
+		#objects {
+			max-width: 720px;
+			margin: auto;
+		}
+		#iron_cross {
+			width: 700px;
+			height: 300px;
+			background-image: url(iron_cross_guitar.jpg);
+			position: relative;
+			margin: auto;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+		
+		<div class="page-title">Drag Labels to Diagram</div>	
+		
+		<p class="content_center">Drag the labels to the correct location on the diagram:</p>
+		
+		<div id="objects">
+		
+			<script>
+			
+				//source - items to drag
+				
+				var o = {};
+				o.text = 'Toggle Switch';
+				o.id = 'obj_toggle';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Tuners';
+				o.id = 'obj_tuners';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Headstock';
+				o.id = 'obj_headstock';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Volume Control';
+				o.id = 'obj_volume';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Pickup';
+				o.id = 'obj_pickup';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Bridge';
+				o.id = 'obj_bridge';
+				add_object(o);
+			
+			</script>
+			
+			<div style="clear: both;"></div>
+			
+		</div>
+			
+		<div id="iron_cross">
+		
+			<script>
+			
+				//targets - areas where items can be dropped
+				
+				var o = {};
+				o.id = 'bridge';
+				o.type = 'target';
+				o.style = 'left: 60px; top: 30px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'toggle';
+				o.type = 'target';
+				o.style = 'left: 300px; top: 10px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'headstock';
+				o.type = 'target';
+				o.style = 'right: 60px; top: 30px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'volume';
+				o.type = 'target';
+				o.style = 'left: 40px; bottom: 50px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'pickup';
+				o.type = 'target';
+				o.style = 'left: 360px; bottom: 50px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'tuners';
+				o.type = 'target';
+				o.style = 'right: 60px; bottom: 100px;';
+				add_object(o);
+				
+			</script>
+		</div>	
+			
+		
+		<script>		
+			//define correct locations
+			correct.push(['obj_toggle', 'toggle']);
+			correct.push(['obj_tuners', 'tuners']);
+			correct.push(['obj_headstock', 'headstock']);
+			correct.push(['obj_volume', 'volume']);
+			correct.push(['obj_pickup', 'pickup']);
+			correct.push(['obj_bridge', 'bridge']);
+		</script>
+			
+		<script>add_drag_drop_ui(0);</script>	
+					
+	</div>	
+	
+</body>
+
+</html>

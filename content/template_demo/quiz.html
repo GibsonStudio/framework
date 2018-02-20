@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('quiz.css');include_javascript('quiz.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<!-- ini quiz questions array -->
+	<script>
+	questions = new Array();
+	</script>
+	
+	<div id="content">
+	
+		<div class="page-title">Demo Quiz</div>		
+				
+		<!-- add questions to quiz -->
+		<script type="text/javascript">
+				
+		//question 1
+		var q = {};
+		q.questiontext = 'Is this question 1?';
+		q.options = new Array('Yes', 'No');
+		q.answer = 0;
+		add_multichoice_question(q);
+		
+		
+		//question 2 - image and feedback
+		var q = {};
+		q.questiontext = 'What type of guitar is this a picture of?';
+		q.options = new Array('Les Paul', 'Explorer', 'Stratocaster', 'EL 00');
+		q.answer = 1;
+		q.image = 'guitar.png';
+		q.feedback = new Array('Les Paul\'s are a traditional shape.', 'Unbelievably, this shape was designed in the 1950s.', 'No.', 'The EL 00 is an accoustic instrument.');
+		add_multichoice_question(q);
+		
+		
+		//question 3 - feedback but no image
+		var q = {};
+		q.questiontext = 'This question has feedback but no image.';
+		q.options = new Array('True', 'False');
+		q.answer = 0;
+		q.feedback = new Array('If I didn\'t put something here, the logic would be broken.', 'See, it does have feedback, but how could you know before answering?');
+		add_multichoice_question(q);
+		
+		//add quiz output elements
+		add_score_div();
+		add_quiz_buttons();
+		
+		
+		</script>
+					
+	</div>
+	
+</body>
+
+</html>

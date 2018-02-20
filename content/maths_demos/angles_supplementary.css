@@ -1,0 +1,56 @@
+#my_container {
+	width: 500px;
+	height: 300px;
+	margin: auto;
+	border: 1px solid #333333;
+	background: url(angles_supplementary_images/axis.png);
+	position: relative;
+}
+
+#my_canvas {
+	width: 500px;
+	height: 300px;
+	position: absolute;
+}
+
+
+#knob {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 200px;
+	top: 200px;
+	background: url(angles_supplementary_images/knob.png);
+	cursor: pointer;
+}
+
+
+
+#angles {
+	font-weight: bold;
+	font-size: 24px;
+	text-align: center;
+	margin-top: 260px;
+}
+
+
+
+#angle_left {
+	color: #e40f18;
+}
+
+
+
+#angle_right {
+	color: #3e4899;
+}
+
+
+
+
+
+
+
+
+
+

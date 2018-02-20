@@ -1,0 +1,65 @@
+
+#quiz_container {
+	border: 1px solid #e2e2e2;
+	width: 400px;
+	height: 400px;
+	margin: auto;
+	position: relative;
+}
+
+
+#my_column_left {
+	border: 1 px solid #00df00;
+	width: 300px;
+	height: 360px;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	text-align: center;
+}
+
+
+#my_number {
+	font-size: 100px;
+	font-weight: bold;
+	padding: 20px;
+}
+
+
+#my_buttons {
+	padding: 20px;
+}
+
+
+.number_active {
+	color: #333333;
+}
+
+
+.number_inactive {
+	color: #e2e2e2;
+}
+
+
+.button_faded {
+	opacity: 0.2;
+}
+
+
+#my_output {
+	font-size: 20px;
+	color: #333333;
+	padding: 10px;
+}
+
+
+.output_correct {
+	color: #116d31 !important;
+}
+
+
+.output_wrong {
+	color: #e40f18 !important;
+}
+
+

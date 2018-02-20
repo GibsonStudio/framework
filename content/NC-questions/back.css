@@ -1,0 +1,67 @@
+
+#my_container {
+	position: relative;
+  display: inline-block;
+  vertical-align: top;
+	width: 600px;
+	height: 600px;
+  border: 1px solid #e2e2e2;
+  overflow: hidden;
+  margin: 10px;
+}
+
+
+#buttons {
+	width: 140px;
+	border: 1px solid #e2e2e2;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	text-align: center;
+}
+
+#buttons .button_small {
+	width: 90%;
+	margin: 4px;
+	font-size: 14px;
+	padding: 10px;
+}
+
+
+#nc_back {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background: url(nc_back.svg);
+}
+
+
+#nc_back_center {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+}
+
+
+#nc_slide {
+	position: absolute;
+	top: -100px;
+	width: 600px;
+	height: 1000px;
+}
+
+#nc_slide img {
+	width: 600px;
+	height: 1000px;
+}
+
+
+#cross {
+	position:absolute;
+	left: 200px;
+	top: 200px;
+	background: url(nc_cross.svg);
+	width: 60px;
+	height: 60px;
+	cursor: crosshair;
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	
+	<style>
+	.style_heading {
+		font-size: 20px;
+		font-weight: bold;
+		border-bottom: 4px solid #4863a0;
+		margin-top: 40px;
+		margin-bottom: 20px;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Basic HTML File</div>
+		
+		<p>Your basic HTML file should be:</p>
+				
+		<textarea class="code" rows="19"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	</div>
+	
+</body>
+
+</html></textarea>	
+
+
+
+	<div class="heading">Where to put your HTML?</div>
+	
+	<p>Your HTML should go in the <b>content</b> div, i.e.</p>
+	
+	<textarea class="code" rows="1"><div id="content"><!-- YOUR CONTENT GOES HERE --></div></textarea>
+
+
+
+
+	<div class="heading">Including a Default Stylesheet</div>
+	
+	<p style="font-style: italic;"><b>Note:</b> The available default stylesheets and scripts will be explained later on.</p>
+	
+	<p>There are several default stylesheets that can be included in your file. These are found in <b>ROOT/css/</b>. To include a stylesheet, use
+	the javascript <b>include_css(filename);</b>, i.e. to include interactive.css:</p>
+	
+	<textarea class="code" rows="8"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');</script>
+</head></textarea>
+
+	<p>Avilable stylesheets are:</p>
+	
+	<ul>
+		<li><b>interactive.css</b> - required for any interactive elements, i.e. sliders, dag and drop - use <b>include_interactive();</b> to add..</li>
+		<li><b>quiz.css</b> - required for quizzes.</li>
+		<li><b>rt_calls.css</b> - required for RT calls.</li>
+	</ul>
+	
+	<p style="font-style: italic;"><b>Note:</b> main.css is automatically included.</p>
+	
+	
+	
+	<div class="heading">Include a Custom Stylesheet</div>
+	
+	<p>If you create some bespoke styles, you can create and add a custom stylesheet in the normal way. Example: Your html file needs the stylesheet
+	my_style.css:</p>
+	
+	<textarea class="code" rows="9"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	<link href="my_style.css" type="text/css" rel="stylesheet" />
+</head></textarea>
+
+	<p>my_style.css should be in the same location as your HTML file.</p>
+	
+
+	
+	
+	
+	
+	<div class="heading">Including Interactive Elements</div>
+	
+	<p>Interactive.js and interactive.css can be included by adding <b>include_interactive();</b> to your header, e.g:</p>
+	
+	<textarea class="code" rows="9"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_interactive();</script>
+	<link href="my_style.css" type="text/css" rel="stylesheet" />
+</head></textarea>
+	
+	
+	
+	
+	
+	<div class="heading">Including 3rd Party Libraries</div>
+	
+	<p>The following 3rd party libraries can be added with the following functions:</p>
+	
+	<ul>
+		<li>jQuery UI: <b>include_jquery_ui();</b> - required making divs draggable.</li>
+		<li>jQuery Rotate: <b>include_jquery_rotate();</b> - For rotating divs with javascript.</li>
+		<li>Raphael: <b>include_raphael();</b> - For animateing along paths.</li>
+		<li>Three.js: <b>include_threejs();</b> - For displaying 3D scenes (includes OrbitControls.js by default).</li>
+	</ul>
+	
+	<p style="font-style: italic;"><b>Note:</b> jQuery is included by default.</p>
+	
+	
+	
+
+	<div class="heading">Including a Default Script (Javascript)</div>
+	
+	<p>There are several default scripts that can be included in your file. These are found in <b>ROOT/javascript/</b>. To include a script, use
+	the javascript <b>include_javascript(filename);</b>, i.e. to include interactive.js:</p>
+	
+	<textarea class="code" rows="8"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('interactive.js');</script>
+</head></textarea>
+
+	<p>Avilable scripts are:</p>
+	
+	<ul>
+		<li><b>interactive.js</b> - required for interactive elements, i.e. dag and drop, choose the correct word - use <b>include_interactive();</b> to add.</li>
+		<li><b>quiz.js</b> - required for quizzes.</li>
+		<li><b>rt_calls.js</b> - required for RT calls.</li>
+	</ul>
+	
+	<p style="font-style: italic;"><b>Note:</b> lib.js and jquery-1.11.2.min.js are automatically included.</p>
+	
+	
+	
+	<div class="heading">Include a Custom Script (Javascript)</div>
+	
+	<p>If you create some bespoke script, you can create and add a custom script in the normal way. Example: Your html file needs the script
+	my_script.js:</p>
+	
+	<textarea class="code" rows="9"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	<script src="my_script.js" type="text/javascript"></script> 
+</head></textarea>
+
+	<p>my_script.js should be in the same location as your HTML file.</p>
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	
+</body>
+
+</html>

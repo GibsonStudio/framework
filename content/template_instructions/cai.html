@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	
+	<style>
+	.style_heading {
+		font-size: 20px;
+		font-weight: bold;
+		border-bottom: 4px solid #4863a0;
+		margin-top: 40px;
+		margin-bottom: 20px;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Computer Aided Instruction (CAI)</div>
+		
+		<p>Your basic CAI HTML file should be:</p>
+				
+		<textarea class="code" rows="31"><!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('cai.js');include_css('cai.css');</script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+
+<body onLoad="scene_loaded();">
+
+	<script>write_header();write_nav();</script>
+	
+	<script> add_cai_controls(); </script>	
+	
+	<div id="content">
+	
+		<div id="textbox">						
+		</div> <!-- #textbox -->
+			
+		<div id="graphics">
+		</div> <!-- #graphics -->
+	
+	</div> <!-- #content -->
+	
+	<script> ini_cai_lesson(); </script>
+	
+</body>
+
+</html></textarea>	
+	
+	<p>This gives the standard 2 column layout. Text should go in the <b>textbox</b> div and graphics should go in the <b>graphics</b> div.</p>
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+	<div class="heading">Using the Full Content Area</div>
+	
+	<p>You can remove the textbox and graphics divs if you want to use the full content area:</p>
+	
+	<textarea class="code" rows="5"><div id="content">
+	
+	<!-- YOUR HTML HERE -->
+	
+</div> <!-- #content --></textarea>
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	<div class="heading">Lesson Files</div>
+	
+	<p>Each CAI lesson should be in its own folder within <b>/content/</b>. Each lesson requires the following files:</p>
+	
+	<ul>
+		<li>ini_lesson.js</li>
+		<li>For each scene....<ul>
+				<li>scene.html</li>
+				<li>scene.js</li>
+			</ul></li>
+	</ul>
+	
+	
+	
+	
+	
+	
+	
+	<div class="heading">ini_lesson.js</div>
+	
+	<p>This defines the lesson title and the name and sequence of lesson scenes:</p>
+	
+	<textarea class="code" rows="7">var lesson_title = 'CAI Demo (MET)';
+
+var my_scenes;
+
+my_scenes = []; 
+my_scenes.push(['index.html', 'Objectives']);
+my_scenes.push(['scene_02.html', 'Definitions']);</textarea>
+
+	<p><b>var lesson_title = '';</b> defines the lesson title.</p>
+	
+	<p><b>var my_scenes; my_scenes = [];</b> initializes the my_scenes array.</p>
+	
+	<p><b>my_scenes.push([<i>filename</i>, <i>scene_name</i>]);</b> adds a scene to the lesson. You need one of these lines for each scene.</p>
+	
+	
+	
+	
+	
+	
+	
+	<div class="heading">scene.html</div>
+	
+	<p><i>See above for the contents of a basic cai scene html file.</i></p>
+	
+	<p>The 1<sup>st</sup> scene should be named <b>index.html</b>.</p>
+	
+	<p>Each subsequent scene should be named scene_xx.html, where xx is a 2 digit integer (with leading zeros) starting with 02, e.g. scene_02.html, scene_03.html, scene_04.html....</p>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="heading">scene.js</div>
+	
+	<p>Should be named the same as the corresponding html file, i.e. index.js, scene_02.js, scene_03.js.....</p>
+	
+	<p>This javascript file defines the amount of frames in a scene, and what text and graphic elements are visible in each frame. Here is an example file:</p>
+	
+	<textarea class="code" rows="26">frame = 0;
+//text_count = 0; can over-ride if more than 50 text items are used
+//graphics_count = 0; can over-ride if more than 50 graphic items are used
+
+frame_states = [];
+
+//frame_states is an array, each element corresponds to one frame in the current scene
+//Each element is itself an array with 2 elements, i.e. [element, element]
+//Each element is another array
+//1st element: text ids that should be visible this frame
+//2nd element: graphics ids that should be visible this frame
+
+frame_states[0] = [[0],[]];
+frame_states[1] = [[0,1],[0]];
+frame_states[2] = [[2],[1]];
+
+
+show_assets();
+
+function custom_frame () {
+
+	//put any custom code to execute here.
+	//this function is called every time the continue, or back, buttons are clicked.
+	//use the variable 'frame' to detect the currently displayed frame
+	
+}</textarea>
+
+	<p>Generally, you only need to modify the lines that put values into the array <b>frame_states</b>.</p>
+	
+	<p>In this example we have defined 3 frames indexed, 0,1 and 2. We define a frame with and array which contains 2 more arrays, i.e. <b>[ [<i>array one</i>],
+	[<i>array two</i>] ]</b>.</p>
+	
+	<p><b><i>array one</i></b> is a list of text ids that are visible in that frame.</p>
+	
+	<p><b><i>array two</i></b> is a list of graphic ids that are visible in that frame.</p>
+	
+	<p>To control the visibility of text and graphic elements they should be named as follows:</p>
+	
+	<p><b>Text</b><ul>
+		<li>text_0</li>
+		<li>text_1</li>
+		<li>text_2</li>
+		<li>text_3</li>
+		<li>text_4</li>
+	</ul>etc...</p>
+
+	<p><b>Graphics</b><ul>
+		<li>graphic_0</li>
+		<li>graphic_1</li>
+		<li>graphic_2</li>
+		<li>graphic_3</li>
+		<li>graphic_4</li>
+	</ul>etc...</p>
+	
+	<p>Our example scene has 3 frames defined by frame_states[0], frame_states[1] and frame_states[2].</p>
+	
+	<p><b>Frame 0:</b> text_0 is visible.</p>
+	
+	<p><b>Frame 1:</b> text_0, text_1 and graphic_0 are visible.</p>
+	
+	<p><b>Frame 2:</b> text_2 and graphic_1 are visible.</p>
+	
+	
+	
+	
+	
+	<div class="heading">Initial Element Visibility</div>
+	
+	<p>Elements can be set to be initially hidden by adding the class <b>hidden</b>, e.g:</p>
+	
+	<textarea class="code" rows="1"><p id="text_1" class="hidden">1. Describe the Structure and extent of the atmosphere.</p></textarea>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="heading">Adding Learning Objective References to Text Box</div>
+	
+	<p>Learning objective references (where available) should be added to the entries in the text box.</p>
+	
+	<p>Use a span with the class <b>lo</b>. Example:</p>
+	
+	<textarea class="code" rows="1"><p id="text_1" class="hidden">1. Describe the Structure and extent of the atmosphere. <span class="lo">050 01 01 01</span></p></textarea>
+	
+	
+	
+	
+	
+	<div class="heading">Keybiard Shortcuts</div>
+	
+	<p>The following keyboard shortcuts can be used to navigate through a CAI lesson:</p>
+	
+	<ul>
+		<li><b>Right Arrow</b>: Next Scene</li>
+		<li><b>Left Arrow</b>: Previous Scene</li>
+		<li><b>Space</b>: Continue (Next frame in scene)</li>
+		<li><b>B</b>: Back (Previous frame in scene)</li>
+	</ul>
+	
+	
+	
+	
+	
+	
+	
+	<p>Have a look at the demo <a href="../cai_demo_01/index.html">CAI lesson</a> to see a complete working lesson.</p>
+	
+	
+	
+
+
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_threejs();</script>
+	<script type="text/javascript" src="3d_altimeter.js"></script>
+	<link href="3d_altimeter.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded();ini_scene();">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">3D Altimeter Model</div>
+
+		<div id="altimeter"></div>
+
+		<div id="sliders">
+			<form name="sliders">
+				<div id="altitude_value" class="param_value">Altitude: </div>
+				<input type="range" name="altitude" value="2000" min="-400" max="10000" oninput="altitude_slider(this.value);" onchange="altitude_slider(this.value);" /><br/>
+				<div id="pressure_value" class="param_value">Pressure: </div>
+				<input type="range" name="pressure" value="1013" min="950" max="1050" oninput="pressure_slider(this.value);" onchange="pressure_slider(this.value);" /><br/>
+				<div id="subscale_value" class="param_value">Subscale: </div>
+				<input type="range" name="subscale" value="1000" min="950" max="1050" step="0.1" oninput="subscale_slider(this.value);" onchange="subscale_slider(this.value);" /><br/>
+				<div id="rotate_value" class="param_value">Rotation: </div>
+				<input type="range" name="rotation" value="0" min="-200" max="200" step="0.1" oninput="rotate_slider(this.value);" onchange="rotate_slider(this.value);" /><br/>
+			</form>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

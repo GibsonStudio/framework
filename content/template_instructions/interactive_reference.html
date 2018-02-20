@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">interactive.js Reference</div>
+		
+		<p>interactive.js needs to be manually included:</p>
+		
+		<textarea class="code" rows="1">include_javascript('interactive.js');</textarea>
+		
+		
+		<p style="font-style: italic; margin-top: 80px;"><b>Note:</b> The following are used for drag and drop interactivity. This is
+		explained in detail here: <a href="drag_and_drop.html">drag_and_drop.html</a></p>
+		
+		<div class="heading">add_object (<i>object</i>)</div>
+		
+		<ul>
+			<li><b>object</b>: Object. A drag and drop object.</li>
+		</ul>
+		
+		
+		<div class="heading">dragstart (<i>e</i>)</div>
+		
+		<ul>
+			<li><b>e</b>: Event. A drag and drop object.</li>
+		</ul>
+		
+		<p>This function and the event are automatically set up by the function <b>add_object</b>:</p>
+		
+		<textarea class="code" rows="1">ondragstart="dragstart(event)"</textarea>
+		
+		
+		
+		<div class="heading">dragend (<i>e</i>)</div>
+		
+		<ul>
+			<li><b>e</b>: Event. A drag and drop object.</li>
+		</ul>
+		
+		<p>This function and the event are automatically set up by the function <b>add_object</b>:</p>
+		
+		
+		
+		<div class="heading">drop (<i>e</i>)</div>
+		
+		<ul>
+			<li><b>e</b>: Event. A drag and drop object.</li>
+		</ul>
+		
+		<p>This function and the event are automatically set up by the function <b>add_object</b>:</p>
+		
+		
+		
+		
+		<div class="heading">dragleave (<i>e</i>)</div>
+		
+		<ul>
+			<li><b>e</b>: Event. A drag and drop object.</li>
+		</ul>
+		
+		<p>This function and the event are automatically set up by the function <b>add_object</b>:</p>
+		
+		
+		
+		<div class="heading">dragover (<i>e</i>)</div>
+		
+		<ul>
+			<li><b>e</b>: Event. A drag and drop object.</li>
+		</ul>
+		
+		<p>This function and the event are automatically set up by the function <b>add_object</b>:</p>
+		
+		
+		
+		
+		<div class="heading">add_drag_drop_ui (<i>include_output</i>)</div>
+		
+		<ul>
+			<li><b>include_output</b>: Boolean (0 or 1). Defines whether or not to include an output div for user feedback.</li>
+		</ul>
+		
+		<p>Adds a submit button and an output div (if include_output == 1).</p>
+		
+		
+		
+		<div class="heading">drag_drop_submit ()</div>
+		
+		<p>Called when the drag and drop submit button is clicked. Processes objects / targets and gives user feedback.</p>
+		
+		
+		
+		
+		<div class="heading">get_object_index_from_id (<i>id</i>)</div>
+		
+		<ul>
+			<li><b>id</b>: String. Id of object.</li>
+		</ul>
+		
+		<p><b>returns</b>: integer</p>
+		
+		
+		<div class="heading">get_object_position (<i>id</i>)</div>
+		
+		<ul>
+			<li><b>id</b>: String. Id of div containing object.</li>
+		</ul>
+		
+		<p><b>returns</b>: string</p>
+		
+		
+		
+		<div class="heading">get_object_index_in_position (<i>position</i>)</div>
+		
+		<ul>
+			<li><b>position</b>: String. Id of div (postion).</li>
+		</ul>
+		
+		
+		
+		<div class="heading">swap_object_positions (<i>position1</i>, <i>position2</i>)</div>
+		
+		<ul>
+			<li><b>position1</b>: String. Id of div (postion).</li>
+			<li><b>position2</b>: String. Id of div (postion).</li>
+		</ul>
+		
+		<p>This swaps the <b>object.position</b> property of the objects in position1 and position2 - it does not swap the HTML, i.e. swap
+		the actual object positions on screen.</p>
+		
+		
+		
+		<div class="heading">debug_objects ()</div>
+		
+		<p>Outputs object debug info to the debug output div - this needs to be included with <b>write_debug();</b>.</p>
+		
+		
+		
+		
+		
+		
+		
+		
+		<p style="font-style: italic; margin-top: 80px;"><b>Note:</b> The following is used for 'choose the correct words' interactivity. This is
+		explained in detail here: <a href="choose_words.html">choose_words.html</a></p>
+		
+		<div class="heading">check_select (<i>selectid</i>, <i>correct_val</i>)</div>
+		
+		<ul>
+			<li><b>selectid</b>: String. Id of select input.</li>
+			<li><b>correct_val</b>: String. Correct answer for select input.</li>
+		</ul>
+		
+		
+		
+		
+		
+		
+		
+		<p style="font-style: italic; margin-top: 80px;"><b>Note:</b> The following is used for 'answer boxes' interactivity. This is
+		explained in detail here: <a href="answer_boxes.html">answer_boxes.html</a></p>
+		
+		<div class="heading">indicate_correct ()</div>
+		
+		<p>This will be called by your <b>submit</b> function.</p>
+		
+		<div class="heading">indicate_wrong ()</div>
+		
+		<p>This will be called by your <b>submit</b> function.</p>
+		
+		
+		
+		
+		
+		<p style="font-style: italic; margin-top: 80px;"><b>Note:</b> The following is used for number manipulation.</p>
+		
+		<div class="heading">get_random_number (<i>min</i>, <i>max</i>, <i>step</i>)</div>
+		
+		<ul>
+			<li><b>min</b>: Float. Minimum returned number.</li>
+			<li><b>max</b>: Float. Maximum returned number.</li>
+			<li><b>step</b>: Float. Accuracy of generated numbers.</li>
+		</ul>
+		
+		<p><b>Example:</b> To generate a random number between 2 and 4, with posible values being 2, 2.5, 3, 3.5, 4:</p>
+		
+		<textarea class="code" rows="1">get_random_number(2, 4, 0.5);</textarea>
+		
+		
+		<div class="heading">round_number (<i>num</i>, <i>nearest</i>)</div>
+		
+		<ul>
+			<li><b>num</b>: Float. Number to round.</li>
+			<li><b>nearest</b>: Float. Round to the nearest...</li>
+		</ul>
+		
+		<p><b>Example:</b> You want to round 3.3 to the nearest 0.2:</p>
+		
+		<textarea class="code" rows="1">round_number(3.3, 0.2);</textarea>
+		
+		<p>The result will be <b>3.4</b>. 3.3 is rounded up to the nearest number divisible by 0.2.</p>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+	
+</body>
+
+</html>

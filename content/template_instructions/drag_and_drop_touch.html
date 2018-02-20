@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+	
+	<style>
+	.function_definition {
+		margin-left: 80px;
+		padding: 10px;
+		background: #e2e2e2;
+		max-width: 500px;
+		color: #3e4899;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Drag and Drop Touch</div>
+		
+		<div class="keypoint right">This method of drag and drop works on mouse and touch devices.</div>
+		
+		<p>You can see a working example of this code here: <a href="../maths_demos/angles_drag_to_boxes.html">Angles Drag to Boxes</a></p>
+		
+		<p>This code uses pure JavaScript, i.e. it does not use the HTML5 drag and drop events. This code will work on touch devices.</p>
+		
+		<div class="sub-heading">Set Up</div>
+		
+		<p>Include the <b>drag_and_drop.js</b> script:</p>
+		
+		<textarea class="code" rows="4"><head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('drag_and_drop.js');</script>
+</head></textarea>
+		
+		<p>The following global variables are used:</p>
+		
+		<ul>
+			<li>var drag_objects = [];</li>
+			<li>var active = false;</li>
+			<li>var clicked_element = '';</li>
+		</ul>
+		
+		<p><b>Note:</b> These variables are set up by drag_and_drop.js - you don't need to add them yourself.</p>
+		
+
+		
+		
+		<div class="heading">HTML</div>
+		
+		<p>Your drag things and drop zones should be in a container with <b>id="my_container"</b>:</p>
+		
+		<textarea class="code" rows="3"><div id="my_container">
+	<!-- your drag things and drop zones here -->
+</div></textarea>
+		
+		<p>In your HTML you need to define the elements (divs) that are 'drop zones' and the elements (divs) that can be dragged. You can add any CSS that you want.</p>
+		
+		<div class="sub-heading">Drop Zones</div>
+		
+		<p>Each zone must have a unique id:</p>
+		
+		<textarea class="code" rows="4"><div id="box_acute" class="box"></div>
+<div id="box_right" class="box"></div>
+<div id="box_reflex" class="box"></div>
+<div id="box_obtuse" class="box"></div></textarea>
+
+		<div class="sub-heading">Drag Things</div>
+		
+		<p>Each drag thing must have a unique id:</p>
+		
+		<textarea class="code" rows="3"><div id="angle_1" class="angle pointer"></div>			
+<div id="angle_2" class="angle pointer"></div>
+<div id="angle_3" class="angle pointer"></div></textarea>
+		
+		
+		
+		
+		<div class="heading">CSS</div>
+		
+		<p>When a drag thing is  dropped into the correct zone, the class <b>deactivated</b> will be added to it. This CSS can be anything that you like but I suggest:</p>
+		
+		<textarea class="code" rows="4">.deactivated {
+	opacity: 0.2;
+	cursor: default;
+}</textarea>
+		
+		
+		
+		<div class="heading">Defining Drag Things and their Correct Drop Zones</div>
+		
+		<p>In your <b>ini_scene()</b> function you need to call add_drop_object for each drag thing:</p>
+		
+		<div class="function_definition">add_drag_object(<i>drag_thing_id</i>, <i>correct_drop_zone_id</i>);</div>
+		
+		<p><b>Example:</b></p>
+		
+		<textarea class="code" rows="3">add_drag_object('angle_1', 'box_reflex');
+add_drag_object('angle_2', 'box_acute');
+add_drag_object('angle_3', 'box_right');</textarea>
+		
+		
+		
+		
+		<div class="heading">Events</div>
+		
+		<p><b>Note:</b> These event functions are in drag_and_drop.js. If you need custom functions then create your own with the names my_start_event, my_end_event and my_move_event.</p>
+		
+		<p>You need to set up events for <b>start</b>, <b>move</b>, and <b>end</b>. These will later be set up to be called by mouse and/or touch events.</p>
+		
+		<div class="sub-heading">start_event();</div>
+		
+		<p>This checks if you have clicked on a drag thing, and if you have, it sets active = true.</p>
+		
+		<textarea class="code" rows="14">function start_event (e)
+{
+	//get clicked on element
+	clicked_element = e.target.id;
+	var me = drag_objects[get_object_index_by_id(clicked_element)] || false;	
+	
+	//has an active_element been clicked on and is it active?
+	if (!is_drag_element(clicked_element) || !me.active) {
+		return false;
+	}
+	
+	active = true;
+
+}</textarea>
+		
+		
+		<div class="sub-heading">end_event();</div>
+		
+		<p>Checks if you have dropped the drag thing onto the correct drop zone. If you have it disables the drag thing. If you have not, it puts the drag thing back to its original position.</p>
+		
+		<textarea class="code" rows="23">function end_event (e)
+{
+		
+	var correct = dropped_on_correct_target(clicked_element);
+	var me = drag_objects[get_object_index_by_id(clicked_element)];
+	
+	if (correct) {		
+		
+		$('#' + clicked_element).addClass('deactivated');
+		me.active = false;
+		
+	} else {
+		
+		//move back to position
+		$('#' + clicked_element).css({left: me.x});
+		$('#' + clicked_element).css({top: me.y});
+		
+	}
+	
+	clicked_element = '';
+	active = false;
+	
+}</textarea>
+		
+		
+		<div class="sub-heading">move_event(e);</div>
+		
+		<p>If active = true, i.e. something is being dragged, then the drag thing is moved to the mouse / touch position.</p>
+		
+		<textarea class="code" rows="12">function move_event (e)
+{	
+
+	if (!active) return false;
+	
+	var ePageX = e.pageX || e.touches[0].pageX;
+	var ePageY = e.pageY || e.touches[0].pageY;
+
+	$('#' + clicked_element).css({ left: ePageX - $('#my_container').offset().left - ($('#' + clicked_element).width() / 2) });
+	$('#' + clicked_element).css({ top: ePageY - $('#my_container').offset().top - ($('#' + clicked_element).height() / 2) });
+			
+}</textarea>
+		
+		
+		
+		
+		
+		
+		<div class="heading">Adding Event Listeners</div>
+		
+		<p>Call the function <b>ini_drag_events();</b> in drag_and_drop.js to add the required event listeners.</p>
+		
+		
+		
+		
+		
+		<div class="heading">Example JavaScript</div>
+		
+		<p>Much of the code is already included in drag_and_drop.js. You can have a functioning drag and drop with only the code below:</p>
+		
+		<textarea class="code" rows="18">function ini_vars ()
+{
+	
+	add_drag_object('angle_1', 'box_reflex');
+	add_drag_object('angle_2', 'box_acute');
+	add_drag_object('angle_3', 'box_right');
+
+	add_drag_object('angle_4', 'box_obtuse');
+	add_drag_object('angle_5', 'box_reflex');
+	add_drag_object('angle_6', 'box_obtuse');
+	
+	add_drag_object('angle_7', 'box_acute');
+	add_drag_object('angle_8', 'box_right');
+	add_drag_object('angle_9', 'box_acute');
+	
+	ini_drag_events();	
+	
+}</textarea>
+		
+		
+		
+	<div class="heading">Drag Thing with No Drop Zone</div>
+	
+	<p>A drag thing can have no drop zone. However, you must send a drop zone id, so if you don't have a drop zone, send an empty string:</p>
+	
+	<textarea class="code" rows="1">add_drag_object('angle_1', '');</textarea>
+	
+		
+		
+	<div class="heading">Optional Arguments</div>
+	
+	<p>Some optional arguments can be sent as a third parameter:</p>
+		
+	<textarea class="code" rows="1">add_drag_object('angle_1', 'box_reflex', {} );</textarea>
+		
+	<p>The following are valid optional arguments - default values are in square brackets:</p>
+		
+	<ul>
+		<li><b>snap_x</b> (integer) [0]</li>
+		<li><b>snap_y</b> (integer) [0]</li>
+		<li><b>snap_drop_zone</b> (boolean) [false]</li>
+		<li><b>drop_zone_offset_x</b> (integer) [0]</li>
+		<li><b>drop_zone_offset_y</b> (integer) [0]</li>
+		<li><b>snap_to_origin</b> (boolean) [true]</li>
+		<li><b>script_correct</b> (string) ['']</li>
+		<li><b>script_wrong</b> (string) ['']</li>
+	</ul>
+		
+	<div class="heading">snap_x (integer)</div>
+		
+	<p>This is the x position that drag thing will snap to when it is dropped on the correct drop zone. It is equivalent to $('#drag_id').css({ left: snap_x });</p>
+	
+	<textarea class="code" rows="1">add_drag_object('drag_id', 'target_id', { snap_x: value } );</textarea>
+	
+	
+	<div class="heading">snap_y (integer)</div>
+	
+	<p>This is the y position that drag thing will snap to when it is dropped on the correct drop zone. It is equivalent to $('#drag_id').css({ top: snap_y });</p>
+	
+	<textarea class="code" rows="1">add_drag_object('drag_id', 'target_id', { snap_y: value } );</textarea>
+	
+	
+	<div class="heading">snap_drop_zone (boolean)</div>
+	
+	<p>Setting this to true will move drag thing to the same position as the correct drop zones when dropped onto the correct drop zone. It is equivalent to $('#drag_id').css({ left: $('#drop_zone_id').css('left'), $('#drop_zone_id').css('top') });</p>
+	
+	<textarea class="code" rows="1">add_drag_object('drag_id', 'target_id', { snap_drop_zone: true } );</textarea>
+	
+	
+	<div class="heading">drop_zone_offset_x (integer), drop_zone_offset_y (integer)</div>
+	
+	<p>If snap_drop_zone is set to true (see above) then these properties can be used to add an offset.</p>
+	
+	<textarea class="code" rows="1">add_drag_object('drag_id', 'target_id', { drop_zone_offset_x: value } );</textarea>
+	
+		
+	<div class="heading">snap_to_origin (boolean)</div>
+	
+	<p>This sets whether or not a drag thing snaps back to its original position when not dropped on the correct drop zone. If set to false, the drag thing will stay in the position that it is dropped in.</p>
+	
+	<textarea class="code" rows="1">add_drag_object('drag_id', 'target_id', { snap_to_origin: false } );</textarea>
+	
+	
+	<div class="heading">script_correct (string)</div>
+	
+	<p>Javascript to execute when a drag thing is dropped onto the correct drop zone.</p>
+	
+	<textarea class="code" rows="1">add_drag_object('drag_id', 'target_id', { correct_script: 'debug("dropped on correct")' } );</textarea>
+	
+	
+	<div class="heading">script_wrong (string)</div>	
+		
+	<p>Javascript to execute when a drag thing is NOT dropped onto the correct drop zone.</p>
+	
+	<textarea class="code" rows="1">add_drag_object('drag_id', 'target_id', { wrong_script: 'debug("dropped in wrong place")' } );</textarea>
+	
+	
+		
+	</div>
+	
+</body>
+
+</html>

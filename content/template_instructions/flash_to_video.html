@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Converting Flash to Video</div>
+		
+		<p>Flash CC has a new feature: <b>File > Export > Expot Video</b>. This renders a file as a swf and then captures a video from this swf. All movie clips
+		and actionscript (if you've added and AS3) run as normal.</p>
+		
+		<div class="keypoint right">Flash CC does NOT support Actionscript 2.0.</div>
+		
+		<p>Flash CC does not support Actionscript 2.0 - all of our CBTs use AS2. When we update a file to Flash CC, all of the actionscript
+		will stop functioning. For this reason, we need to copy our source files and use the copies to create our videos.</p>
+		
+		<div class="heading">Procedure to Create Videos from Flash</div>
+		
+		<p>For this example I will use the AC Electrics lesson AC-alt-sin.</p>
+		
+		<p>You'll need a folder on your local C drive to store the exported video - the exported videos are massive and would quickly fill the
+		L drive. As we don't need to keep the exported videos (we only need the encoded and optimised files) they can be deleted when you need
+		the space back. Create the folder <b>C:\raw_video</b> (or any other local location of your choice).</p>
+		
+		<div class="sub-heading">Step 1: Copy Source Files</div>
+		
+		<p>Copy the folder <b>L:\cbt_source\atpl_ac electrics\content\AC-alt-sin</b> to <b>L:\cbt_video_source\atpl_ac_electrics</b>.
+		
+		<p>You'll then need to do the following for each scene....</p>
+		
+		<div class="sub-heading">Step 2: Open AC-alt-sin-s1.fla in <b>Flash CC</b>.</div>
+		
+		<p>When you see the warning about Actionscript 3, just click OK.</p>
+		
+		<div class="sub-heading">Step 3: Delete Layers</div>
+		
+		<p>Delete the layers and folders, <b>security, actions, template, controls, BG</b>:</p>
+		
+		<img src="flash_delete_layers.png" alt="delete_layers" />
+		
+		<div class="sub-heading">Step 4: Change Textbox Colour</div>
+		
+		<p>Edit the textbox movie clip, mc_textBox, and make the textbox colour #e2e2e2.</p>
+		
+		<div class="sub-heading">Step 5: Check for White Graphics or Text</div>
+		
+		<p>In the next step we will change the background colour of the move to pure white (#ffffff). Scan through the movie and look for
+		any white graphics or text that would be invisible against a white background. You'll need to change the colour of anything that
+		would become invisible. Set any white text to black.</p>
+		
+		<div class="sub-heading">Step 6: Set Background to White and Y Size to 668px</div>
+		
+		<p>Open the movie properties (Ctrl-J) and set the background (Stage color) to pure white (#ffffff). Set the stage vertical size
+		to 668 pixels. When you confirm you should see that the movie no longer has empty space below the textbox.</p>
+		
+		<div class="sub-heading">Step 7: Set SWF Publish Location</div>
+		
+		<p>Open the Publish Settings (Ctrl + Shift + F12). Click on the browse button by 'Output file' and then click Save, and then OK.
+		(Flash should default to the same location as the fla).</p>
+		
+		<div class="sub-heading">Step 8: Export the Video</div>
+		
+		<p>Go to <b>File > Export > Export Video</b> and export with the following settings (you'll need to chnage the local to your local folder):</p>
+		
+		<img src="flash_export_settings.png" alt="export settings" />
+		
+		
+		<div class="heading">Encoding and Optimizing</div>
+		
+		<p>Flash will produce .mov files - and very large ones at that. We need .mp4 files for HTML5 video - this will cover most browsers and devices.
+		We also need to optimize our files to get file sizes down to a reasonable value.</p>
+		
+		<p>Use <b>Adobe Media Encoder CC</b> to produce .mp4 files. Drag your .mov file(s) to the 'Queue' area of Media Encoder.</p>
+		
+		<p style="font-style: italic;"><b>Note:</b> you will need to add a cae_cbt_as_video profile if you don't already have it (see next page).</p>
+		
+		<p>Choose the encoding preset to use for your videos:</p>
+		
+		<img src="encoder_choose_preset.png" alt="choose preset" />
+		
+		<p style="font-style: italic;"><b>Note:</b> If you select all of your videos you can set all presets simultaneously.</p>
+		
+		<p>When you have added all of your videos and set the preset, click 'Start' to begin encoding:</p>
+		
+		<img src="encoder_start.png" alt="start encoding" />
+		
+		
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('quiz.css');include_javascript('quiz.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Quizzes</div>
+		
+		<p>To add a quiz you need to include <b>quiz.css</b> and <b>quiz.js</b>:</p>
+		
+		<textarea class="code" rows="4"><head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('quiz.css');include_javascript('quiz.js');</script>
+</head></textarea>
+	
+		<p>Quiz questions are stored in an array; this needs to be initialized:</p>
+		
+		<textarea class="code" rows="2"><!-- ini quiz questions array -->
+<script> questions = new Array(); </script></textarea>
+		
+		<p>Questions are created as javascript objects and then added to the quiz with the function <b>add_multichoice_question(object);</b>. Here is a quick
+		refence list of question object properties - (type) [default value]</p>
+		
+		<ul>
+		<li><b>id</b> (string) [generated_id_<i>index</i>] - optional</li>
+		<li><b>questiontext</b> (string) [''] - required</li>
+		<li><b>options</b> (string array) [] - required</li>
+		<li><b>answer</b> (integer) [0] - optional</li>
+		<li><b>image</b> (string) [''] - optional</li>
+		<li><b>feedback</b> (string array) [] - optional</li>
+		</ul>
+		
+		<p>Now to explain these in more detail:</p>
+		
+		<div class="heading">id (string)</div>
+		
+		<p>The id for the question div:</p>
+		
+		<textarea class="code" rows="1"><div id="' + question.id + '" class="question"></textarea>
+		
+		<p>If you do not set an id, one will be automatically generated and assigned. You should only manually set the id if you have some other code
+		referring to the question and you need to be certain what the id is.</p>
+		
+		<div class="heading">questiontext (string)</div>
+		
+		<p>The text of the question. This can contain HTML.</p>
+		
+		<textarea class="code" rows="1"><div class="question_text">' + question.questiontext + '</div></textarea>
+		
+		<div class="heading">options (string array)</div>
+		
+		<p>This is an array of strings. Each element of the array is one possible question answer. You can have any number of question options. Example: For the question:</p>
+		
+		<p>What is 2 + 2?<ul><li>1</li><li>2</li><li>3</li><li>4</li></ul></p>
+		
+		<p>You would set the options array as:</p>
+		
+		<textarea class="code" rows="1">q.options = new Array('1', '2', '3', '4');</textarea>
+		
+		<div class="heading">answer (integer)</div>
+		
+		<p>This is the <b>index</b> in the options array of the correct answer. The default value is 0 so you do not need to set this property if the correct answer
+		is the 1st element in the options array.</p>
+		
+		<p style="font-style: italic;"><b>Note:</b> The 1st element of an array is index 0.</p>
+		
+		<p>The correct way to set the answer for the example question above is:</p>
+		
+		<textarea class="code" rows="1">q.answer = 1;</textarea>
+		
+		<div class="heading">image (string)</div>
+		
+		<p>The filename (including extension) of any image to display with the question. The file must be in the same location as the HTML file. The correct way
+		to include the image 'radar.jpg' with a question is:</p>
+		
+		<textarea class="code" rows="1">q.image = 'radar.jpg';</textarea>
+		
+		<p style="font-style: italic;"><b>Note:</b> When attaching files to questions, be careful of the image name. We have questions in the LMS like 'What does this symbol
+		mean on a map?' - the image is called 'vor.jpg' - the correct answer is VOR. The image name gives the answer away to any savy student.</p>
+		
+		<div class="heading">feedback (string array)</div>
+		
+		<p>An array of strings, each element is the feedback to display if that answer was selected.</p>
+		
+		<p style="font-style: italic;"><b>Note:</b> The feedback array must have the same number of elements as the options array.</p>
+		
+		<p>This example gives the feebback 'No, the correct answer is 4.' if the student answers '3' to our example question above. All other answers give no feedback:</p>
+		
+		<textarea class="code" rows="1">q.feedback = new Array('', '', 'No, the correct answer is 4.', '')</textarea>
+		
+		<div class="heading">Initializing a New Question Object</div>
+		
+		<p>Before you can define any properties, you need to initialize a question object:</p>
+		
+		<textarea class="code" rows="1">var q = {};</textarea>
+		
+		<div class="heading">Adding a Question to the questions Array</div>
+		
+		<p>When you have initialized your question object and defined its properties, it is added to the questions array with the function:</p>
+		
+		<textarea class="code" rows="1">add_multichoice_question(object);</textarea>
+		
+		<p>This function also assignes default values to any unassigned properties.</p>
+		
+		<div class="heading">Adding the Submit Button and Quiz Score Div</div>
+		
+		<p>After defining your questions and adding them to the questions array, you need to call 2 more javascript functions.
+		These add the submit button and a div to output the quiz score:</p>
+		
+		<textarea class="code" rows="2">add_score_div();
+add_quiz_buttons();</textarea>
+		
+		<div class="heading">Example Questions</div>
+		
+		<p><b>Example 1:</b> The bare minimum required to create a question with 2 answers:</p>
+		
+		<textarea class="code" rows="4">var q = {};
+q.questiontext = 'This statement is true.';
+q.options = new Array('True', 'False');
+add_multichoice_question(q);</textarea>
+		
+		<p><b>Example 2:</b> A question with all properties defined. The question has an image and feedback:</p>
+		
+		<textarea class="code" rows="8">var q = {};
+q.id = 'question_2';
+q.questiontext = 'What type of guitar is this a picture of?';
+q.options = new Array('Gibson Les Paul', 'Gibson Explorer', 'Fender Stratocaster' ,'ESP Eclipse');
+q.answer = 1;
+q.image = 'guitar.png';
+q.feedback = new Array('No, the Les Paul is a more taditional shape.', 'Yes. Designed in the 1950s, this is an Explorer.', 'No. Hint, it\'s a Gibson', 'No. This not an ESP.');
+add_multichoice_question(q);</textarea>
+		
+		<div class="heading">Sample Quiz</div>
+		
+		<p>Here is a sample quiz with the above example questions:</p>
+		
+		<script>
+		questions = new Array();
+		
+		var q = {};
+		q.questiontext = 'This statement is true.';
+		q.options = new Array('True', 'False');
+		add_multichoice_question(q);
+		
+		var q = {};
+		q.id = 'question_2';
+		q.questiontext = 'What type of guitar is this a picture of?';
+		q.options = new Array('Gibson Les Paul', 'Gibson Explorer', 'Fender Stratocaster' ,'ESP Eclipse');
+		q.answer = 1;
+		q.image = 'guitar.png';
+		q.feedback = new Array('No, the Les Paul is a more taditional shape.', 'Yes. Designed in the 1950s, this is an Explorer.', 'No. Hint, it\'s a Gibson', 'No. This not an ESP.');
+		add_multichoice_question(q);
+		
+		add_score_div();
+		add_quiz_buttons();
+		</script>
+		
+		
+		<p>Here is the complete code for this demo quiz:</p>
+		
+		<textarea class="code" rows="20"><script>
+questions = new Array();
+		
+var q = {};
+q.questiontext = 'This statement is true.';
+q.options = new Array('True', 'False');
+add_multichoice_question(q);
+		
+var q = {};
+q.id = 'question_2';
+q.questiontext = 'What type of guitar is this a picture of?';
+q.options = new Array('Gibson Les Paul', 'Gibson Explorer', 'Fender Stratocaster' ,'ESP Eclipse');
+q.answer = 1;
+q.image = 'guitar.png';
+q.feedback = new Array('No, the Les Paul is a more taditional shape.', 'Yes. Designed in the 1950s, this is an Explorer.', 'No. Hint, it\'s a Gibson', 'No. This not an ESP.');
+add_multichoice_question(q);
+		
+add_score_div();
+add_quiz_buttons();
+</script></textarea>
+		
+		
+		
+		
+	</div>
+	
+</body>
+
+</html>

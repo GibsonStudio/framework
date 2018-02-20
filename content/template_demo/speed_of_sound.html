@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_jquery_rotate();</script>
+	<script type="text/javascript" src="speed_of_sound.js"></script>
+	<link href="speed_of_sound.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Speed of Sound Widget</div>		
+				
+		<div id="my_container" class="clearfix">
+	
+			<canvas id="my_canvas" width="800" height="400">
+				<p style="">This widget uses the HTML5 canvas element. Please upgrade your browser.</p>
+			</canvas>
+			
+			<div id="machmeter">
+				<div id="machmeter_needle"> </div>
+			</div>
+	
+		</div>
+	
+		<div id="speed_form">
+			<b>Air Speed:</b><br/><input id="speed" type="range" value="300" min="100" max="1300" >	
+		</div>
+		
+		<br /><div class="keypoint center">Notice how the sound waves bunch up at Mach 1.</div>
+		
+		<script>start_animation();</script>
+			
+	</div>
+	
+</body>
+
+</html>

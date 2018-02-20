@@ -1,0 +1,47 @@
+
+var lesson_title = 'HTML CBT: The Future of Interactive Learning?';
+
+var my_scenes;
+
+my_scenes = [];
+my_scenes.push(['index.html', 'Introduction']);
+my_scenes.push(['simple_html.html', 'Simple HTML Content']);
+my_scenes.push(['sync_to_audio.html', 'Synced to audio']);
+my_scenes.push(['video.html', 'Full Screen Video']);
+my_scenes.push(['altimeter.html', 'Altimeter Interactivity Demo']);
+my_scenes.push(['drag_altimeter.html', 'Altimeter Interactivity Demo (Draggable)']);
+my_scenes.push(['speed_of_sound.html', 'Speed of Sound Widget']);
+my_scenes.push(['drag.html', 'Drag Labels to Diagram']);
+my_scenes.push(['drag_02.html', 'Drag to Correct Order']);
+my_scenes.push(['drag_vertical.html', 'Drag to Correct Order (Vertical)']);
+my_scenes.push(['solve_equation.html', 'Quiz Based on a Simple Equation']);
+my_scenes.push(['slider_equation.html', 'Slider: Explaining and Equation']);
+my_scenes.push(['drop_down.html', 'Drop Down: Complete the Sentence']);
+my_scenes.push(['quiz.html', 'Quiz']);
+my_scenes.push(['rt_calls.html', 'RT Calls']);
+my_scenes.push(['braking_sim.html', 'Braking Sim (HTML5 Canvas)']);
+my_scenes.push(['descent_range.html', 'Descent Range (HTML5 Canvas)']);
+my_scenes.push(['magnet.html', 'Interactive Magnet']);
+my_scenes.push(['DC-bpr-uel-s10.html', 'DC Interactivity 1']);
+my_scenes.push(['DC-bpr-com-s5.html', 'DC Interactivity 2']);
+my_scenes.push(['raphael_along_path.html', 'Raphael: Animate Along a Path']);
+my_scenes.push(['raphael_change_path.html', 'Raphael: Change Path']);
+my_scenes.push(['raphael_circle.html', 'Raphael: Animate in a Circle']);
+my_scenes.push(['raphael_square.html', 'Raphael: Animate in a Square']);
+my_scenes.push(['raphael_broken_path.html', 'Raphael: Broken Path']);
+my_scenes.push(['raphael_scope.html', 'Raphael: Oscilloscope']);
+my_scenes.push(['raphael_change_properties.html', 'Raphael: Change Properties']);
+my_scenes.push(['raphael_bendy_path.html', 'Raphael: Animate Along a Bendy Path']);
+my_scenes.push(['raphael_multiple_objects.html', 'Raphael: Multiple Objects']);
+my_scenes.push(['heart.html', 'Heart: Cardiac Output']);
+my_scenes.push(['boyles_law.html', 'Boyles Law']);
+my_scenes.push(['model_ac.html', '3D Model Aircraft']);
+my_scenes.push(['3d_compass.html', '3D Compass']);
+my_scenes.push(['bar_graph.html', 'Bar Graph']);
+my_scenes.push(['squares_quiz.html', 'Squares Quiz']);
+my_scenes.push(['memory_game.html', 'Memory Game']);
+my_scenes.push(['quadratic_curve.html', 'Quadratic Curve']);
+my_scenes.push(['sound_waves.html', 'Sound Waves']);
+my_scenes.push(['sunglasses.html', 'Sunglasses']);
+my_scenes.push(['nav_computer.html', 'Nav Computer - Front']);
+my_scenes.push(['floating_boxes.html', 'Floating Boxes (for multiple maths questions)']);

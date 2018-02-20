@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="heart.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script src="heart.js" type="text/javascript"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="content_center">
+		
+			<div class="page-title">Cardiac Output</div>	
+		
+			<p>The normal pulse rate is about 70 beats a minute.</p>
+		
+			<div id="heart">
+				<div id="heart_tense" class="hidden"></div>
+			</div>
+			
+			<table class="slider_table">
+				<tr><td colspan="3" class="small_text">Heart Rate</td></tr>
+				<tr>
+					<td><div class="pulse" id="pulse_slow"></div></td>
+					<td><input type="range" id="heart_rate_slider" oninput="update_heart()" onchange="update_heart()" min="50" max="200" /></td>
+					<td><div class="pulse" id="pulse_fast"></div></td>
+				</tr>
+			</table>
+		
+			<table class="output_table">
+			
+				<tr class="big_numbers">
+					<td>70</td>
+					<td>&#215;</td>
+					<td><span id="heart_rate_number">180</span></td>
+					<td>=</td>
+					<td><span id="flow_rate">12.6</span></td>
+				</tr>
+				
+				<tr class="small_text">
+					<td>ml per stroke</td>
+					<td></td>
+					<td>beats per minute</td>
+					<td></td>
+					<td>litres per minute</td>
+				</tr>
+				
+			</table>
+			
+		</div>
+		
+	</div>
+	
+	<script> ini_scene(); </script>
+	
+</body>
+
+</html>

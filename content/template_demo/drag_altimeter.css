@@ -1,0 +1,104 @@
+/* **** altimeter **** */
+
+#altimeter {
+	width: 300px;
+	height: 300px;
+	margin: auto;
+	position: absolute;
+	left: 300px;
+	top: 100px;
+	overflow: hidden;
+	border: 1px solid #f2f2f2;
+	background: #ffffff;
+}
+
+
+
+#face {
+	width: 300px;
+	height: 300px;
+	background: url(altimeter\\face.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+#subscale {
+	width: 300px;
+	height: 300px;
+	background: url(altimeter\\subscale.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+#needle_10000 {
+	width: 300px;
+	height: 300px;
+	background: url(altimeter\\needle_10000.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+#needle_1000 {
+	width: 300px;
+	height: 300px;
+	background: url(altimeter\\needle_1000.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+#needle_100 {
+	width: 300px;
+	height: 300px;
+	background: url(altimeter\\needle_100.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+#subscale_knob {
+	width: 44px;
+	height: 44px;
+	background: url(altimeter\\subscale_knob.png);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+
+
+
+
+
+
+
+/* **** controls **** */
+
+#sliders {
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	background: #f2f2f2;
+	padding: 2px;
+	width: 400px;
+	position: absolute;
+	left: 250px;
+	top: 440px;
+}
+
+
+#sliders input {
+	width: 94%;
+}
+
+.param_value {
+	padding: 6px;
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_raphael();</script>
+	<script src="raphael_multiple_objects.js" type="text/javascript"></script>
+	
+	<style>
+	#runway {
+		width: 800px;
+		height: 300px;
+		background: url(runway.png);
+		border: 1px solid #333333;
+		margin: 20px;
+		position: relative;
+	}
+
+
+	#animation_1 {
+		width: 800px;
+		height: 300px;
+		position: absolute;
+		z-index: 4;
+	}
+
+
+	#animation_2 {
+		width: 800px;
+		height: 300px;
+		position: absolute;
+		z-index: 2;
+	}
+
+
+	#animation_3 {
+		width: 800px;
+		height: 300px;
+		position: absolute;
+		z-index: 3;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="heading">Raphael: Multiple Objects</div><br />
+		
+		<button class="button" onclick="start_all();">Start All</button>
+		<button class="button" onclick="pause_all();">Pause All</button>
+
+		<h3>Animation 1: Good Take Off</h3>
+		<button class="button" onclick="anim_1.start();">Start Anim 1</button>
+		<button class="button" onclick="anim_1.pause();">Pause Anim 1</button>
+		<button class="button" onclick="anim_1.reset();">Reset Anim 1</button>
+
+		<h3>Animation 2: Rotate Late</h3>
+		<button class="button" onclick="anim_2.start();">Start Anim 2</button>
+		<button class="button" onclick="anim_2.pause();">Pause Anim 2</button>
+		<button class="button" onclick="anim_2.reset();">Reset Anim 2</button>
+
+		<h3>Animation 3: Rotate Early</h3>
+		<button class="button" onclick="anim_3.start();">Start Anim 3</button>
+		<button class="button" onclick="anim_3.pause();">Pause Anim 3</button>
+		<button class="button" onclick="anim_3.reset();">Reset Anim 3</button>
+
+		<div id="runway">
+
+			<div id="animation_1"></div>
+			<div id="animation_2"></div>
+			<div id="animation_3"></div>
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+	
+	<script> ini_animation(); </script>
+	
+</body>
+
+</html>

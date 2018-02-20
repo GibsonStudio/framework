@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="magnet.js"></script>
+	<script>write_head();include_javascript('jQueryRotate.2.2.js');</script>
+	
+	<style>
+	#container {
+		width: 460px;
+		height: 290px;
+		border: 1px solid #666666;
+		margin: auto;
+		position: relative;
+	}
+	.magnet_element {
+		width: 460px;
+		height: 290px;
+		position: absolute;
+	}
+	#magnet {		
+		background: url(magnet\\magnet.png);
+	}
+	#coil_back {
+		background: url(magnet\\coil_back.png);
+	}
+	#coil_front {
+		background: url(magnet\\coil_front.png);
+	}
+	#arrows {
+	}
+	.arrow {
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		background: url(magnet\\arrow.png);
+	}
+	#power_status {
+		width: 60px;
+		margin: auto;
+		margin-top: 20px;
+		border: 2px solid #666666;
+		background: #e2e2e2;
+		font-weight: bold;
+		padding: 10px;
+	}
+	.power_on {
+		background: #3fa535 !important;
+	}
+	</style>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+		
+	<div id="content">
+	
+		<div class="page-title">Interactive Magnet</div>
+		
+		<div id="container">
+			<div id="coil_back" class="magnet_element"></div>
+			<div id="magnet" class="magnet_element"></div>
+			
+			<div id="arrows" class="magnet_element">
+				<script>add_arrows();</script>
+			</div>
+			
+			<div id="coil_front" class="magnet_element"></div>
+		</div>
+		
+		<div class="content_center" style="margin-top: 20px;">
+			<button class="button" onclick="button_click();">Toggle Power</button>
+			<div id="power_status">OFF</div>
+		</div>
+		
+	</div>
+	
+	<script>run_animation();</script>
+	
+</body>
+
+</html>

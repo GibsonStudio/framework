@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="memory_game.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_interactive();</script>	
+	<script src="memory_game.js" type="text/javascript"></script>
+</head>
+
+<body class="noselect" onLoad="scene_loaded();ini_game();">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Memory Game</div>
+
+		
+		
+		<div id="my_container">
+		
+			<div id="score_container">
+				<div id="new_button"><button class="button" onclick="ini_game()">New Game</button></div>
+				<div id="score"></div>
+			</div>
+		
+			<div id="tile_container"></div>
+			
+		</div>
+
+	
+	</div> <!-- #content -->
+	
+	
+	
+</body>
+
+</html>

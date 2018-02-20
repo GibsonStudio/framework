@@ -1,0 +1,93 @@
+
+
+#my_audio {
+	margin-bottom: 40px;
+}
+
+
+#rt_calls {
+	max-width: 800px;
+	margin: auto;
+}
+
+
+.rt_call {
+	border: 1px solid #cccccc;
+	position: relative;
+	margin-bottom: 20px;
+	background: #e2e2e2;
+	cursor: pointer;
+	min-height: 84px;
+}
+
+
+.rt_call_number {
+	border: 2px solid #cccccc;
+	background: #ffffff;
+	font-size: 12px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 2px;
+	min-width: 10px;
+	text-align: center;
+	color: #999999;
+	z-index: 9999;
+}
+
+.rt_call_icon {
+	border: 2px solid #cccccc;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	height: 80px;
+	position: absolute;
+}
+
+.rt_call_icon_right {
+	/* text-align: right;	*/
+	right: 0;
+}
+
+.rt_call_text {
+	padding: 10px;
+	/* position: absolute;
+	left: 0;
+	top: 0; */
+	width: 100%;
+	box-sizing: border-box;
+	font-weight: bold;
+}
+
+
+.rt_call_text_hilite {
+	color: #e40f18;
+}
+
+.rt_call_text_plane {
+	color: #3e4899;
+}
+
+
+.rt_call_text_tower {
+	color: #3fa535;
+}
+
+
+.rt_call_text_ground {
+	color: #791614;
+}
+
+
+.rt_call_text_left {
+	padding-left: 180px;
+}
+
+
+.rt_call_text_right {
+	padding-right: 180px;
+	margin-left: 10px;
+	text-align: right;
+}

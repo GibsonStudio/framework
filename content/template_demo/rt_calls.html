@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('rt_calls.css');include_javascript('rt_calls.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();write_debug();</script>
+	
+	<!-- ini rt calls array -->
+	<script>
+	var rt_calls = new Array();
+	</script>
+	
+	<div id="content">
+	
+		<div class="page-title">RT Calls</div>		
+		
+		<div id="rt_calls">
+		
+			<!-- add rt calls -->
+			<script type="text/javascript">
+		
+			//call 1
+			var rt = {};
+			rt.type = 'plane'; //optional (plane, tower) - default is 'plane'
+			rt.id = 'rt_p1';
+			rt.audio = 'rt_p1'; //optional - default is (rt.id).mp3
+			rt.text = 'Walden Tower, G-ABCD';
+			rt.position = 'left'; //optional (left, right) - default is left.
+			rt.image = 'rt_plane_icon.png'; //optional - default rt_(rt.type)_icon.png
+			rt.onplay = 'debug("1 started")'; //optional - javascript to run when audio starts
+			rt.onended = 'debug("1 ended")'; //optional - javascript to run when audio ends
+			add_rt_call(rt);
+			
+			//call 2
+			var rt = {};
+			rt.type = 'tower';
+			rt.id = 'rt_t1';
+			rt.text = 'G-ABCD, Walden Tower';
+			rt.position = 'right';
+			rt.onended = 'alert("FIN")';
+			add_rt_call(rt);
+			
+			//call 3
+			var rt = {};
+			rt.id = 'rt_p2';
+			rt.text = 'G-ABCD, request joining instructions';
+			add_rt_call(rt);
+			
+			//call 4
+			var rt = {};
+			rt.type = 'tower';
+			rt.id = 'rt_t2';
+			rt.text = 'G-CD, join runway 20, left hand, QNH 1003, call when downwind';
+			rt.position = 'right';
+			add_rt_call(rt);
+			
+			//call 5
+			var rt = {};
+			rt.id = 'rt_p3';
+			rt.text = 'Runway 20, QNH 1003, WILCO, G-CD';
+			rt.onplay = 'debug("5 started");';
+			rt.onended = 'debug("5 ended")';
+			add_rt_call(rt);
+			
+			</script>
+
+		</div>
+				
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<link href="3d_di.css" type="text/css" rel="stylesheet" />
+	<script>write_head();include_threejs();</script>
+	<script type="text/javascript" src="3d_di.js"></script>
+</head>
+
+<body onLoad="scene_loaded();init();" class="noselect">
+
+	<script>write_header();write_nav();write_debug();</script>
+
+	<div id="content">
+
+		<div class="page-title">3D Directional Indicator</div>
+
+		<div id="my_container">
+
+			<div id="di"></div>
+
+			<div id="sliders">
+				<div id="direction"><b>Direction:</b> 0&deg;</div>
+				<input id="dir_slider" class="slider" type="range" min="-360" max="360" value="0" oninput="update_model();" onchange="update_model();" />
+				<div id="offset"><b>Offset:</b> 0&deg;</div>
+				<input id="offset_slider" class="slider" type="range" min="-40" max="40" value="0" oninput="update_model();" onchange="update_model();" />
+			</div>
+
+		</div> <!-- #my_container -->
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

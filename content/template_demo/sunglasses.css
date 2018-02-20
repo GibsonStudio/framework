@@ -1,0 +1,37 @@
+
+
+#my_container {
+	width: 640px;
+	height: 480px;
+	border: 1px solid #3e4899;
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+}
+
+
+#with_glasses {
+	width: 640px;
+	height: 480px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: #none;
+	pointer-events: none;
+}
+
+
+#without_glasses {
+	width: 640px;
+	height: 480px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: url(sunglasses/without_glasses.png);
+	pointer-events: none;
+}
+
+
+#mask1 {
+	pointer-events: none;
+]

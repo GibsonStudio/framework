@@ -1,0 +1,37 @@
+
+
+#my_container {
+	width: 800px;
+	height: 600px;
+	border: 1px solid #3e4899;
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+}
+
+
+.wave {
+	cursor: pointer;
+}
+
+
+#wave_1 {
+	width: 528px;
+	height: 146px;
+	background: url(sound_waves/sine_wave_1.png);
+	position: absolute;
+	left: 100px;
+	top: 50px;
+}
+
+
+#wave_2 {
+	width: 528px;
+	height: 146px;
+	background: url(sound_waves/sine_wave_2.png);
+	position: absolute;
+	left: 100px;
+	top: 250px;
+}
+
+

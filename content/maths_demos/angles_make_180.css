@@ -1,0 +1,91 @@
+
+
+#my_container {
+	width: 900px;
+	height: 500px;
+	margin: auto;
+	position: relative;
+}
+
+
+
+#triangle {
+	width: 489px;
+	height: 379px;
+	background: url(angles_make_180/triangle.png);
+	position: absolute;
+	left: 50px;
+	top: 100px;
+}
+
+
+#triangle_text {
+	width: 260px;
+	padding: 10px;
+	position: absolute;
+	top: 200px;
+	left: 90px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+#angle_A {
+	width: 72px;
+	height: 67px;
+	background: url(angles_make_180/angle_A.png);
+	position: absolute;
+	left: 190px;
+	top: 56px;
+}
+
+
+#angle_B {
+	width: 87px;
+	height: 72px;
+	background: url(angles_make_180/angle_B.png);
+	position: absolute;
+	left: 20px;
+	top: 407px;
+}
+
+
+#angle_C {
+	width: 110px;
+	height: 71px;
+	background: url(angles_make_180/angle_C.png);
+	position: absolute;
+	left: 490px;
+	top: 407px;
+}
+
+
+
+#dropbox {
+	width: 300px;
+	height: 120px;
+	border: 1px solid #f2f2f2;
+	border-bottom: 2px solid #000000;
+	position: absolute;
+	top: 50px;
+	right: 50px;
+}
+
+
+.my_button {
+	width: 120px;
+	font-size: 20px;
+	padding: 10px;
+	background: #f2f2f2;
+	color: #999999;
+	display: inline-block;
+	margin: 6px;
+	text-align: center;
+	cursor: pointer;
+}
+
+
+.active {
+	background: #e3efda !important;
+	color: #333333;
+}

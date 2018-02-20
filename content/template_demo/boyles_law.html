@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="boyles_law.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>		
+	<script>write_head();include_jquery_rotate();</script>
+	<script src="boyles_law.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+		
+	<div id="content">
+	
+		<div class="page-title">Boyles Law</div>
+		
+		<div id="my_container">
+			<div id="plunger"></div>
+			<div id="alpha"></div>
+			<div id="needle"></div>
+		</div>	
+				
+		<div id="equation">
+			<table id="equation_table">
+				<tr>
+					<td class="symbol">Pressure (P)</td>
+					<td class="operator">&#215;</td>
+					<td class="symbol">Volume (V)</td>
+					<td class="operator">=</td>
+					<td class="symbol">Constant (K)</td>
+				<tr>
+				<tr>
+					<td class="equation_value" id="pressure">PP</td>
+					<td></td>
+					<td class="equation_value" id="volume">VV</td>
+					<td></td>
+					<td class="equation_value">20</td>
+				<tr>
+			</table>
+		</div>
+				
+	</div>
+	
+	<script> ini_scene(); </script>
+	
+</body>
+
+</html>

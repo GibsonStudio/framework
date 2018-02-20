@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="angles_drag_to_boxes.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script src="angles_drag_to_boxes.js" type="text/javascript"></script>
+	<script>write_head();include_javascript('drag_and_drop.js');</script>
+	
+	<script>
+
+</script>
+
+
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Drag Angles to Boxes</div>
+		
+		
+		
+		<div id="my_container">
+		
+			<div id="box_acute" class="box"></div>
+			<div id="box_right" class="box"></div>
+			<div id="box_reflex" class="box"></div>
+			<div id="box_obtuse" class="box"></div>
+		
+			<div id="angle_1" class="angle pointer"></div>			
+			<div id="angle_2" class="angle pointer"></div>
+			<div id="angle_3" class="angle pointer"></div>
+
+			<div id="angle_4" class="angle pointer"></div>
+			<div id="angle_5" class="angle pointer"></div>
+			<div id="angle_6" class="angle pointer"></div>
+			
+			<div id="angle_7" class="angle pointer"></div>
+			<div id="angle_8" class="angle pointer"></div>
+			<div id="angle_9" class="angle pointer"></div>
+
+			
+			<div id="definitions">
+			
+				<div class="heading">Definitions</div>
+			
+				<p>An ACUTE ANGLE is less than 90&deg;</p>
+				
+				<p>A RIGHT ANGLE is 90&deg;</p>
+				
+				<p>An OBTUSE ANGLE is between 90&deg; and 180&deg;</p>
+				
+				<p>A REFLEX ANGLE is between 180&deg; and 360&deg;</p>
+		
+		</div>
+	
+	</div>
+	
+	<div class="content_center" style="padding-top: 20px;"><button onclick="toggle_definitions()" class="button">Definitions</button></div>
+	
+	<script>ini_vars();</script>
+	
+</body>
+
+</html>

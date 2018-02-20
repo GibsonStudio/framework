@@ -1,0 +1,141 @@
+#container {
+	position: relative;
+	width: 700px;
+	height: 380px;
+	border: 1px solid #666666;
+	margin: auto;
+}
+
+
+#my_canvas {
+	width: 700px;
+	height: 380px;
+	position: absolute;
+}
+
+
+.instrument_container {
+	position: absolute;
+	top: 4px;
+	height: 116px;
+	width: 100px;
+}
+
+
+.instrument_name {
+	font-weight: bold;	
+	position: absolute;
+	text-align: center;
+	font-size: 12px;
+	width: 100px;
+}
+
+.instrument {
+	position: absolute;
+	top: 16px;
+	width: 100px;
+	height: 100px;
+	background: url(braking_sim\\instrument.png);
+}
+
+
+.needle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100px;
+	height: 100px;
+	background: url(braking_sim\\needle.png);
+}
+
+
+#speed_readout {
+	font-size: 10px;
+	font-weight: bold;
+	padding: 1px;
+	background: #ffffff;
+	border: 1px solid #666666;
+	text-align: center;
+	width: 36px;
+	position: absolute;
+	left: 30px;
+	bottom: 10px;
+}
+
+
+#distance_travelled_container {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+
+#distance_travelled_text {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+#distance_travelled {
+	border: 1px solid #333333;
+	background: #ffffff;
+	padding: 2px;
+	font-size: 12px;
+	font-weight: bold;
+	width: 100px;
+	text-align: center;
+}
+
+
+.my_container {
+	width: 700px;
+	border: 1px solid #666666;
+	margin: auto;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+
+
+.runway_condition {
+	font-weight: bold;
+	padding-left: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

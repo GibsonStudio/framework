@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas.js');include_javascript('graph_class.js');</script>
+	<script type="text/javascript" src="graphs_canvas.js"></script>
+	<link href="graphs_canvas.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Graphs - Using HTML5 Canvas</div>
+
+		<p>I have created a canvas library and a Graph class to help with displaying graphs. These are included with:</p>
+
+		<textarea class="code" rows="1"><script>write_head();include_javascript('canvas.js');include_javascript('graph_class.js');</script></textarea>
+
+		<p>The Graph class has a built in <b>draw_sin()</b> method that produces a sine wave. This method is included to check that your canvs / graph drawing is set up properly, and to show you the code required (for loop) to draw a graph.</p>
+
+
+
+		<div class="heading">Canvas Set Up</div>
+
+		<p>The Graph class will draw to the canvas with <b>id="my_canvas"</b> by default. Add a canvas to your html - you should include width and height:</p>
+
+		<textarea class="code" rows="1"><canvas id="my_canvas" width="800" height="300"></canvas></textarea>
+
+
+
+
+
+		<div class="heading">Graph Class</div>
+
+		<p>Create a new instance of the Graph class with:</p>
+
+		<textarea class="code" rows="1">g = new Graph();</textarea>
+
+		<p>This will create a instance with default value, but you will need to specify the size of your canvas and the limits of your axis - amongst other things. The following argument can be set: (type) [default]</p>
+
+		<ul>
+			<li><b>canvas_id</b> (string) ['my_canvas'] - Id of canvas element to draw graph to.</li>
+			<li><b>color</b> (string) ['#3e4899'] - colour of the graph line.</li>
+			<li><b>axis_color</b> (string) ['#c2c2c2'] - colour of the graph axis.</li>
+			<li><b>x_pix_min</b> (interger) [0] - the position on the canvas that the x axis starts (normally would be 0).</li>
+			<li><b>x_pix_max</b> (integer) [500] - the position on the canvas that the x axis ends (normally the width of the canvas).</li>
+			<li><b>y_pix_min</b> (interger) [500] - the position on the canvas that the y axis starts (normally the height of the canvas).</li>
+			<li><b>y_pix_max</b> (integer) [0] - the position on the canvas that the y axis ends (normally 0).</li>
+			<li><b>graduation_line_length</b> (integer) [10] - pixel length of graduation lines.</li>
+			<li><b>graduation_font_size</b> (integer) [10] - font size for graduation numbers.</li>
+		</ul>
+
+		<p style="font-style: italic;"><b>Note:</b> y_pix_min and y_pix_max appear to back to front! This is deliberate and accounts for the canvas coordinates starting at the top left.</b></p>
+
+		<p>The following arguments exists for both x and y axis (only x are shown):</p>
+
+		<ul>
+			<li><b>x_step</b> (number) [0] - distance between graduations, leave at 0 for none.</li>
+			<li><b>x_fixed</b> (number) ['default'] - if axis numbers are shown, this adjusts the decimals.</li>
+			<li><b>x_min</b> (number) [0] - the minimum value on the x axis.</li>
+			<li><b>x_max</b> (number) [100] - the maximum value on the x axis.</li>
+			<li><b>x_show_numbers</b> (boolean) [false] - show numbers by axis graduations?</li>
+		</ul>
+
+		<p><b>Example:</b> If your canvas was 600px x 380px and you wanted to plot a sine wave from -360&deg; to +360&deg, you would use:</p>
+
+		<textarea class="code" rows="9">g = new Graph({
+    x_pix_max: 600,
+    y_pix_min: 380,
+    x_min: -360,
+    x_max: 360,
+    y_min: -1,
+    y_max: 1
+});
+g.draw_axis();</textarea>
+
+		<p>This produces:</p>
+
+		<canvas id="example_1" width="600" height="380"></canvas>
+
+
+
+
+		<div class="heading">Adding Axis and Axis Numbers</div>
+
+		<p>In the example above you can already see that the Graph class has a methos <b>draw_axis()</b>. This draws the axis in the canvas according to the values given to the class instance. We can add lines very easily. Let's suppose we want lines on the x axis every 90&deg; and lines on the y axis every 0.2. We also want to x axis lines to be numbered:</p>
+
+		<textarea class="code" rows="13">g = new Graph({
+    canvas_id: 'example_2',
+    x_pix_max: 600,
+    y_pix_min: 380,
+    x_min: -360,
+    x_max: 360,
+    y_min: -1,
+    y_max: 1,
+    x_step: 90,
+    y_step: 0.2,
+    x_show_numbers: true
+});
+g.draw_axis();</textarea>
+
+
+		<canvas id="example_2" width="600" height="380"></canvas>
+
+
+
+
+
+		<div class="heading">Adding the Demo Sine Graph</div>
+
+		<p>Now we have our axis set up we can call the <b>draw_sin()</b> method to see the sine graph:</p>
+
+		<p style="font-style: italic"><b>Note:</b> You can override the default colour by including a strokeStyle argument.</p>
+
+		<textarea class="code" rows="1">g.draw_sin({ strokeStyle: '#df0000' });</textarea>
+
+		<canvas id="example_3" width="600" height="380"></canvas>
+
+
+
+
+
+
+
+		<div class="heading">Drawing Custom Graphs</div>
+
+		<p>Lets assume that we want to show the graph for y = x<sup>2</sup>, first we set up our canvas, graph object and axis:</p>
+
+		<textarea class="code" rows="13">var ex4 = new Graph({
+	canvas_id: 'example_4',
+	x_pix_max: 400,
+	y_pix_min: 400,
+	x_min: -10,
+	x_max: 10,
+	y_min: -10,
+	y_max: 100,
+	x_step: 1,
+	y_step: 10,
+	x_show_numbers: true,
+	y_show_numbers: true
+});</textarea>
+
+		<canvas id="example_4" width="400" height="400"></canvas>
+
+		<p>The following code will draw the graph:</p>
+
+		<textarea class="code" rows="9">var prev_x = 0;
+var prev_y = 0;
+for (var i = ex5.x_min; i <= ex5.x_max; i += 0.1) {
+  var x = i;
+  var y = x * x;
+  if (i > ex5.x_min) { draw_line(ex5.get_x(prev_x), ex5.get_y(prev_y), ex5.get_x(i), ex5.get_y(y), { canvas_id:ex5.canvas_id, strokeStyle: '#df0000' }); }
+  prev_x = i;
+  prev_y = y;
+}</textarea>
+
+		<canvas id="example_5" width="400" height="400"></canvas>
+
+		<p style="font-style: italic;"><b>Note:</b> The loop increment (i += 0.1) sets how smooth the graph is drawn, i.e. it sets how close together the individual points on the curve are.</p>
+
+
+
+
+
+
+
+		<div class="heading">Drawing a Line</div>
+
+		<p>The Graph class has a method to draw lines: <b>g.draw_line(x1, y1, x2, y2, args)</b> - args is optional and can contain:</p>
+
+		<ul>
+			<li><b>strokeStyle</b> (string) [this.color]</li>
+			<li><b>lineWidth</b> (integer) [1]</li>
+		</ul>
+
+		<p>The coordinates, x1 and y1 are the start point of the line. x2 and y2 are the end point. The coordinates are in graph units - NOT PIXELS ON THE CANVAS!</p>
+
+		<p><b>Example:</b> Using our graph axis from above, we want to draw a green, 3 pixel thick line from -5,2 to 9, 80:</p>
+
+		<textarea class="code" rows="1">ex6.draw_line(-5, 2, 9, 80, { lineWidth:3, strokeStyle: '#116d31' });</textarea>
+
+		<canvas id="example_6" width="400" height="400"></canvas>
+
+
+
+
+
+
+
+		<div class="heading">Other Class Methods</div>
+
+		<p style="font-style: italic;">I'll only list the x methods, you can assume that y methods also exist.</p>
+
+		<p><b>get_x(x);</b> Takes a graph value and returns the canvas x position of that value.</p>
+
+		<p><b>x_to_pixels(x);</b> Takes a graph range and returns how many pixels cover that range.</p>
+
+		<p><b>pixels_to_x(pix);</b> Takes a pixel range and returns the equivalent graph axis range.</b></p>
+
+		<p><b>get_ox();</b> Returns the canvas x position of the y axis origin, i.e. where x = 0.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

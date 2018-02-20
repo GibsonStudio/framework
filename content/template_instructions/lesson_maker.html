@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Lesson Maker</div>
+		
+		<p>I have created a 'Lesson Maker' which can generate ini_lesson.js and the required html files to display video. 'Lesson Maker' reads
+		from an existing lesson .xml file, e.g. AC-int-pow.xml.</p>
+		
+		<p>'Lesson Maker' is only intended for lessons that previously existed as Flash and have been converted to video.</p>
+		
+		<div class="heading">Installing Lesson Maker</div>
+		
+		<p>Lesson Maker is built using PHP (javascript does not have permission to create files). For this reason you will need to run Lesson Maker from a local
+		webserver (e.g. WAMP or XAMPP).</p>
+		
+		<ol>
+			<li>Copy the files from <b>L:\cbt_video_source\lesson_maker</b> to a folder on your local web server, e.g. C:\wamp\www\lesson_maker</li>
+			<li>Make sure you have a folder <b>output</b> in your local web site folder.</li>
+			<li>Go to <a href="http://localhost/lesson_maker/">http://localhost/lesson_maker/</a> to run.</li>
+		</ol>
+		
+		<div class="heading">Using Lesson Maker</div>
+		
+		<p>For this example we are going to make files for the lesson AC-alt-gen:</p>
+		
+		<ol>
+			<li>Open the file <b>L:\cbt_published\atpl_ac electrics\content\AC-alt-gen.xml</b> in Notepadd++ (or your text editor of choice).</li>
+			<li>Copy the contents of AC-alt-gen.xml and paste into the <b>Input (XML)</b> filed of Lesson Maker.</li>
+			<li>Click <b>Create lesson Files</b>.</li>
+			<li>Check the <b>Output</b> field for any errors.</li>
+		</ol>
+		
+		<p>You'll now find a new folder <b>AC-alt-gen</b> in <b>C:\wamp\www\lesson_maker\output\</b>. This folder will contain the files:</p>
+		
+		<ul>
+			<li>ini_lesson.js</li>
+			<li>index.html</li>
+			<li>AC-alt-gen-s2.html</li>
+			<li>AC-alt-gen-s3.html</li>
+			<li>AC-alt-gen-s4.html</li>
+			<li>AC-alt-gen-s5.html</li>
+			<li>AC-alt-gen-s6.html</li>
+			<li>AC-alt-gen-s7.html</li>
+			<li>AC-alt-gen-s8.html</li>
+			<li>AC-alt-gen-s9.html</li>
+			<li>AC-alt-gen-s10.html</li>
+			<li>AC-alt-gen-s11.html</li>
+		</ul>
+		
+		<p style="font-style: italic;"><b>Note</b>: AC-alt-gen-s1.html does not exist - it is called index.html as it is the default
+		file for this lesson.</p>
+		
+		<p>These files, along with the videos you created from Flash, are all that is needed to produce a new HTML5 video lesson.</p>		
+		
+		<div class="heading">Where to put these Files?</div>
+		
+		<p>Copy (or Move) the folder <b>AC-alt-gen</b> from your output folder to <b>L:\cbt_video_published\content</b>. Add your video
+		files to <b>L:\cbt_video_published\content</b>. That's it; lesson created.</p>
+		
+		
+		
+	</div>
+	
+</body>
+
+</html>

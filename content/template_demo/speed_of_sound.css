@@ -1,0 +1,47 @@
+#my_container {
+	border: 1px solid #333333;
+	margin: auto;
+	width: 800px;
+	height: 400px;
+	position: relative;
+}
+
+#my_canvas {
+	
+}
+
+
+#machmeter {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+	background: url(machmeter.png);
+	background-repeat: no-repeat;
+}
+
+
+#machmeter_needle {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: url(machmeter_needle.png);
+	background-repeat: no-repeat;
+}
+
+
+#speed_form {
+	width: 780px;
+	background: #e2e2e2;
+	border: 1px solid #333333;
+	margin: auto;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+#speed {
+	width: 740px;
+}

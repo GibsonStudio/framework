@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('jQueryRotate.2.2.js');</script>
+	<script type="text/javascript" src="altimeter.js"></script>
+	<link href="altimeter.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Altimeter Model</div>
+
+		<div id="altimeter">
+			<div id="needle_100"> </div>
+			<div id="needle_1000"> </div>
+			<div id="needle_10000"> </div>
+			<div id="face"> </div>
+			<div id="subscale"> </div>
+			<div id="subscale_knob"> </div>
+			<div class="surround"></div>
+		</div>
+
+
+		<div id="sliders">
+			<form name="sliders">
+				<div id="altitude_value" class="param_value">Altitude: </div>
+				<input type="range" name="altitude" value="2000" min="-400" max="10000" oninput="altitude_slider(this.value);" onchange="altitude_slider(this.value);" /><br/>
+				<div id="pressure_value" class="param_value">Pressure: </div>
+				<input type="range" name="pressure" value="1013" min="950" max="1050" oninput="pressure_slider(this.value);" onchange="pressure_slider(this.value);" /><br/>
+				<div id="subscale_value" class="param_value">Subscale: </div>
+				<input type="range" name="subscale" value="1000" min="950" max="1050" step="0.1" oninput="subscale_slider(this.value);" onchange="subscale_slider(this.value);" /><br/>
+			</form>
+		</div>
+
+		<p>The altimeter model is initialized by the variable:</p>
+
+		<div class="code">var altimeter = {};<br />altimeter.altitude = <i>altitude</i>;<br />altimeter.pressure = <i>pressure</i>;<br />altitmeter.subscale = <i>subscale</i>;</div>
+
+		<p>The altimeter variable should have 3 properties:</p>
+
+		<ul>
+			<li><b>.altitude:</b> (float); This is the actual physical altitude of the instrument, <b>NOT</b> the altitude to be displayed.</li>
+			<li><b>.pressure:</b> (float); The atmospheric air pressure.</li>
+			<li><b>.subscale:</b> (float) 950 - 1050; The setting on the subscale.</li>
+		</ul>
+
+		<p>The above code will initialize the altimeter model but it does not update the graphics on sceen. Graphics can be updated with the function:</p>
+
+		<div class="code">draw_altimeter();</div>
+
+		<p>The function <b>draw_altimeter();</b> will use the above 3 values and calculate the indicated alitude - this is the value displayed on the instrument.</p>
+
+		<p><b>Note:</b> If you just want a simple model to display an altitude, set altitude.pressure and altitude.subscale to the same value (1000). You can then
+		set altimeter.altitude to any required value and the function draw_altimeter() will display that altitude.</p>
+
+	</div>
+
+</body>
+
+</html>

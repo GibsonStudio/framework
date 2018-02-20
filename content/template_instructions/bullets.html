@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="events.js"></script>
+	<script>write_head();</script>
+
+	<style>
+	.function_definition {
+		margin-left: 80px;
+		padding: 10px;
+		background: #e2e2e2;
+		max-width: 500px;
+		color: #3e4899;
+	}
+	</style>
+
+</head>
+
+<body onLoad="scene_loaded();ini_events();">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Bullet Lists</div>
+
+		<p>Click to reveal bullet lists can be added by defining and array and then calling the function <b>add_bullets(<i>array</i>)</b>.</p>
+
+		<textarea class="code" rows="2">var b = [];
+add_bullets(b);</textarea>
+
+		<p>Each list item is added by pushing a string into the array:</p>
+
+		<textarea class="code" rows="1">b.push(<i>string</i>);</textarea>
+
+		<div class="sub-heading">Example Code</div>
+
+		<textarea class="code" rows="9"><script>
+var b = [];
+b.push('Adding bullet lists is easy.');
+b.push('Set up and array.');
+b.push('Push string values into the array.');
+b.push('Call the functions <b>add_bullets(b);</b>');
+b.push('The text instruction (Click each bullet point to reveal) is automatically added.');
+add_bullets(b);
+</script></textarea>
+
+		<p>This code produces....</p>
+
+		<script>
+			var b = [];
+			b.push('Adding bullet lists is easy.');
+			b.push('Set up and array.');
+			b.push('Push string values into the array.');
+			b.push('Call the functions <b>add_bullets(b);</b>');
+			b.push('The text instruction (Click each bullet point to reveal) is automatically added.');
+			add_bullets(b);
+		</script>
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

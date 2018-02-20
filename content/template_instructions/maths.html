@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('math.css');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Equations / Maths CSS</div>
+
+		<p>Equations can be displayed by surrounding your characters with tags and including <b>math.css</b>:</p>
+
+		<textarea class="code" rows="4"><head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('math.css');</script>
+</head></textarea>
+
+		<div class="heading">Tags</div>
+
+		<p><b>&lt;math&gt;&lt;/math&gt;</b>: Container for an equation.</p>
+
+		<p><b>&lt;mo&gt;&lt;/mo&gt;</b>: Operator, = or &#8800;</p>
+
+		<p><b>&lt;mi&gt;&lt;/mi&gt;</b>: Symbol, <i>x</i>, <i>y</i> etc...</p>
+
+
+
+
+		<div class="heading">Fractions</div>
+
+		<p>Fractions are defined with the <b>&lt;mfrac&gt;</b> tag and must have a numerator <b>&lt;mn&gt;</b> and a denominator <b>&lt;md&gt;</b>.</p>
+
+		<textarea class="code" rows="4"><mfrac>
+    <mn></mn>
+    <md></md>
+</mfrac></textarea>
+
+		<p><b>Example:</b> The following code produces:</p>
+
+		<textarea class="code" rows="8"><math>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mfrac>
+        <mn>2</mn>
+        <md>3</md>
+    </mfrac>
+</math></textarea>
+
+			<math>
+				<mi>x</mi>
+				<mo>=</mo>
+				<mfrac>
+						<mn>2</mn>
+						<md>3</md>
+				</mfrac>
+			</math>
+
+
+			<div class="heading">Powers</div>
+
+			<p>Powers are added using the <b>&lt;pow&gt;</b> tag:</p>
+
+			<textarea class="code" rows="7"><math>
+    <mi>a</mi><pow>2</pow>
+    <mo>=</mo>
+    <mi>b</mi><pow>3</pow>
+    <mo>+</mo>
+    <mi>c</mi><pow>4</pow>
+</math></textarea>
+
+			<math>
+				<mi>a</mi><pow>2</pow>
+				<mo>=</mo>
+				<mi>b</mi><pow>3</pow>
+				<mo>+</mo>
+				<mi>c</mi><pow>4</pow>
+			</math>
+
+
+
+			<div class="heading">Powers 2 - 2 Line Powers</div>
+
+			<p>If a 2 line thing is raised to a power (e.g. a fraction) you need to use the <b>&lt;pow2&gt;</b> tag to account for the greater line height.</p>
+
+			<p>Example:</p>
+
+			<textarea class="code" rows="11"><math>
+    <mi>x</mi>
+    <mo>=</mo>
+    <bo></bo>
+    <mfrac>
+        <mn><mi>a</mi></mn>
+        <md><mi>b</mi></md>
+    </mfrac>
+    <bc></bc>
+    <pow2>2</pow2>
+</math></textarea>
+
+			<math>
+				<mi>x</mi>
+				<mo>=</mo>
+				<bo></bo>
+				<mfrac>
+					<mn><mi>a</mi></mn>
+					<md><mi>b</mi></md>
+				</mfrac>
+				<bc></bc>
+				<pow2>2</pow2>
+			</math>
+
+
+
+
+
+
+
+			<div class="heading">Subscripts</div>
+
+			<p>The normal &lt;sub&gt; tags will break the maths css styles. Use <b>&lt;ss&gt;</b> instead:</p>
+
+			<textarea class="code" rows="7"><math>
+    a<ss>1</ss>
+    <mo>=</mo>
+    b<ss>2</ss>
+    <mo>+</mo>
+    c<ss>3</ss>
+</math></textarea>
+
+			<math>
+				a<ss>1</ss>
+				<mo>=</mo>
+				b<ss>2</ss>
+				<mo>+</mo>
+				c<ss>3</ss>
+			</math>
+
+
+
+
+
+
+			<div class="heading">Brackets</div>
+
+			<p>Brackets are added using 2 different tags:</p>
+
+			<p><b>&lt;bo&gt;&lt;/bo&gt;</b>: Open bracket.</p>
+
+			<p><b>&lt;bc&gt;&lt;/bc&gt;</b>: Close bracket.</p>
+
+			<textarea class="code" rows="12"><math>
+    <mi>x</mi>
+    <mo>=</mo>
+    <bo></bo>
+    <mfrac>
+        <mn>1</mn>
+        <md>2</md>
+    </mfrac>
+    <bc></bc>
+    <mo>&#247;</mo>
+    3
+</math></textarea>
+
+			<math>
+				<mi>x</mi>
+				<mo>=</mo>
+				<bo></bo>
+				<mfrac>
+					<mn>1</mn>
+					<md>2</md>
+				</mfrac>
+				<bc></bc>
+				<mo>&#247;</mo>
+				3
+			</math>
+
+
+
+
+			<div class="heading">Square Root</div>
+
+			<p>Square roots are added with the <b>&lt;sqrt&gt;</b> tags.</p>
+
+			<p>Example:</p>
+
+			<textarea class="code" rows="5"><math>
+    <sqrt>2</sqrt>
+    <mo>&#8776;</mo>
+    1.414
+</math></textarea>
+
+			<math>
+				<sqrt>2</sqrt>
+				<mo>&#8776;</mo>
+				1.414
+			</math>
+
+
+
+
+
+
+			<div class="heading">Small Inline Fractions</div>
+
+			<p>Small inline fractions e.g. 3/5 or 7/8 can be added using the tags:</p>
+
+			<p><b>&lt;fn&gt;&lt;/fn&gt;</b>: Small fraction numerator.</p>
+
+			<p><b>&lt;fd&gt;&lt;/fd&gt;</b>: Small fraction numerator.</p>
+
+			<p>Example:</p>
+
+			<textarea class="code" rows="6"><math>
+    <fn>7</fn>/<fd>8</fd>
+    <mo>=</mo>
+    <mi>x</mi>
+    <pow>4</pow>
+</math></textarea>
+
+			<math>
+				<fn>7</fn>/<fd>8</fd>
+				<mo>=</mo>
+				<mi>x</mi>
+				<pow>4</pow>
+			</math>
+
+			<p><i><b>Note:</b> You have to enter the dividing line as a / character.</i></p>
+
+
+
+
+
+			<div class="heading">Plain Text</div>
+
+			<p>You can use plain text in an equation using the tag <b>&lt;plain&gt;</b>:</p>
+
+			<textarea class="code" rows="8"><math>
+    <plain>Kinetic Energy</plain>
+    <mo>=</mo>
+    <fn>1</fn>/<fd>2</fd>
+    <mi>m</mi>
+    <mi>v</mi>
+    <pow>2</pow2>
+</math></textarea>
+
+			<math>
+				<plain>Kinetic Energy</plain>
+				<mo>=</mo>
+				<fn>1</fn>/<fd>2</fd>
+				<mi>m</mi>
+				<mi>v</mi>
+				<pow>2</pow2>
+			</math>
+
+
+
+
+
+
+			<div class="heading">More Examples</div>
+
+			<p>Use View Source or your browser's inspector to see the code for these examples:</p>
+
+			<math>
+				<mfrac>
+					<mn>1</mn>
+					<md>0</md>
+				</mfrac>
+				<mo>&#8800;</mo>
+				<mi>&#8734;</mi>
+			</math>
+
+
+
+			<math>
+				<mi>&#956;</mi>
+				<mo>=</mo>
+				<sqrt>&#956;<pow>2</pow></sqrt>
+			</math>
+
+
+
+			<math>
+				<mi>acceleration</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mn>&#948;<mi>y</mi></mn>
+					<md>&#948;<mi>x</mi></md>
+				</mfrac>
+			</math>
+
+
+			<math>
+				<mi>Sin&#952;</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mn>Opp</mn>
+					<md>Hyp</md>
+				</mfrac>
+			</math>
+
+
+			<math>
+				<mi>kpe</mi>
+				<mo>=</mo>
+				<fn>1</fn>/<fd>2</fd>
+				<mi>m</mi>
+				<mi>v</mi>
+				<pow>2</pow>
+			</math>
+
+
+
+			<math>
+				<mi>x</mi>
+				<mo>=</mo>
+				&radic;
+				<bo></bo>
+				<mfrac>
+					<mn>(a + b)<pow>2</pow> + (c + d)<pow>2</pow></mn>
+					<md>(e + f)<pow>2</pow> + (g + h)<pow>2</pow></md>
+				</mfrac>
+				<bc></bc>
+			</math>
+
+
+			<math>
+				<mi>x</mi>
+				<mo>=</mo>
+				<bo></bo>
+				<mfrac>
+					<mn>1</mn>
+					<md>2</md>
+				</mfrac>
+				<bc></bc>
+				<mo>&#247;</mo>
+				3
+			</math>
+
+
+			<math>
+				<plain>Area</plain><mo>=</mo>&pi;r<pow>2</pow>
+			</math>
+
+
+
+			<math>
+				<mi>x</mi><mo>=</mo>
+				<mfrac>
+					<mn>-b<mo>&#177;</mo><sqrt>b<pow>2</pow><mo>-</mo>4ac</sqrt></mn>
+					<md>2a</md>
+				</mfrac>
+			</math>
+
+
+			<math>
+				<mi>x</mi><mo>=</mo>
+				<bo></bo>
+				<mfrac>
+					<mn>-b<mo>&#177;</mo><sqrt>b<pow>2</pow><mo>-</mo>4ac</sqrt></mn>
+					<md>2a</md>
+				</mfrac>
+				<bc></bc>
+				<pow2>3</pow2>
+			</math>
+
+
+
+
+			<math>
+				<mi>x</mi>
+				<mo>=</mo>
+
+				<bo></bo>
+				<mfrac>
+					<mn>a<mo>+</mo>b</mn>
+					<md>c<mo>+</mo>d</md>
+				</mfrac>
+				<bc></bc>
+				<pow2>3</pow2>
+
+				<mo>+</mo>
+
+				<bo></bo>
+				<mfrac>
+					<mn>e<mo>+</mo>f</mn>
+					<md>g<mo>+</mo>h</md>
+				</mfrac>
+				<bc></bc>
+				<pow2>4</pow2>
+
+			</math>
+
+
+
+			<math>
+				<mi>y</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mn>(a<mo>+</mo>b)<pow>2</pow></mn>
+					<md><sqrt>2</sqrt></md>
+				</mfrac>
+			</math>
+
+
+
+			<math>
+				<bo></bo>
+				<mfrac>
+					<mn><sqrt>3</sqrt></mn>
+					<md>(a<mo>+</mo>b)<pow>2</pow></md>
+				</mfrac>
+				<bc></bc>
+				<pow2>3</pow2>
+				<mo>=</mo>
+				<mi>z</mi>
+			</math>
+
+
+
+
+			<math>
+				<mi>z</mi>
+				<mo>=</mo>
+				<sqrt>2</sqrt>
+			</math>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+</body>
+
+</html>

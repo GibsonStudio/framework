@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();write_debug();</script>
+
+	<script>
+	var frames = [];
+	frames.push([0, [0]]);
+	frames.push([2, [0,1]]);
+	frames.push([3, [0,1,2]]);
+	frames.push([4, [0,1,2,3]]);
+	frames.push([8, [4], ['debug("Changing to graph....")']]);
+	frames.push([9, [4,5]]);
+	frames.push([10, [4,5,6]]);
+	frames.push([11, [4,5,6,7]]);
+	frames.push([12, [4,5,6,7], ['debug("There are no more objects to show / hide.")']]);
+	frames.push([20, [4,5,6,7], ['debug("Finished!")']]);
+	</script>
+	
+	
+	<div id="content">
+	
+		<div class="page-title">Synced to Audio</div>
+		
+		<!-- audio -->
+		<script>add_audio('audio');</script>
+
+		
+		<div class="keypoint right">The audio does not match the graphical content. It is purely for demo purposes.</div>
+		
+		<!-- text box -->		
+		<div id="object_0" class="textbox clearfix">
+			<p><b>The ICAO ISA is defined as follows:</b></p>
+			<p id="object_1" class="hidden">a) a MSL temperature of 15&deg;C</p>
+			<p id="object_2" class="hidden">b) a MSL pressure of 1013.25 hPa</p>
+			<p id="object_3" class="hidden">c) a MSL density of 1225 g/m<sup>3</sup> = 100% Relative Density</p>
+		</div>
+
+		<!-- graph and labels -->
+		<div id="object_4"  class="hidden" style="position: relative; margin: auto; overflow: hidden; width: 500px; height: 600px;">
+			<img src="isa_diagram.jpg" alt="ISA Diagram" />
+			<div id="object_5" class="hidden" style="position: absolute; left: 114px; bottom: 74px;"><img src="isa_label_15_degs.png" alt="15 Degs" /></div>
+			<div id="object_6" class="hidden" style="position: absolute; right: 14px; bottom: 74px;"><img src="isa_label_1013.png" alt="1013" /></div>
+			<div id="object_7" class="hidden" style="position: absolute; right: 90px; bottom: 74px;"><img src="isa_label_100.png" alt="100%" /></div>
+		</div>
+	
+	</div>
+	
+</body>
+
+</html>

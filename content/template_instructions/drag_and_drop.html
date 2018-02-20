@@ -1,0 +1,468 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Drag and Drop</div>
+		
+		<p><b>Note:</b> The drag and drop code has now been modified to work on touch devices. Touching an element will select it, touching again will de-select it. If you touch an element and another element is already selected, the two elements will swap places.</p>
+		
+		<p>To add drag and drop you need to include <b>interactive.css</b> and <b>interactive.js</b>:</p>
+		
+		<textarea class="code" rows="4"><head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+</head></textarea>
+
+		<p>The process of creating a drag and drop can be split up into:</p>
+		
+		<ul>
+			<li>Define object style</li>
+			<li>Define objects (the things to be dragged)</li>
+			<li>Define targets (the locations targets can be dropped)</li>
+			<li>Add style properties to position objects and/or targets.</li>
+			<li>Define correct positions for targets.</li>
+			<li>Add the drag and drop UI.</li>
+		</ul>
+		
+		<p style="font-style: italic;"><b>Note:</b> Objects can also be targets - see the drag to correct order example below.</p>
+		
+		<p style="font-style: italic;"><b>Note 2:</b> All objects and targets need to have the same pixel dimensions.</p>
+		
+		<p style="font-style: italic;"><b>Note 3:</b> The drag and drop interactivity requires 2 arrays but these are initialized
+		by the script interactive.js. For reference the 2 arrays are:</p>
+		
+		<textarea class="code" rows="2">objects = new Array();
+correct = new Array();</textarea>
+		
+		<p>We'll look at these steps in more detail...</p>
+
+
+		<div class="heading">Defining Styles</div>
+		
+		<p>By default, objects have the following css applied:</p>
+		
+		<textarea class="code" rows="10">.object {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	font-size: 12px;
+	padding-top: 16px;
+	box-sizing: border-box;	
+	margin: 10px;
+	cursor: pointer;
+}</textarea>
+
+		<p>This can be over-ridden with inline styles if required.</p>
+		
+		
+		<div class="heading">Defining Objects</div>
+
+		<p>Objects are defined with 2 properties, <b>text</b> and <b>id</b>. Objects are added to the objects array with <b>add_object(object)</b>:</p>
+				
+		<textarea class="code" rows="4">var o = {};
+o.text = 'Bridge';
+o.id = 'obj_bridge';
+add_object(o);</textarea>
+
+		<p>o.text will be displayed within the object div.</p>
+
+		
+		
+		<div class="heading">Defining Targets</div>
+		
+		<p>Targets are areas (divs) the same size as the objects. Targets define where on the screen objects can be dropped. Targets are defined
+		in the same way as objects, but they require an extra property, <b>type</b>:</p>
+		
+		<textarea class="code" rows="4">var o = {};
+o.id = 'bridge';
+o.type = 'target';
+add_object(o);</textarea>
+
+		<div class="heading">Defining Answer Boxes</div>
+		
+		<p>Answer boxes are areas (divs) the same size as the objects. Answer boxes define where on the screen objects can be dropped. 
+		Answer boxes differ from 'Targets' only by CSS. Answer boxes have float:left; Targets have position:absolute;. Answer boxes are defined
+		in the same way as objects, but they require an extra property, <b>type</b>:</p>
+		
+		<textarea class="code" rows="4">var o = {};
+o.id = 'bridge';
+o.type = 'answer_box';
+add_object(o);</textarea>
+
+
+		<div class="heading">Adding Styles to Objects or Targets</div>
+		
+		<p>Objects and targets can also have a <b>style</b> property which can be used to position them, e.g. to position targets on a 
+		diagram:</p>
+		
+		<textarea class="code" rows="5">var o = {};
+o.id = 'bridge';
+o.type = 'target';
+o.style = 'left: 60px; top: 30px;';
+add_object(o);</textarea>
+
+
+		<div class="heading">Define Correct Positions</div>
+		
+		<p>The script needs to know the correct position for objects to be dragged to so it can score the user and give feedback.</p>
+
+		<textarea class="code" rows="1">correct.push(['obj_bridge', 'bridge']);</textarea>
+		
+		<p>This sample code is saying that the correct position for the object 'obj_bridge' is on the target 'bridge'.</p>
+
+		
+		
+		<div class="heading">Add Drag and Drop UI</div>
+		
+		<p>After setting up your targets, objects and correct positions, you need to call the function <b>add_drag_drop_ui(boolean)</b>:</p>
+		
+		<p>The function takes 1 parameter which can be 1 or 0. This parameter controls whether a score is shown on submission or not. The function also
+		adds a submit button to the page:</p>
+		
+		<textarea class="code" rows="1">add_drag_drop_ui(1);</textarea>
+		
+		
+		<div class="heading">Custom Script on Answer Submitting</div>
+		
+		<p>You can call any custom script when an answer is submitted by adding the following functions to your code:</p>
+		
+		<ul>
+			<li><b>function interactivity_submission_ok () {}</b> - Called if all objects are in the correct place.</li>
+			<li><b>function interactivity_submission_fail () {}</b> - Called if 1 or more objects are in the wrong place.</li>
+		</ul>
+		
+		
+		<div class="heading">Demo - Drag Labels to Diagram</div>
+		
+		<style>
+			#objects {
+				max-width: 720px;
+				margin: auto;
+			}
+			#iron_cross {
+				width: 700px;
+				height: 300px;
+				background-image: url(iron_cross_guitar.jpg);
+				position: relative;
+				margin: auto;
+				margin-top: 20px;
+			}
+		</style>
+		
+		<div id="objects">
+		
+			<script>
+			
+				//source - items to drag
+				
+				var o = {};
+				o.text = 'Toggle Switch';
+				o.id = 'obj_toggle';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Tuners';
+				o.id = 'obj_tuners';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Headstock';
+				o.id = 'obj_headstock';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Volume Control';
+				o.id = 'obj_volume';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Pickup';
+				o.id = 'obj_pickup';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Bridge';
+				o.id = 'obj_bridge';
+				add_object(o);
+			
+			</script>
+			
+			<div style="clear: both;"></div>
+			
+		</div>
+			
+		<div id="iron_cross">
+		
+			<script>
+			
+				//targets - areas where items can be dropped
+				
+				var o = {};
+				o.id = 'bridge';
+				o.type = 'target';
+				o.style = 'left: 60px; top: 30px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'toggle';
+				o.type = 'target';
+				o.style = 'left: 300px; top: 10px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'headstock';
+				o.type = 'target';
+				o.style = 'right: 60px; top: 30px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'volume';
+				o.type = 'target';
+				o.style = 'left: 40px; bottom: 50px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'pickup';
+				o.type = 'target';
+				o.style = 'left: 360px; bottom: 50px;';
+				add_object(o);
+				
+				var o = {};
+				o.id = 'tuners';
+				o.type = 'target';
+				o.style = 'right: 60px; bottom: 100px;';
+				add_object(o);
+				
+			</script>
+		</div>	
+			
+		
+		<script>		
+			//define correct locations
+			correct.push(['obj_toggle', 'toggle']);
+			correct.push(['obj_tuners', 'tuners']);
+			correct.push(['obj_headstock', 'headstock']);
+			correct.push(['obj_volume', 'volume']);
+			correct.push(['obj_pickup', 'pickup']);
+			correct.push(['obj_bridge', 'bridge']);
+		</script>
+			
+		<script>add_drag_drop_ui(1);</script>	
+		
+		
+		
+		<p>Here is the complete code for the above example:</p>
+		
+		<textarea class="code" rows="20"><style>
+	#objects {
+		max-width: 720px;
+		margin: auto;
+	}
+	#iron_cross {
+		width: 700px;
+		height: 300px;
+		background-image: url(iron_cross_guitar.jpg);
+		position: relative;
+		margin: auto;
+		margin-top: 20px;
+	}
+</style>
+		
+<div id="objects">
+	
+	<script>
+		
+		//source - items to drag
+				
+		var o = {};
+		o.text = 'Toggle Switch';
+		o.id = 'obj_toggle';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Tuners';
+		o.id = 'obj_tuners';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Headstock';
+		o.id = 'obj_headstock';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Volume Control';
+		o.id = 'obj_volume';
+		add_object(o);
+		
+		var o = {};
+		o.text = 'Pickup';
+		o.id = 'obj_pickup';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Bridge';
+		o.id = 'obj_bridge';
+		add_object(o);
+			
+	</script>
+		
+	<div style="clear: both;"></div>
+		
+</div>
+			
+<div id="iron_cross">
+		
+	<script>
+			
+		//targets - areas where items can be dropped
+				
+		var o = {};
+		o.id = 'bridge';
+		o.type = 'target';
+		o.style = 'left: 60px; top: 30px;';
+		add_object(o);
+				
+		var o = {};
+		o.id = 'toggle';
+		o.type = 'target';
+		o.style = 'left: 300px; top: 10px;';
+		add_object(o);
+				
+		var o = {};
+		o.id = 'headstock';
+		o.type = 'target';
+		o.style = 'right: 60px; top: 30px;';
+		add_object(o);
+				
+		var o = {};
+		o.id = 'volume';
+		o.type = 'target';
+		o.style = 'left: 40px; bottom: 50px;';
+		add_object(o);
+				
+		var o = {};
+		o.id = 'pickup';
+		o.type = 'target';
+		o.style = 'left: 360px; bottom: 50px;';
+		add_object(o);
+				
+		var o = {};
+		o.id = 'tuners';
+		o.type = 'target';
+		o.style = 'right: 60px; bottom: 100px;';
+		add_object(o);
+				
+	</script>
+</div>	
+			
+<script>		
+	//define correct locations
+	correct.push(['obj_toggle', 'toggle']);
+	correct.push(['obj_tuners', 'tuners']);
+	correct.push(['obj_headstock', 'headstock']);
+	correct.push(['obj_volume', 'volume']);
+	correct.push(['obj_pickup', 'pickup']);
+	correct.push(['obj_bridge', 'bridge']);
+</script>
+		
+<script>add_drag_drop_ui(1);</script></textarea>
+		
+		
+		
+		
+		
+		
+		<div class="heading">Drag to Correct Order - Objects are also Targets</div>
+		
+		<p>By Having the objects also be targets, you can create a drag to correct order interactity:</p>
+		
+		<p style="font-style:italic;"><b>Note:</b> You cannot have 2 drag and drops on the same HTML page - the arrays () and div ids
+		would conflict.</p>
+		
+		<p style="font-style:italic;"><b>Note 2:</b> All the 'type' property really does is define what style is applied to the div.
+		The property can be ignored for 'drag to the correct order' interactivity.</p>
+		
+		<textarea class="code" rows="20"><div id="objects">
+		
+	<script>
+				
+		var o = {};
+		o.text = 'Have Shower';
+		o.id = 'shower';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Wake Up';
+		o.id = 'wake';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Eat Breakfast';
+		o.id = 'eat';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Leave House';
+		o.id = 'leave';
+		add_object(o);
+				
+		var o = {};
+		o.text = 'Get Dressed';
+		o.id = 'dress';
+		add_object(o);
+			
+	</script>
+			
+	<div style="clear: both;"></div>
+			
+</div>
+					
+<script>		
+	//define correct locations
+	//the easiest way to compile this is to use the format correct.push([correct order, starting order])
+	correct.push(['wake', 'shower']);
+	correct.push(['shower', 'wake']);
+	correct.push(['dress', 'eat']);
+	correct.push(['eat', 'leave']);
+	correct.push(['leave', 'dress']);
+</script>
+			
+<script>add_drag_drop_ui();</script></textarea>	
+		
+		
+		<p>See the lesson '<a href="../template_demo/drag_02.html" target="_blank">Template Demo</a>' for a demo
+		of different drag and drop interactivities.</p>
+		
+
+
+
+		<div class="heading">Drag to Correct Order - Vertical Alignment</div>
+
+		<p>To change the alignment of 'drag to correct order' objects to vertical, add the property <b>o.extra_class = 'vertical_object';</b></p>
+
+		<textarea class="code" rows="5">var o = {};
+o.text = 'Playstation Invented';
+o.id = 'ps';
+o.extra_class = 'vertical_object';
+add_object(o);</textarea>
+				
+		<p>See the lesson '<a href="../template_demo/drag_vertical.html" target="_blank">Template Demo</a>' for a demo
+		of drag vertical.</p>
+
+		
+	</div>
+	
+</body>
+
+</html>

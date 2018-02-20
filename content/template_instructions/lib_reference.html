@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">lib.js Reference</div>
+		
+		<p>lib.js is automatically included with every file.</p>
+		
+		
+		<div class="heading">root_path ()</div>
+		
+		<p>returns the path to the root of the project site. The default value is '../../'.</p>
+		
+		
+		<div class="heading">script_path ()</div>
+		
+		<p>returns the path to the <b>javascript</b> folder.</p>
+
+
+ 		<div class="heading">image_path ()</div>
+		
+		<p>returns the path to the <b>images</b> folder.</p>
+		
+		
+		<div class="heading">css_path ()</div>
+		
+		<p>returns the path to the <b>css</b> folder.</p>
+
+
+		<div class="heading">write_head ()</div>
+		
+		<p>Writes the HTML &lt;head&gt;. Produces:</p>
+		
+		<textarea class="code" rows="3"><script src="' + script_path() + 'jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="ini_lesson.js" type="text/javascript"></script>
+<link href="' + css_path() + 'main.css" type="text/css" rel="stylesheet" /></textarea>
+		
+		
+		<div class="heading">write_header ()</div>
+		
+		<p>Writes the HTML for the page header, including, logo, title, page number and navigation buttons. Should be included on 
+		every page.</p>
+		
+		
+		<div class="heading">write_menu_header ()</div>
+		
+		<p>Writes the HTML for the page header, including, logo only.</p>
+		
+		
+		<div class="heading">include_css (<i>filename</i>)</div>
+		
+		<p>Includes a css file located in the root/css folder.</p>
+		
+		<p>Example Usage:</p>
+		
+		<textarea class="code" rows="4"><head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');</script>
+</head></textarea>
+
+
+		<div class="heading">include_javascript (<i>filename</i>)</div>
+		
+		<p>Includes a javascript file located in the root/javascript folder.</p>
+		
+		<p>Example Usage:</p>
+		
+		<textarea class="code" rows="4"><head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('interactive.js');</script>
+</head></textarea>
+		
+		
+		<div class="heading">write_nav ()</div>
+		
+		<p>Adds the Quick Navigation menu. Should be included on every page.</p>
+		
+		
+		<div class="heading">write_debug ()</div>
+		
+		<p>Adds the output div for the debug function to write to.</p>
+		
+		
+		<div class="heading">debug (<i>string</i>)</div>
+		
+		<p>Outputs <i>string</i> to the debug window.</p>
+		
+		<p style="font-style: italic;"><b>Note</b>: The debug output div must have been added with the function <b>write_debug()</b>.</p>
+		
+		
+		
+		<div class="heading">add_audio (<i>name</i>, <i>args</i>)</div>
+		
+		<p>Adds an audio element to the page. See <a href="sync_to_audio.html">sync_to_audio.html</a> for more details.</p>
+		
+		
+		
+		<div class="heading">add_video (<i>name</i>, <i>args</i>)</div>
+		
+		<p>Adds a video element to the page. See <a href="video.html">video.html</a> for more details.</p>
+		
+		
+		
+		<div class="heading">media_finished ()</div>
+		
+		<p>This function is called when a video or audio object has finished playback if object.onended was set to true. The function highlights the
+		Next Scene button.</p>
+		
+		
+		
+		<div class="heading">pause_media ()</div>
+		
+		<p>Pauses / resumes any video with id="my_video" or audio with id="my_audio". Can be manually called, or is called by the keyboard
+		shortcut 'P'.</p>
+		
+		
+		
+		<div class="heading">get_url_param (<i>param</i>, <i>def</i>)</div>
+		
+		<ul>
+			<li><b>param</b>: String. Name of parameter.</li>
+			<li><b>def</b>: String. Default value of parameter.</li>
+		</ul>
+		
+		<p>Gets the value of a parameter in the url, i.e. index.html?param=value.</p>
+		
+		<p><b>returns</b>: string</p>
+		
+		
+		<div class="heading">button_nav ()</div>
+		
+		<p>Called when the Quick Navigation button is clicked.</p>
+		
+		
+		<div class="heading">button_back ()</div>
+		
+		<p>Called when the Back button is clicked.</p>
+		
+		
+		<div class="heading">button_next ()</div>
+		
+		<p>Called when the Next button is clicked.</p>
+		
+		
+		
+		<div class="heading">keyboard_shortcuts (<i>e</i>)</div>
+		
+		<p>Called when any key is pressed. The event listener is assigned by <b>scene_loaded()</b>:</p>
+		
+		<textarea class="code" rows="1">window.addEventListener('keydown', keyboard_shortcuts, false);</textarea>
+		
+		
+		
+		<div class="heading">scene_loaded ()</div>
+		
+		<p>Called by body onload:</p>
+		
+		<textarea class="code" rows="1"><body onLoad="scene_loaded()"></textarea>
+		
+		<p>Does the following:</p>
+		
+		<ul>
+			<li>Checks the current scene and dims Next / Back buttons accordingly.</li>
+			<li>Adds an event listener for keyboard shortcuts.</li>
+			<li>Sets up audio events if the scene is using 'sync to audio'.</li>
+		</ul>
+		
+		
+		
+		<div class="heading">get_scene_number (<i>current_scene</i>, <i>scenes</i>)</div>
+		
+		<ul>
+			<li><b>current_scene</b>: String. Filename of current loaded scene, e.g. index.html.</li>
+			<li><b>scenes</b>: Array. The 'my_scenes' array.</li>
+		</ul>		
+		
+		<p>This returns the current scene index, i.e. the index of the scene in the my_scenes array.</p>
+		
+		<p><b>returns</b>: integer</p>
+		
+		
+		
+		<div class="heading">is_in_array (<i>value</i>, <i>array</i>)</div>
+		
+		<ul>
+			<li><b>value</b>: Mixed. Value to look for in an array.</li>
+			<li><b>array</b>: Array. The array to search in.</li>
+		</ul>
+		
+		<p><b>returns</b>: boolean</p>
+		
+		
+		<p style="font-style: italic; margin-top: 80px;"><b>Note:</b> The following are used when syncing HTML to audio. This is explained in detail
+		here: <a href="sync_to_audio.html">sync_to_audio.html</a></p>
+		
+		<div class="heading">set_up_audio_events ()</div>
+		
+		<p>Initializes 'sync to audio'.</p>
+		
+		
+		
+		<div class="heading">get_object_max ()</div>
+		
+		<p>Examines the 'frames' array and returns the highest object id number. There is a for loop that runs and processes the visibility
+		of objects - we need to know how many times to run this loop.</p>
+		
+		<p><b>returns</b>: integer</p>
+		
+		
+		<div class="heading">show_frame (<i>f</i>)</div>
+		
+		<ul>
+			<li><b>f</b>: Integer. Frame to show - index in frames array.</li>
+		</ul>
+		
+		
+		<div class="heading">show_element (<i>my_element</i>)</div>
+		
+		<ul>
+			<li><b>my_element</b>: String. ID of an element.</li>
+		</ul>
+		
+		
+		<div class="heading">hide_element (<i>my_element</i>)</div>
+		
+		<ul>
+			<li><b>my_element</b>: String. ID of an element.</li>
+		</ul>
+		
+		
+		
+		<div class="heading">get_frame_from_time (<i>t</i>)</div>
+		
+		<ul>
+			<li><b>t</b>: Integer. Time in seconds.</li>
+		</ul>
+		
+		<p>Examines the array <b>frames</b> and works out which frame to show based on the value of <b>t</b>.</p>
+		
+		<p><b>returns</b>: integer</p>
+				
+		
+	</div>
+	
+</body>
+
+</html>

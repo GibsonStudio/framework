@@ -1,0 +1,111 @@
+
+
+/* **** sliders **** */
+
+#slider_container {
+	max-width: 800px;
+	margin: auto;
+	text-align: center;
+}
+
+
+#slider {
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* **** drop down: choose the correct word **** */
+
+.select_correct {
+	border: 1px solid #116d31;
+	background: #e3efda;
+}
+
+.select_wrong {
+	border: 1px solid #df0000;
+	background: #facac8;
+}
+
+
+
+
+
+
+
+/* **** drag and drop **** */
+
+.object {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	font-size: 12px;
+	padding-top: 16px;
+	box-sizing: border-box;	
+	margin: 10px;
+	cursor: pointer;
+}
+
+
+.vertical_object {
+	float: none !important;
+	margin: auto;
+	margin-bottom: 20px;
+}
+	
+
+.source {
+	float: left;
+	background: #fafafa;
+}
+
+
+.target {
+	position: absolute;
+	border: 1px solid #333333;
+	background: #ffffff;
+}
+
+
+.answer_box {
+	float: left;
+	border: 1px solid #333333;
+	background: #ffffff;
+}
+
+.correct {
+	border: 1px solid #116d31;
+	background: #e3efda;
+}
+
+
+.over {
+	border: 1px dotted #3e4899;
+	background: #bdc6e6;
+}
+
+
+.being_dragged {
+	border: 1px dotted #fecb11;
+	background: #ffec96;
+}
+
+
+#drag_drop_output {
+	padding: 20px;
+}
+
+
+
+
+
+
+
+
+

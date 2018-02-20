@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas.js');include_javascript('graph_class.js');</script>
+	<script type="text/javascript" src="graphs_canvas.js"></script>
+	<link href="graphs_canvas.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">HTML5 Canvas</div>
+
+		<p>Add a canvas with the following:</p>
+
+		<textarea class="code" rows="1"><canvas id="my_canvas" width="xxx" height="xxx">Fallback here</canvas></textarea>
+
+		<p>I have written a library to make drawing to a canvas as easy as possible. Add it using:</p>
+
+		<textarea class="code" rows="1">include_javascript('canvas.js');</textarea>
+
+		<p>If your canvas has the id of <b>my_canvas</b> you can proceed to use the functions below to draw to it.</p>
+
+
+		<div class="heading">clear_canvas (args)</div>
+
+		<p>args is optional but the following parameters can be sent [default values in square brackets]:</p>
+
+		<ul>
+			<li><b>canvas_id</b> (<i>string</i>) ['my_canvas']</li>
+			<li><b>canvas</b> (<i>element ref</i>) [document.getElementById(canvas_id)]</li>
+			<li><b>context</b> (<i>canvas context</i>) [canvas.getContext('2d')]</li>
+		</ul>
+
+
+
+		<div class="heading">draw_line (sX, sY, dX, dY, args)</div>
+
+		<p>Draws a line fromm point (sX, sY) to (sX + dX, sY + dY).</p>
+
+		<ul>
+			<li><b>canvas_id</b> (<i>string</i>) ['my_canvas']</li>
+			<li><b>context</b> (<i>canvas context</i>) [canvas.getContext('2d')]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [1]</li>
+			<li><b>strokeStyle</b> (<i>string</i>) ['']</li>
+			<li><b>lineCap</b> (<i>string</i>) ['butt']: butt, round, square</li>
+		</ul>
+
+
+
+		<div class="page-title">Loading Images</div>
+
+		<p>Define your <b>image_obs</b>:</p>
+
+		<textarea class="code" rows="9">var image_obs = {
+	grass:{ obj:new Image(), src:'../images/grass.png', loaded:false },
+	runway:{ obj:new Image(), src:'../images/runway.png',loaded:false },
+	runway_wet:{ obj:new Image(), src:'../images/runway_wet.png',loaded:false },
+	runway_ice:{ obj:new Image(), src:'../images/runway_ice.png',loaded:false },
+	landscape:{ obj:new Image(), src:'../images/landscape.png',loaded:false },
+	buildings:{ obj:new Image(), src:'../images/buildings.png',loaded:false },
+	aeroplane:{ obj:new Image(), src:'../images/aeroplane.png',loaded:false }
+};</textarea>
+
+
+		<p>Use a loop to load images and check for all finished:</p>
+
+		<textarea class="code" rows="7">for (o in image_obs) {
+	image_obs[o].obj.onload = function () {
+		image_obs[o].loaded = true;
+		all_images_loaded();
+	};
+	image_obs[o].obj.src = image_obs[o].src;
+}</textarea>
+
+			<p>You will need to add the <b>all_images_loaded()</b> function:</p>
+
+			<textarea class="code" rows="6">function ims_loaded () {
+	for (o in image_obs) {
+		if (!image_obs[o].loaded) { return false; }
+	}
+	run_animation();
+}</textarea>
+
+
+			<p><b>Note:</b> You will need to change the <b>run_animation()</b> function call to whatever function you need to run after all images are loaded.</p>
+
+
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

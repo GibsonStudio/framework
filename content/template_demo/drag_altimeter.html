@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_jquery_ui();include_jquery_rotate();include_javascript('interactive.js');</script>	
+	<script type="text/javascript" src="drag_altimeter.js"></script>
+	<link href="drag_altimeter.css" type="text/css" rel="stylesheet" />
+	
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();write_debug();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Draggable Altimeter</div>
+		
+		<p>The 3 divs on this page (altimeter, sliders, debug) can be dragged and repositioned as required:</p>
+		
+		<div id="altimeter" class="draggable">	
+			<div id="subscale"> </div>
+			<div id="subscale_knob"> </div>
+			<div id="face"> </div>
+			<div id="needle_10000"> </div>		
+			<div id="needle_1000"> </div>
+			<div id="needle_100"> </div>	
+		</div>
+
+
+		<div id="sliders" class="draggable">
+			<form name="sliders">	
+				<div id="altitude_value" class="param_value">Altitude: </div>	
+				<input type="range" name="altitude" value="2000" min="-400" max="10000" onchange="update_alt()" oninput="update_alt()"><br/>
+				<div id="pressure_value" class="param_value">Pressure: </div>	
+				<input type="range" name="pressure" value="1013" min="950" max="1050" onchange="update_alt()" oninput="update_alt()"><br/>
+				<div id="subscale_value" class="param_value">Subscale: </div>	
+				<input type="range" name="subscale" value="1000" min="950" max="1050" step="0.1" onchange="update_alt()" oninput="update_alt()"><br/>
+			</form>
+		</div>	
+
+
+		<script>
+			ini_drag_objects();
+			ini_drag();
+			update_alt();
+			debug("ready....");
+		</script>
+				
+	</div>
+	
+</body>
+
+</html>

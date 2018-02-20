@@ -1,0 +1,108 @@
+.tile_container {
+	padding-top: 80px;
+	height: 100%;
+	/* background: #df0000; */
+	overflow-x: auto;
+	overflow-y: hidden;
+	display: block;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+	
+.tile {
+	height: 100%;
+	min-width: 80px;
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block; 
+	/* float: left; */
+	box-sizing: border-box;
+	vertical-align: top;
+	margin-right: -6px;
+	border-right: 1px solid #c2c2c2;
+}
+
+
+.tile:hover {
+	background: #f2f2f2;
+}
+
+
+.tile_title {
+	width: 34px;
+	background-repeat: no-repeat;
+	background-position: 4px 14px;
+	height: 100%;
+	position: absolute;
+}
+
+
+.tile_content {
+	/* background: #e2e2e2; */
+	padding: 10px;
+	padding-right: 20px;
+	margin-left: 34px;
+	display: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+
+.section_heading {
+	color: #333333;
+	border-bottom: 1px solid #333333;
+	font-weight: bold;
+	margin-top: 20px;	
+}
+
+.lesson_button {
+	padding: 2px;
+	color: #333333;
+}
+
+
+
+.lesson_button:hover {
+	background: #deb820;
+	cursor: pointer;
+}
+
+
+.tile_active {
+	background: #e2e2e2 !important;
+}
+
+/* ****** tiles ****** */
+/*
+.tile_1  { background: #8f3760; }
+.tile_2  { background: #844071; }
+.tile_3  { background: #83547f; }
+.tile_4  { background: #887487; }
+.tile_5  { background: #908b88; }
+.tile_6  { background: #959a87; }
+.tile_7  { background: #9ca780; }
+.tile_8  { background: #a6b475; }
+.tile_9  { background: #afbc68; }
+.tile_10 { background: #b8c060; }
+.tile_11 { background: #c1c057; }
+.tile_12 { background: #c8be4d; }
+.tile_13 { background: #cdb644; }
+.tile_14 { background: #cbac3e; }
+.tile_15 { background: #c59e3a; }
+.tile_16 { background: #bb8b35; }
+.tile_17 { background: #af7531; }
+.tile_18 { background: #a4612d; }
+.tile_19 { background: #994c2b; }
+.tile_20 { background: #934029; }
+.tile_21 { background: #7d3825; }
+*/
+
+
+
+
+
+
+

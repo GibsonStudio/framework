@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>	
+	
+	<style>
+	#circuit {
+		width: 579px;
+		height:160px;
+		margin: auto;
+	}
+	#output {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.tick {
+		color: #3fa535;
+		font-size: 30px;
+	}
+	.cross {
+		color: #df0000;
+		font-size: 30px;
+	}
+	.workings {
+		width: 260px;
+		height: 245px;
+		margin: auto;
+	}
+	</style>
+	
+	<script type="text/javascript">
+	function submit () {
+	
+		var submitted_answer = $('#answer').val() * 1.0;
+		var correct_answer = 2;
+		
+		if (submitted_answer == 0) {
+			$('#output').html('You must enter an answer!');
+			return;
+		}
+		
+		if (submitted_answer == correct_answer) {
+			indicate_right();
+		} else {
+			indicate_wrong();
+		}
+		
+	}
+	function indicate_right () {
+		var html = '<span class="tick">&#10004;</span> Well done!';
+		$('#output').html(html);
+	}
+	function indicate_wrong () {
+		var html = '<span class="cross">&#10008;</span> You got that wrong, here is the correct answer:';
+		html += '<div class="workings">';
+		html += '<img src="DC-bpr-com-s5-workings.png" alt="" />';
+		html += '</div>';
+		$('#output').html(html);
+	}
+	</script>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">DC-bpr-com-s5</div>		
+		
+		<p>Calculate the parallel resistance:</p>
+		
+		<div id="circuit"><img src="DC-bpr-com-s5-circuit.png" alt="" /></div>
+
+		<div class="content_center">
+		
+			<input id="answer" type="number" style="margin: 20px; text-align: center;" /><b>&#937;</b><br />
+			<button class="button" onclick="submit()">Submit</button>
+			
+		</div>
+		
+		<div id="output"></div>
+		
+	</div>
+	
+</body>
+
+</html>

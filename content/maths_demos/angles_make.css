@@ -1,0 +1,32 @@
+
+#my_container {
+	width: 500px;
+	height: 260px;
+	margin: auto;
+	border: 1px solid #333333;
+	background: url(angles_make/axis.png);
+	position: relative;
+}
+
+#my_canvas {
+	width: 500px;
+	height: 260px;
+	position: absolute;
+}
+
+#buttons {
+	text-align: center;
+	padding-top: 40px;
+}
+
+#question {
+	text-align: center;
+	font-size: 18px;
+	padding-top: 30px;
+}
+
+#output {
+	text-align: center;
+	font-size: 18px;
+	padding-top: 30px;
+}

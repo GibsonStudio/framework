@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="front.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="move_front.js"></script>
+	<script>write_head();include_jquery_rotate();</script>
+</head>
+
+<body onLoad="scene_loaded();ini_events();" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<!-- <div class="page-title">Virtual Computer: Front</div> -->
+
+		<div style="text-align: center;">
+
+			<div id="my_container" style="float: none; margin: auto;">
+				<div id="nc_front_center"></div>
+				<div id="nc_cursor"><img src="nc_cursor.svg" alt="cursor" usemap="#cursor_map"/></div>
+			</div>
+
+			<map name="cursor_map">
+				<area id="cursor_button" shape="poly" coords="262, 44, 338, 44, 355, 304, 242, 304">
+				<area id="front_center_button" shape="rect" coords="0, 0, 550, 550">
+			</map>
+
+		</div>
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="angles.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas.js');</script>
+	<script src="angles.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Drag Angles</div>
+		
+		<div id="my_container">
+			<div class="angle hidden" id="right"></div>
+			<div class="angle hidden" id="acute"></div>
+			<div class="angle hidden" id="obtuse"></div>
+			<div class="angle hidden" id="reflex"></div>
+			<canvas id="my_canvas" width="500" height="500"></canvas>
+			<div id="knob"></div>
+			<div id="degrees"></div>
+		</div>
+	
+	</div>
+
+	<script> ini_vars(); </script>
+	
+</body>
+
+</html>

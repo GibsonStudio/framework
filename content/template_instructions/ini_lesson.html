@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">ini_lesson.js</div>
+		
+		<p>The files that make up a lesson and the order that they appear in are controlled by the file <b>ini_lesson.js</b>. This is a javascript file
+		and should be in the same directory as the other lesson files.</p>
+		
+		<p>The first line of the files defines the lesson title:</p>
+		
+		<textarea class="code" rows="1">var lesson_title = 'Lesson Name';</textarea>
+		
+		<p>The next 2 lines define and initialize the array <b>my_scenes</b>:</p>
+		
+		<textarea class="code" rows="2">var my_scenes;
+my_scenes = []; </textarea>
+		
+		<p>The my_scenes array will contain 1 entry for each scene of the lesson. Each entry will actually be another array with 2 elements:</p>
+		
+		<ul>
+			<li>Element 1: Filename of the scene.</li>
+			<li>Element 2: Title of the scenes.</li>
+		</ul>
+		
+		<p>Example: A scene with the filename 'scene_01.html' and the title 'The First Scene' would be defined as:</p>
+		
+		<textarea class="code" rows="1">['scene_01.html', 'The First Scene']</textarea>
+		
+		<p>The square brackets define this as an array and the comma separates the elements of the array.</p>
+		
+		<p>Values for each scene need to be 'pushed' into the my_scenes array in sequence. To push our example scene you would use:</p>
+		
+		<textarea class="code" rows="1">my_scenes.push(['scene_01.html', 'The First Scene']);</textarea>
+		
+		<p>Here is an example of a complete ini_lesson.js file:</p>
+		
+		<textarea class="code" rows="14">var lesson_title = 'Basic AC Theory';
+
+var my_scenes;
+
+my_scenes = []; 
+my_scenes.push(['index.html', 'Introduction']);
+my_scenes.push(['scene_02.html', 'Simple AC Generator']);
+my_scenes.push(['scene_03.html', 'Terms']);
+my_scenes.push(['scene_04.html', 'Advantages of AC over DC']);
+my_scenes.push(['scene_05.html', 'Practical AC Generator']);
+my_scenes.push(['scene_06.html', 'Generator Frequency']);
+my_scenes.push(['scene_07.html', 'Root Mean Square (RMS) Value']);
+my_scenes.push(['scene_08.html', 'Summary - Advantages of AC']);
+my_scenes.push(['scene_09.html', 'Summary - Terms']);</textarea>
+		
+	</div>
+	
+</body>
+
+</html>

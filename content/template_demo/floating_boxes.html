@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<link href="floating_boxes.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="floating_boxes.js"></script>
+	<script>write_head();</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">Floating Boxes</div>
+
+		<div id="my_container">
+
+			<div class="floater">
+					<script> for (var i = 1; i <= 4; i++) { draw_box(i); } </script>
+			</div>
+
+			<div class="floater">
+					<script> for (var i = 5; i <= 8; i++) { draw_box(i); } </script>
+			</div>
+
+			<div class="floater">
+					<script> for (var i = 9; i <= 12; i++) { draw_box(i); } </script>
+			</div>
+
+			<div class="floater">
+					<script> 	for (var i = 13; i <=16; i++) { draw_box(i); } </script>
+			</div>
+
+			<div class="floater">
+					<script> for (var i = 17; i <= 20; i++) { draw_box(i); } </script>
+			</div>
+
+			<div class="floater">
+					<script> for (var i = 21; i <= 24; i++) { draw_box(i); } </script>
+			</div>
+
+		</div> <!-- #my_container -->
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>

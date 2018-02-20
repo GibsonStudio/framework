@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>	
+	
+	<script>	
+	function submit ()
+	{
+		
+		//add style to output block; this initially not applied so the output block is not visible
+		$('#output').addClass('block');
+		
+		//get data from select boxes
+		var word1 = $('#word1').val();
+		var word2 = $('#word2').val();		
+			
+		//define correct answers
+		var correct1 = 'chemical';
+		var correct2 = 'kinetic';
+		
+		//indicate if right or wrong
+		check_select('word1', correct1);
+		check_select('word2', correct2);
+				
+		if (word1 == '' || word2 == '') {			
+			$('#output').html('You need to select an option for all words.');
+			return;			
+		}
+		
+		var result = '';
+		
+		if (word1 == 'chemical' && word2 == 'kinetic') {
+			
+			result = 'Correct.';
+			
+		} else if (word1 == '' || word2 == '') {
+			
+			result = 'You need to select an option for all words.';
+			
+		} else {
+			
+			if (word1 != 'chemical') {
+				result += 'Think about what fuels a piston engine.<br />';
+			}
+			
+			if (word2 == 'heat') {
+				result += 'A piston engine does produce a lot of heat but that is not it\'s intended purpose.';
+			} else if (word2 != 'kinetic') {
+				result += 'Think about what a piston engine is designed to do?';
+			}
+			
+		}
+		
+		$('#output').html(result);
+		
+	}
+	</script>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Drop Down: Complete the Sentence</div>		
+				
+		<p>Select the correct words to complete the following:</p>
+		
+		<div class="block">Piston engines convert <select id="word1">
+			<option value="">Choose....</option>
+			<option value="heat">Heat</option>
+			<option value="kinetic">Kinetic</option>
+			<option value="chemical">Chemical</option>
+			<option value="electical">Electrical</option>
+		</select> energy into <select id="word2">
+			<option value="">Choose....</option>
+			<option value="heat">Heat</option>
+			<option value="kinetic">Kinetic</option>
+			<option value="chemical">Chemical</option>
+			<option value="electical">Electrical</option>
+		</select> energy.</div><br /><br />
+			
+		<button class="button" onclick="submit();">Submit</button><br /><br />
+		
+		<div id="output"></div>
+		
+	</div>
+	
+</body>
+
+</html>

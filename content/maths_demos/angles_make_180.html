@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link href="angles_make_180.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script type="text/javascript" src="angles_make_180.js"></script>
+	<script>write_head();include_jquery_rotate();</script>	
+</head>
+
+<body onLoad="scene_loaded()" class="noselect">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">The Angles of a Triangle</div>
+		
+		<p>The angles of a triangle add up to 180&deg;.</p>
+		
+		<p>Let us do an experiment on this triangle.</p>
+		
+		<p>Tear off the angles A, B and C and fit them together to make a straight line.</p>
+		
+		<div class="my_button active" id="move_button">Move</div>
+		<div class="my_button" id="rotate_button">Rotate</div>
+		
+		<div id="my_container">
+		
+			<div id="triangle"></div>
+			
+			<div id="dropbox"></div>
+			
+			<div id="angle_A" class="draggable"></div>
+			<div id="angle_B" class="draggable"></div>
+			<div id="angle_C" class="draggable"></div>
+			
+		
+		</div>
+		
+	</div>
+
+	
+	<script>
+	ini_scene();
+	</script>
+	
+	
+	
+	
+</body>
+
+</html>

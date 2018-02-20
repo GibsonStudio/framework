@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('jQueryRotate.2.2.js');include_javascript('canvas.js');</script>
+	
+	<script type="text/javascript" src="braking_sim.js"></script>
+	<link href="braking_sim.css" type="text/css" rel="stylesheet" />
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+	
+		<div class="page-title">Braking Sim</div>		
+		
+		<div id="container">
+	
+			<canvas id="my_canvas" width="700" height="380"></canvas>
+			
+			<div class="instrument_container" style="right: 230px;">
+				<div class="instrument_name">Speed (knots)</div>
+				<div class="instrument">
+					<div id="speed_readout">0</div>
+					<div class="needle" id="speed_needle"></div>
+				</div>
+			</div>
+			
+			<div class="instrument_container" style="right: 120px;">
+				<div class="instrument_name">Braking Force</div>
+				<div class="instrument">
+					<div class="needle" id="force_needle"></div>
+				</div>
+			</div>
+			
+			<div class="instrument_container" style="right: 10px;">
+				<div class="instrument_name">Deceleration</div>
+				<div class="instrument">
+					<div class="needle" id="deceleration_needle"></div>
+				</div>
+			</div>
+			
+			<div id="distance_travelled_container">
+				<div id="distance_travelled_text">Distance Travelled:</div>
+				<div id="distance_travelled">0</div>
+			</div>
+			
+		</div>
+		
+		
+		<div class="my_container">		
+			<table style="width: 100%;">
+				<tr><td colspan="3" style="font-weight: bold;">Applied Braking Force</td></tr>
+				<tr>
+					<td>Min</td>
+					<td><input type="range" min="0" max="1" step="0.01" id="brake" value="0" style="width: 100%;" /></td>
+					<td>Max</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="my_container" style="padding: 10px;">
+			<button class="button" onclick="reset_sim()">Reset</button>
+			<button class="button" onclick="apply_max_brakes()">Apply Max Brakes</button>
+			<span class="runway_condition">Runway Condition:</span>
+			<button class="button" onclick="set_runway('dry')">Dry</button>
+			<button class="button" onclick="set_runway('wet')">Wet</button>
+			<button class="button" onclick="set_runway('ice')">Ice</button>			
+		</div>
+		
+		
+	</div>
+	
+	
+	
+	<script>
+	ini_vars();
+	load_images();
+	</script>
+	
+	
+</body>
+
+</html>

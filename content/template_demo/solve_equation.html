@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+	
+	<style>
+	#question {
+		padding: 20px;
+		text-align: center;
+	}
+	#output {
+		font-size: 30px;
+	}
+	</style>
+	
+	
+	<script>
+	
+	//ini
+	var correct_answer = 0;
+	var answer_precision = 2;
+	
+	var v_unit = 'V';
+	var i_unit = 'A';
+	var r_unit = 'Ohms';
+		
+	
+	function new_question ()
+	{
+		
+		$('#answer').removeClass('select_correct');
+		$('#answer').removeClass('select_wrong');
+		
+		var index = Math.round(Math.random() * 2);
+
+		switch (index) {
+		
+		case 0:
+			ask_v_question();
+			break;
+		case 1:
+			ask_i_question();
+			break;
+		default:
+			ask_r_question();
+		
+		}
+		
+	}
+	
+		
+	function show_question (question)
+	{
+		
+		var question = question + '<br /><br />(Answer to 2 decimal places)';
+		
+		$('#question').html(question);
+		$('#answer').val('');
+		$('#output').html('');
+		
+	}
+	
+	
+	function ask_v_question ()
+	{
+		
+		var i = get_random_number(0.1, 10, 0.1);		
+		var r = get_random_number(0.1, 5, 0.1);
+		
+		var v = i * r;
+		v = v.toFixed(answer_precision);
+		correct_answer = v;
+		
+		//debug_question(v, i, r);
+				
+		var question = 'I = ' + i + ' ' + i_unit + '<br />R = ' + r + ' ' + r_unit;
+		question += '<br /><br />What is V?';
+		
+		show_question(question);		
+		
+	}
+	
+	
+	function ask_i_question ()
+	{
+		
+		var v = get_random_number(0.1, 230, 0.1);		
+		var r = get_random_number(0.1, 5, 0.1);
+		
+		var i = v / r;
+		i = i.toFixed(answer_precision);
+		correct_answer = i;
+		
+		//debug_question(v, i, r);
+				
+		var question = 'V = ' + v + ' ' + v_unit + '<br />R = ' + r + ' ' + r_unit;
+		question += '<br /><br />What is I?';
+		
+		show_question(question);		
+		
+	}
+	
+	
+	function ask_r_question ()
+	{
+		
+		var v = get_random_number(0.1, 230, 0.1);		
+		var i = get_random_number(0.1, 5, 0.1);
+		
+		var r = v / i;
+		r = r.toFixed(answer_precision);
+		correct_answer = r;
+		
+		//debug_question(v, i, r);
+				
+		var question = 'V = ' + v + ' ' + v_unit + '<br />I = ' + i + ' ' + i_unit;
+		question += '<br /><br />What is R?';
+		
+		show_question(question);		
+		
+	}
+	
+	
+	function submit ()
+	{
+		
+		var answer = $('#answer').val() * 1.0;
+		answer = answer.toFixed(answer_precision);
+		
+		if (answer == correct_answer) {
+			
+			indicate_correct();
+			
+		} else {
+			
+			indicate_wrong();
+			
+		}
+		
+	}
+	
+	
+	
+	</script>
+	
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+		
+		<div class="page-title">Quiz Based on a Simple Equation</div>	
+		
+		<div class="content_center"><div class="block">V = I R</div></div>
+			
+		<div id="question"></div>
+		
+		<div class="content_center">
+		
+			<input id="answer" type="number" style="margin: 20px; text-align: center;" /><span id="output"></span><br />
+			<button class="button" onclick="submit()">Submit</button>
+			<button class="button" onclick="new_question()">New Question</button>
+			
+		</div>
+		
+		<script>
+			new_question();
+		</script>
+			
+	</div>	
+	
+</body>
+
+</html>

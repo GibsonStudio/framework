@@ -1,0 +1,163 @@
+
+
+#my_container {
+	width: 900px;
+	height: 500px;
+	margin: auto;
+	border: 1px solid #333333;
+	position: relative;
+}
+
+
+#definitions {
+	position: relative; 
+	background: #f6f6f6;
+	border: 1px solid #333333;
+	padding: 20px;
+	margin: auto;
+	margin-top: 40px;
+	width: 300px;
+	font-size: 18px;
+	z-index: 9999;
+	display: none;
+}
+
+
+
+.box {
+	width: 200px;
+	height: 150px;
+	position: absolute;
+}
+
+
+#box_acute {	
+	left: 10px;
+	top: 10px;	
+	background: url(drag_angles_images/box-acute.png);
+}
+
+
+#box_right {	
+	right: 10px;
+	top: 10px;	
+	background: url(drag_angles_images/box-right.png);
+}
+
+
+#box_reflex {	
+	left: 10px;
+	bottom: 10px;	
+	background: url(drag_angles_images/box-reflex.png);
+}
+
+
+#box_obtuse {	
+	right: 10px;
+	bottom: 10px;	
+	background: url(drag_angles_images/box-obtuse.png);
+}
+
+
+
+.pointer {
+	cursor: pointer;
+}
+
+
+.angle {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+}
+
+
+#angle_1 {
+	background: url(drag_angles_images/angle_1.png);
+	top: 50px;
+	left: 250px;
+}
+
+
+#angle_2 {
+	background: url(drag_angles_images/angle_2.png);
+	top: 50px;
+	left: 400px;
+}
+
+
+#angle_3 {
+	background: url(drag_angles_images/angle_3.png);
+	top: 50px;
+	left: 550px;
+}
+
+
+
+
+
+
+
+
+
+#angle_4 {
+	background: url(drag_angles_images/angle_4.png);
+	top: 200px;
+	left: 250px;
+}
+
+
+#angle_5 {
+	background: url(drag_angles_images/angle_5.png);
+	top: 200px;
+	left: 400px;
+}
+
+
+#angle_6 {
+	background: url(drag_angles_images/angle_6.png);
+	top: 200px;
+	left: 550px;
+}
+
+
+
+
+
+
+
+#angle_7 {
+	background: url(drag_angles_images/angle_7.png);
+	top: 350px;
+	left: 250px;
+}
+
+
+#angle_8 {
+	background: url(drag_angles_images/angle_8.png);
+	top: 350px;
+	left: 400px;
+}
+
+
+#angle_9 {
+	background: url(drag_angles_images/angle_9.png);
+	top: 350px;
+	left: 550px;
+}
+
+
+
+.deactivated {
+	cursor: default;
+	opacity: 0.2;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_css('interactive.css');include_javascript('interactive.js');</script>
+	
+	<style>
+		#objects {
+			max-width: 600px;
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+		
+		<div class="page-title">Drag to Correct Order</div>	
+		
+		<p class="content_center">Drag these morning tasks into the correct order:</p>
+		
+		<div id="objects">
+		
+			<script>
+				
+				var o = {};
+				o.text = 'Have Shower';
+				o.id = 'shower';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Wake Up';
+				o.id = 'wake';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Eat Breakfast';
+				o.id = 'eat';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Leave House';
+				o.id = 'leave';
+				add_object(o);
+				
+				var o = {};
+				o.text = 'Get Dressed';
+				o.id = 'dress';
+				add_object(o);
+			
+			</script>
+			
+			<div style="clear: both;"></div>
+			
+		</div>
+					
+		<script>		
+			//define correct locations
+			//the easiest way to compile this is to use the format correct.push([correct order, starting order])
+			correct.push(['wake', 'shower']);
+			correct.push(['shower', 'wake']);
+			correct.push(['dress', 'eat']);
+			correct.push(['eat', 'leave']);
+			correct.push(['leave', 'dress']);
+		</script>
+			
+		<script>add_drag_drop_ui();</script>	
+					
+	</div>
+	
+</body>
+
+</html>

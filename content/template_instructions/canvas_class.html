@@ -1,0 +1,554 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="../../javascript/lib.js"></script>
+	<script>write_head();include_javascript('canvas_class.js');</script>
+</head>
+
+<body onLoad="scene_loaded()">
+
+	<script>write_header();write_nav();</script>
+
+	<div id="content">
+
+		<div class="page-title">canvas_class.js</div>
+
+		<p>The preferred way to use a canvas is now to use the new <b>canvas_class.js</b>. This is in the folder /root/javascript/ and can be included with the line:</p>
+
+		<textarea class="code" rows="1">include_javascript('canvas_class.js');</textarea>
+
+
+
+		<div class="heading">Adding a Canvas and a Class Instance</div>
+
+		<p>You need to add a canvas element to your html and then create an instance of the Canvas Class.</p>
+
+		<p><b>HTML:</b></p>
+		<textarea class="code" rows="1"><canvas id="canvas_01" width="200" height="160" style="border: 1px solid #333333;"></canvas></textarea>
+
+		<p><b>JavaScript:</b></p>
+		<textarea class="code" rows="1">var canvas_instance = new Canvas({args});</textarea>
+
+
+		<div class="heading">Canvas Class Args (all are optional)</div>
+
+		<ul>
+			<li><b>id</b> (<i>string</i>) ['my_canvas']</li>
+			<li><b>width</b> (<i>int</i>) [500]</li>
+			<li><b>height</b> (<i>int</i>) [500]</li>
+			<li><b>css</b> (<i>string</i>) ['']: Any css will be added to the canvas element.</li>
+		</ul>
+
+
+		<div class="heading">Default Values</div>
+
+		<p>The class has default values for the following properties. The default values can be changed when creating the class instance. Any drawing functions will use the default values unless others are supplied.</p>
+
+		<ul>
+			<li><b>lineWidth</b> (<i>int</i>) [1]</li>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.default] - see default colours below.</li>
+			<li><b>fillStyle</b> (<i>string</i>) ['rgba(0,0,0,0)']</li>
+			<li><b>end</b> (<i>string</i>) ['butt'] - butt, round, square</li>
+			<li><b>font</b> (<i>string</i>) ['Arial']</li>
+			<li><b>fontSize</b> (<i>int</i>) [20]</li>
+			<li><b>dash</b> (<i>array</i>) [[]]</li>
+		</ul>
+
+
+		<div class="heading">Default Colours</div>
+
+		<p>The class containes many default colours. For consistency, these should be used whenever possible.</p>
+
+		<ul>
+			<li><b>default</b> = '#000000'</li>
+			<li><b>black</b> = '#000000'</li>
+			<li><b>white</b> = '#ffffff'</li>
+			<li><b>red</b> = '#e40f18'</li>
+			<li><b>green</b> = '#3fa535'</li>
+			<li><b>blue</b> = '#3e4899'</li>
+			<li><b>orange</b> = '#fdb5cf'</li>
+			<li><b>yellow</b> = '#ffef0f'</li>
+			<li><b>purple</b> = '#ccbfdf'</li>
+			<li><b>brown</b> = '#d0b7af'</li>
+			<li><b>transparent</b> = 'rgba(0, 0, 0, 0)'</li>
+		</ul>
+
+
+
+
+		<div class="page-title">Function Reference</div>
+
+
+		<div class="heading">canvas ()</div>
+
+		<p>Can write the canvas element html. The actual code it uses is:</p>
+
+		<textarea class="code" rows="2">var html = '<canvas id="' + this.id + '" width="' + this.width +'" height="' + this.height + '" style="' + this.css + '"></canvas>';
+document.write(html);</textarea>
+
+
+
+
+		<div class="heading">clear (<i>colour</i>)</div>
+
+		<p>Clears the canvas. Normally this leaves the canvas as transparentbut you can send a color value to clear it; for example, to clear the canvas and leave it black:</p>
+
+		<textarea class="code" rows="1">canvas.clear('#000000');</textarea>
+
+
+
+
+		<div class="heading">context ()</div>
+
+		<p>You do not genrally need to call this manually; it is used by the other functions to get the canvas context to draw to.</p>
+
+
+
+
+		<div class="heading">line (sX, sY, dX, dY, <i>args</i>)</div>
+
+		<p>Draws a line from (sX, sY) to (sX + dX, sY + dY).</p>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>sX</b> (<i>float</i>)</li>
+			<li><b>sY</b> (<i>float</i>)</li>
+			<li><b>dX</b> (<i>float</i>)</li>
+			<li><b>dY</b> (<i>float</i>) []</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>lineCap</b> (<i>string</i>) [this.end]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+		</ul>
+
+
+
+
+
+
+
+		<div class="heading">polyline (points, <i>args</i>)</div>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>points</b> (<i>array</i>) - this is an array of points, also array, example: [[10,10], [20,20], [30,30]]</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>lineCap</b> (<i>string</i>) [this.end]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+			<li><b>closePath</b> (<i>boolean</i>) [false]</li>
+		</ul>
+
+
+
+
+
+
+
+		<div class="heading">box (cX, cY, width, height, <i>args</i>)</div>
+
+		<p><b>Required Params</b></p>
+
+		<p>This draws a box with a centre point of cY, cY and a size of width &#215; height.</p>
+
+		<ul>
+			<li><b>cX</b> (<i>float</i>)</li>
+			<li><b>cY</b> (<i>float</i>)</li>
+			<li><b>width</b> (<i>float</i>)</li>
+			<li><b>height</b> (<i>float</i>)</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+		</ul>
+
+
+
+
+
+
+		<div class="heading">rect (x1, y1, x2, y2, <i>args</i>)</div>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>x1</b> (<i>float</i>)</li>
+			<li><b>y1</b> (<i>float</i>)</li>
+			<li><b>x2</b> (<i>float</i>)</li>
+			<li><b>y2</b> (<i>float</i>)</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+		</ul>
+
+
+
+
+
+
+		<div class="heading">pixel (x, y, <i>args</i>)</div>
+
+		<p>Draws a single pixel at position x,y.</p>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>x</b> (<i>float</i>)</li>
+			<li><b>y</b> (<i>float</i>)</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+		</ul>
+
+
+
+
+
+		<div class="heading">image (img, x, y)</div>
+
+		<p>Draw an image object at position x,y. Position id from top-left of image.</p>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>img</b> (<i>image reference</i>)</li>
+			<li><b>x</b> (<i>float</i>)</li>
+			<li><b>y</b> (<i>float</i>)</li>
+		</ul>
+
+
+
+
+
+
+
+		<div class="heading">circle (oX, oY, radius, <i>args</i>)</div>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>oX</b> (<i>float</i>)</li>
+			<li><b>oY</b> (<i>float</i>)</li>
+			<li><b>radius</b> (<i>float</i>)</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+		</ul>
+
+
+
+
+
+		<div class="heading">ellipse (oX, oY, width, height, <i>args</i>)</div>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>oX</b> (<i>float</i>)</li>
+			<li><b>oY</b> (<i>float</i>)</li>
+			<li><b>width</b> (<i>float</i>)</li>
+			<li><b>height</b> (<i>float</i>)</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+			<li><b>rotation</b> (<i>float</i>) [0] - angle in degrees</li>
+		</ul>
+
+
+
+
+
+		<div class="heading">arc (oX, oY, radius, start_angle, end_angle, <i>args</i>)</div>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>oX</b> (<i>float</i>)</li>
+			<li><b>oY</b> (<i>float</i>)</li>
+			<li><b>radius</b> (<i>float</i>)</li>
+			<li><b>start_angle</b> (<i>float</i>) - angle in degrees.</li>
+			<li><b>end_angle</b> (<i>float</i>) - angle in degrees</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>lineCap</b> (<i>string</i>) [this.end]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+			<li><b>closePath</b> (<i>boolean</i>) [false]</li>
+			<li><b>counterClockwise</b> (<i>boolean</i>) [false]</li>
+		</ul>
+
+
+
+		<div class="heading">text (oX, oY, text, <i>args</i>)</div>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>oX</b> (<i>float</i>)</li>
+			<li><b>oY</b> (<i>float</i>)</li>
+			<li><b>text</b> (<i>string</i>)</li>
+		</ul>
+
+		<p><b>Optional Params (set as args object)</b></p>
+
+		<ul>
+			<li><b>strokeStyle</b> (<i>string</i>) [this.strokeStyle]</li>
+			<li><b>fillStyle</b> (<i>string</i>) [this.fillStyle]</li>
+			<li><b>lineWidth</b> (<i>int</i>) [this.lineWidth]</li>
+			<li><b>dash</b> (<i>array</i>) [this.dash]</li>
+			<li><b>font</b> (<i>string</i>) [this.font]</li>
+			<li><b>fontSize</b> (<i>float</i>) [this.fontSize]</li>
+			<li><b>align</b> (<i>string</i>) ['center']</li>
+			<li><b>rotate</b> (<i>float</i>) [0] - angle in degrees</li>
+		</ul>
+
+
+
+
+		<div class="heading">getPixel (x, y)</div>
+
+		<p>Returns the pixel colour at the position x,y.</p>
+
+		<p><b>Required Params</b></p>
+
+		<ul>
+			<li><b>x</b> (<i>float</i>)</li>
+			<li><b>y</b> (<i>float</i>)</li>
+		</ul>
+
+
+
+		<div class="heading">random_color ()</div>
+
+		<p>Returns a random color in the format 'rgb(RED, GREEN, BLUE)'.</p>
+
+
+
+
+		<div class="page-title">Loading a Single Image</div>
+
+		<textarea class="code" rows="5">var image_object = new Image();
+image_object.onload = function () {
+	// code to execute when image loaded
+};
+image_object.src = 'my_image.png';</textarea>
+
+
+
+
+		<div class="page-title">Loading Image Objects</div>
+
+		<p>Define your <b>image_obs</b>:</p>
+
+		<textarea class="code" rows="9">var image_objects = {
+	grass:{ obj:new Image(), src:'../images/grass.png', loaded:false },
+	runway:{ obj:new Image(), src:'../images/runway.png',loaded:false },
+	runway_wet:{ obj:new Image(), src:'../images/runway_wet.png',loaded:false },
+	runway_ice:{ obj:new Image(), src:'../images/runway_ice.png',loaded:false },
+	landscape:{ obj:new Image(), src:'../images/landscape.png',loaded:false },
+	buildings:{ obj:new Image(), src:'../images/buildings.png',loaded:false },
+	aeroplane:{ obj:new Image(), src:'../images/aeroplane.png',loaded:false }
+};</textarea>
+
+
+		<p>Use a loop to load images and check for all finished:</p>
+
+		<textarea class="code" rows="7">for (o in image_objects) {
+	image_objects[o].obj.onload = function () {
+		image_objects[o].loaded = true;
+		all_images_loaded();
+	};
+	image_objects[o].obj.src = image_objects[o].src;
+}</textarea>
+
+			<p>You will need to add the <b>all_images_loaded()</b> function:</p>
+
+			<textarea class="code" rows="6">function all_images_loaded () {
+	for (o in image_objects) {
+		if (!image_objects[o].loaded) { return false; }
+	}
+	run_animation();
+}</textarea>
+
+
+		<p><b>Note:</b> You will need to change the <b>run_animation()</b> function call to whatever function you need to run after all images are loaded.</p>
+
+		<div class="heading">Referencing Image Objects</div>
+
+		<p>Once image objects are loaded you can refernece them with:</p>
+
+
+
+
+		<textarea class="code" rows="2">image_objects.object_id.obj</textarea>
+
+		<div class="page-title">Examples</div>
+
+		<div class="heading">Creating a Canvas Object</div>
+
+		<p>Create a 100px &215; 100px canvas with id of 'canvas_01' and set default color to #df0000:</p>
+
+		<textarea class="code" rows="2">canvas_object = new Canvas({id:'canvas_01', width:100, height:100});
+canvas_object.default = '#df0000';</textarea>
+
+
+
+		<div class="heading">Drawing to a Canvas</div>
+
+		<br />
+
+		<textarea class="code" rows="1"><canvas id="canvas_02" width="300" height="120" style="border:1px solid #e2e2e2;"></canvas></textarea>
+
+		<textarea class="code" rows="4">var canvas_02 = new Canvas({id:'canvas_02', width:300, height:120});
+canvas_02.box(150, 60, 280, 100, {strokeStyle:canvas_02.blue, fillStyle:'#e2e2e2'});
+canvas_02.line(0,0,300,120);
+canvas_02.circle(150, 60, 50, {strokeStyle:canvas_02.red});	</textarea>
+
+		<canvas id="canvas_02" width="300" height="120" style="border:1px solid #e2e2e2;margin:20px;"></canvas>
+
+		<script>
+		var canvas_02 = new Canvas({id:'canvas_02', width:300, height:120});
+		canvas_02.box(150, 60, 280, 100, {strokeStyle:canvas_02.blue, fillStyle:'#e2e2e2'});
+		canvas_02.line(0,0,300,120);
+		canvas_02.circle(150, 60, 50, {strokeStyle:canvas_02.red});
+		</script>
+
+
+
+
+
+
+			<div class="heading">Loading and Displaying Multiple Images</div>
+
+			<p></p>
+
+			<textarea class="code" rows="1"><canvas id="canvas_04" width="300" height="300" style="border:1px solid #e2e2e2; margin:20px;"></canvas></textarea>
+
+			<textarea class="code" rows="23">var canvas_04 = new Canvas({id:'canvas_04', width:300, height:300});
+var image_objects = {
+	marble:{obj:new Image(), src:'marble.png', loaded:false },
+	tyre: {obj:new Image(), src:'tyre.png', loaded:false },
+	f16: {obj:new Image(), src:'f16.png', loaded:false }
+};
+
+for (o in image_objects) {
+	image_objects[o].obj.onload = function () {
+		image_objects[o].loaded = true;
+		all_images_loaded();
+	};
+	image_objects[o].obj.src = image_objects[o].src;
+}
+
+function all_images_loaded () {
+	for (o in image_objects) {
+		if (!image_objects[o].loaded) { return false; }
+	}
+	canvas_04.image(image_objects.marble.obj, 20, 20);
+	canvas_04.image(image_objects.tyre.obj, 80, 80);
+	canvas_04.image(image_objects.f16.obj, 140, 140);
+}</textarea>
+
+			<canvas id="canvas_04" width="300" height="300" style="border:1px solid #e2e2e2; margin:20px;"></canvas>
+
+			<script>
+			var canvas_04 = new Canvas({id:'canvas_04', width:300, height:300});
+			var image_objects = {
+				marble:{obj:new Image(), src:'marble.png', loaded:false },
+				tyre: {obj:new Image(), src:'tyre.png', loaded:false },
+				f16: {obj:new Image(), src:'f16.png', loaded:false }
+			};
+
+			for (o in image_objects) {
+				image_objects[o].obj.onload = function () {
+					image_objects[o].loaded = true;
+					all_images_loaded();
+				};
+				image_objects[o].obj.src = image_objects[o].src;
+			}
+
+			function all_images_loaded () {
+				for (o in image_objects) {
+					if (!image_objects[o].loaded) { return false; }
+				}
+				canvas_04.image(image_objects.marble.obj, 20, 20);
+				canvas_04.image(image_objects.tyre.obj, 80, 80);
+				canvas_04.image(image_objects.f16.obj, 140, 140);
+			}
+			</script>
+
+
+
+
+			<div class="heading">Get Pixel Examples</div>
+
+			<p><b>Note:</b> getPixel actually returns a color object so you can get individual values for red, green, blue and alpha by using:</p>
+
+			<textarea class="code" rows="5">var col = canvas_04.getPixel(20,20);
+var red = col[0];
+var green = col[1];
+var blue = col[2];
+var alpha = col[3];</textarea>
+
+
+			<textarea class="code" rows="3"><button class="button" onclick="alert(canvas_04.getPixel(0,0))">Get Pixel at (0,0)</button>
+<button class="button" onclick="alert(canvas_04.getPixel(20,20))">Get Pixel at (20,20)</button>
+<button class="button" onclick="alert(canvas_04.getPixel(20,20)[0])">Get Red at (20,20)</button></textarea>
+
+			<button class="button" onclick="alert(canvas_04.getPixel(0,0))">Get Pixel at (0,0)</button>
+			<button class="button" onclick="alert(canvas_04.getPixel(20,20))">Get Pixel at (20,20)</button>
+			<button class="button" onclick="alert(canvas_04.getPixel(20,20)[0])">Get Red at (20,20)</button>
+
+
+
+
+	</div> <!-- #content -->
+
+</body>
+
+</html>
